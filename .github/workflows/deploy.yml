@@ -29,5 +29,18 @@ jobs:
           cp .env.github .env || echo "no .env.github file"
           npm run build
 
-      - name: Upload to GitHub Pages
-        uses: withastro/action@v2
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
