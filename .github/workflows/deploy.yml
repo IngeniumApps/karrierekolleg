@@ -26,11 +26,8 @@ jobs:
 
       - name: Build site
         run: |
-          cp .env.github .env
+          cp .env.github .env || echo "no .env.github file"
           npm run build
 
       - name: Upload to GitHub Pages
         uses: withastro/action@v2
-        with:
-          path: ./dist
-          package-manager: npm
