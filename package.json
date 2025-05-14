@@ -3,9 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro check && astro build",
-    "preview": "astro preview",
+    "build:cdx": "cp .env.cdx .env && npm run build",
+    "preview": "astro preview --host",
     "astro": "astro",
     "format -c": "prettier --check .",
     "format": "prettier --write .",
