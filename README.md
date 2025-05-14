@@ -46,3 +46,25 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+### Prettier
+
+This project uses [Prettier](https://prettier.io) to format code. You can format your code using the command:
+
+### Format with Prettier
+
+```bash
+npx prettier --write .
+```
+
+### Check with Prettier
+
+```bash
+npx prettier --check .
+```
+
+### Format only .astro-Data in src folder
+
+```bash
+npx prettier --write src/**/*.astro
+```

@@ -1,0 +1,42 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+  image?: string;
+}
+
+const {
+  title = 'KarriereKolleg – Dein Weg zum Erfolg',
+  description = 'Karriere Kolleg bietet dir die besten Tipps, Kurse und Ressourcen für deine berufliche Entwicklung.',
+  url = 'https://www.karrierekolleg.at',
+  image = 'https://www.karrierekolleg.de/og-image.jpg',
+} = Astro.props;
+---
+
+<!-- Sitemap -->
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- Web analytics -->
+
+<!-- SEO (?) -->
+<link rel="canonical" href={url} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:image:alt" content="" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- Favicon -->
+<!--<Favicon />-->
