@@ -1,55 +1,110 @@
-# Astro Starter Kit: Basics
+# Karriere Kolleg 🌟
 
-```sh
-npm create astro@latest -- --template basics
+Welcome to the **Karriere Kolleg** web project!  
+This website is built for students, job starters, teachers, and career coaches.  
+It offers information and guidance about careers, education, and orientation.
+
+---
+
+## 🔧 Tech Stack
+
+- [Astro](https://astro.build/)
+- [React](https://react.dev/)
+- TypeScript
+- Accessibility (WCAG)
+- SEO Best Practices
+
+---
+
+## 📦 Install & Start
+
+Install all dependencies:
+
+```bash
+npm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Start local development server:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run dev
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## 🧪 Build & Preview
 
-All commands are run from the root of the project, from a terminal:
+Build the project for local testing:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run build
+npm run preview
+```
 
-## 👀 Want to learn more?
+Preview on your local network (for example, from a smartphone):
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+npm run preview
+```
 
-### Prettier
+---
 
-This project uses [Prettier](https://prettier.io) to format code. You can format your code using the command:
+## 🌐 Environments
+
+### 🔹 `.env` (local)
+
+```env
+PUBLIC_BASE_URL=http://localhost:4321
+```
+
+### 🔹 `.env.cdx` (CDX live deployment)
+
+```env
+PUBLIC_BASE_URL=https://karrierekolleg.at
+```
+
+Build for CDX:
+
+```bash
+npm run build:cdx
+```
+
+---
+
+## 💅 Code Quality
+
+Lint your code:
+
+```bash
+npm run lint
+```
+
+Fix linting errors automatically:
+
+```bash
+npm run lint:fix
+```
+
+Run Astro and TypeScript checks:
+
+```bash
+npm run check
+```
+
+---
+## Tailwind CSS
+
+This project uses [Tailwind CSS](https://tailwindcss.com) via the official Astro + Vite plugin.
+
+Tailwind is available globally through the `global.css` file. You can use all utility classes directly in your `.astro` and `.tsx` files.
+
+To customize Tailwind, edit `tailwind.config.mjs`.
+
+---
+
+## 🎨 Prettier
+
+This project uses [Prettier](https://prettier.io) to format code.
 
 ### Format with Prettier
 
@@ -63,8 +118,33 @@ npx prettier --write .
 npx prettier --check .
 ```
 
-### Format only .astro-Data in src folder
+---
+
+## 🚀 Deployment
+
+### GitHub Pages
+
+The site is automatically deployed with GitHub Actions:  
+🔗 https://ingeniumapps.github.io/karrierekolleg/
+
+### CDX Hosting
+
+To prepare for CDX:
 
 ```bash
-npx prettier --write src/**/*.astro
+npm run build:cdx
 ```
+
+Then upload the `dist/` folder manually via SFTP to your CDX server.
+
+---
+
+## 📄 License
+
+This project is developed by **Ingenium Education**.
+
+---
+
+## 🙌 Team
+
+- [Sabrina Huber](https://github.com/sa-bri-na) (Project lead & development)

@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
+import tailwindcss from '@tailwindcss/vite';
+
 const base = process.env.PUBLIC_BASE_URL?.replace(/^https?:\/\/[^/]+/, '') || '/';
 const site = process.env.PUBLIC_BASE_URL || 'http://localhost:4321';
 
@@ -9,6 +11,13 @@ const site = process.env.PUBLIC_BASE_URL || 'http://localhost:4321';
 export default defineConfig({
   base,
   site,
-  trailingSlash: 'always', // always add trailing slashes to URLs --> /
+
+  // always add trailing slashes to URLs --> /
+  trailingSlash: 'always',
+
   integrations: [react()],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
