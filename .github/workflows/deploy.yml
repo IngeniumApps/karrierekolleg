@@ -27,6 +27,7 @@ jobs:
       - name: Build site
         run: |
           cp .env.github .env || echo "no .env.github file"
+          echo "📦 PUBLIC_BASE_URL = $PUBLIC_BASE_URL"
           npm run build
 
       - name: Upload GitHub Pages artifact
