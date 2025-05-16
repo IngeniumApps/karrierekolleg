@@ -1,16 +1,29 @@
 ---
-import "../styles/global.css";
-import Head from '../components/Head.astro';
-const { title, description, url, image } = Astro.props;
----
+import "../styles/global.css"
+import Head from '@components/common/Head.astro';
+import Header from '@components/header/Header.tsx';
+import Footer from '@components/footer/Footer.astro';
+import CustomCursor from "@components/visual/CustomCursor";
+import IOSPointer from "../components/visual/IOSPointer";
 
+// Optional: Props wie Titel oder Beschreibung setzen
+const {
+    title = 'KarriereKolleg – Dein Weg zum Erfolg',
+    description = 'Alle Kollegs in der Steiermark auf einer Seite. Informiere dich über Ausbildungsformen, Vorteile und Möglichkeiten.',
+    url = 'https://www.karrierekolleg.at',
+    image = 'https://www.karrierekolleg.at/og-image.jpg',
+} = Astro.props;
+---
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <Head title={title} description={description} url={url} image={image} />
-    <!-- Weitere globale Head-Elemente -->
-  </head>
-  <body>
-    <slot />
-  </body>
+<head>
+    <Head title={title} description={description} url={url} image={image}/>
+</head>
+<body class="text-gray-800 font-body antialiased">
+<Header client:load/>
+<main>
+    <IOSPointer client:load />
+    <slot/>
+</main>
+<Footer/>
+</body>
 </html>

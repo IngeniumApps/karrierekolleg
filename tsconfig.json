@@ -10,16 +10,17 @@
     ],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "bundler",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "strict": true,
     "baseUrl": "./src",
     "paths": {
-      "@components/*": [".components/*"],
-      "@layouts/*": [".layouts/*"]
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"]
     },
-    "moduleResolution": "node16",
+    "types": ["astro/client"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
