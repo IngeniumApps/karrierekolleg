@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-
 import tailwindcss from '@tailwindcss/vite';
 
 const base = process.env.PUBLIC_BASE_URL?.replace(/^https?:\/\/[^/]+/, '') || '/';
