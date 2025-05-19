@@ -6,13 +6,13 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { id: 'hero', label: 'Startseite', shape: 2, color: '#f39d40' },
+  { id: 'startseite', label: 'Startseite', shape: 2, color: '#f39d40' },
   // { id: 'intro', label: 'Was ist ein Kolleg?' },
-  { id: 'benefits', label: 'Vorteile', shape: 2, color: '#e1544c' },
-  // { id: 'structure', label: 'Aufbau & Formen' },
+  { id: 'vorteile', label: 'Vorteile', shape: 2, color: '#e1544c' },
+  // { id: 'struktur', label: 'Aufbau & Formen' },
   // { id: 'skills', label: 'Kompetenzen' },
-  // { id: 'recognition', label: 'Anerkennung' },
-  // { id: 'study-path', label: 'Weiterführendes Studium' },
-  { id: 'colleges', label: 'Kollegs', shape: 2, color: '#e9669e' },
-  { id: 'contact', label: 'Kontakt', shape: 2, color: '#0d94cb' },
+  // { id: 'anerkennung', label: 'Anerkennung' },
+  // { id: 'weiterstudieren', label: 'Weiterführendes Studium' },
+  { id: 'kollegs', label: 'Kollegs', shape: 2, color: '#e9669e' },
+  { id: 'kontakt', label: 'Kontakt', shape: 2, color: '#0d94cb' },
 ];

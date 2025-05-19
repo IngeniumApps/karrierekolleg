@@ -1,6 +1,7 @@
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   safelist: [
+    'text-accent',
     'text-primary',
     'text-pink',
     'text-yellow',
@@ -17,6 +18,7 @@ export default {
         body: ['Montserrat', 'sans-serif'],
       },
       colors: {
+        accent: '#BBF451',
         primary: '#2C6FA0',
         pink: '#ef5d9f',
         yellow: '#f4c94e',

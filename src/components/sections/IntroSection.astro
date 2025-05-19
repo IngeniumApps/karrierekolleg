@@ -1,8 +1,9 @@
 ---
 // IntroSection.astro
+const { id } = Astro.props;
 ---
 
-<section id="intro" class="w-full h-dvh flex items-center justify-center bg-transparent">
+<section id={id} class="w-full h-dvh flex items-center justify-center bg-transparent">
   <div class="max-w-3xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Was ist ein Kolleg?</h2>
     <p class="text-gray-600">
