@@ -1,35 +1,55 @@
 ---
-import TypewriterText from "../visual/animation/TypeWriterText";
-import UnderlineCurve from "../visual/animation/UnderlineCurve";
-import HeroVisual from "../visual/HeroVisual"
+import TypewriterText from '../visual/animation/TypeWriterText';
+import UnderlineBrush from '../visual/animation/UnderlineBrush';
 ---
 
-<section id="hero" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 py-16 sm:py-24">
-    <!-- Hintergrundelemente & Animationen via React -->
-    <HeroVisual client:load />
+<section
+  id="hero"
+  class="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 py-16 sm:py-24"
+>
+  <!-- Hintergrundelemente & Animationen via React -->
+  <!--<HeroVisual client:load />-->
 
-    <!-- Hauptinhalt -->
-    <div class="relative z-10 text-center w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl px-4 sm:px-6">
-        <h1 class="text-[6.5vw] sm:text-3xl md:text-5xl lg:text-6xl font-headline font-bold mb-6 leading-tight">
-            <span class="inline-block text-[10vw] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black">
-              <TypewriterText
-                      client:load
-                      words={["Karriere", "Zukunft", "Bildung"]}
-                      loop={Infinity}
-                      cursorStyle="_"
-              />
-            </span> <br> neu denken. <br>
-            <span class="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl text-gray-900">
-                Kolleg
-              <UnderlineCurve client:load strokeWidth={10} className="absolute bottom-[-0.4em] left-1/3 -translate-x-1/2 w-[110%] text-primary" />
-            </span>
-            starten. <br><br>
-        </h1>
-        <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-6">
-            Entdecke, wie du mit einem Kolleg deinen Weg in Technik, Chemie oder Informatik neu starten kannst.
-        </p>
-        <a href="#benefits" class="cursor-none inline-block px-6 py-3 bg-primary text-white rounded-full shadow-md hover:bg-secondary transition">
-            Jetzt informieren
-        </a>
-    </div>
+  <!-- Hauptinhalt -->
+  <div
+    class="relative text-center w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl px-4 sm:px-6"
+  >
+    <h1
+      class="text-[6.5vw] sm:text-3xl md:text-5xl lg:text-6xl font-headline font-bold mb-6 leading-tight"
+    >
+      <span
+        class="inline-block text-[10vw] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black"
+      >
+        <TypewriterText
+          client:load
+          words={['Karriere', 'Zukunft', 'Bildung']}
+          loop={Infinity}
+          cursorStyle="_"
+        />
+      </span>
+      <br /> neu denken. <br />
+      <span
+        class="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl text-gray-900"
+      >
+        <span class="relative z-[1]">Kolleg</span>
+        <UnderlineBrush
+          className="absolute left-0 bottom-0 z-0 w-full"
+          fillColor="#3c8bc1"
+          bottomOffset={5}
+          client:load
+        />
+      </span>
+      starten. <br /><br />
+    </h1>
+    <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-6">
+      Entdecke, wie du mit einem Kolleg deinen Weg in Technik, Chemie oder Informatik neu starten
+      kannst.
+    </p>
+    <a
+      href="#benefits"
+      class="cursor-none inline-block px-6 py-3 bg-primary text-white rounded-full shadow-md hover:bg-secondary transition"
+    >
+      Jetzt informieren
+    </a>
+  </div>
 </section>

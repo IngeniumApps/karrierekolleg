@@ -1,72 +1,72 @@
-"use client"
+'use client';
 
-import { useTypewriter, Cursor } from "react-simple-typewriter"
-import type { FC } from "react"
-import clsx from "clsx"
-import { useRef, useEffect, useState } from "react"
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import type { FC } from 'react';
+import clsx from 'clsx';
+import { useRef, useEffect, useState } from 'react';
 
 interface TypewriterTextProps {
-    words: string[]
-    loop?: number | boolean
-    className?: string
-    cursorStyle?: string
+  words: string[];
+  loop?: number | boolean;
+  className?: string;
+  cursorStyle?: string;
 }
 
 const TypewriterText: FC<TypewriterTextProps> = ({
-                                                     words,
-                                                     loop = true,
-                                                     className = "",
-                                                     cursorStyle = "|",
-                                                 }) => {
-    const [text] = useTypewriter({
-        words,
-        loop,
-        typeSpeed: 150,
-        deleteSpeed: 50,
-        delaySpeed: 1500,
-    })
+  words,
+  loop = true,
+  className = '',
+  cursorStyle = '|',
+}) => {
+  const [text] = useTypewriter({
+    words,
+    loop,
+    typeSpeed: 150,
+    deleteSpeed: 50,
+    delaySpeed: 1500,
+  });
 
-    const colors = [
-        "text-primary",
-        "text-pink",
-        "text-yellow",
-        "text-red",
-        "text-green",
-        "text-orange",
-        "text-lavendel",
-        "text-dark_orange",
-    ]
+  const colors = [
+    'text-primary',
+    'text-pink',
+    'text-yellow',
+    'text-red',
+    'text-green',
+    'text-orange',
+    'text-lavendel',
+    'text-dark_orange',
+  ];
 
-    const colorIndex = useRef(0)
-    const previousLength = useRef(0)
-    const [currentColor, setCurrentColor] = useState(colors[0])
+  const colorIndex = useRef(0);
+  const previousLength = useRef(0);
+  const [currentColor, setCurrentColor] = useState(colors[0]);
 
-    useEffect(() => {
-        const wasEmpty = previousLength.current === 0
-        const isNewWordStart = text.length === 1 && wasEmpty
+  useEffect(() => {
+    const wasEmpty = previousLength.current === 0;
+    const isNewWordStart = text.length === 1 && wasEmpty;
 
-        if (isNewWordStart) {
-            colorIndex.current = (colorIndex.current + 1) % colors.length
-            setCurrentColor(colors[colorIndex.current])
-        }
+    if (isNewWordStart) {
+      colorIndex.current = (colorIndex.current + 1) % colors.length;
+      setCurrentColor(colors[colorIndex.current]);
+    }
 
-        previousLength.current = text.length
-    }, [text])
+    previousLength.current = text.length;
+  }, [text]);
 
-    const maxWordLength = Math.max(...words.map(word => word.length))
+  const maxWordLength = Math.max(...words.map((word) => word.length));
 
-    return (
-        <span
-            className={clsx("inline-block w-full max-w-[90vw] text-center", className)}
-            style={{ minWidth: `${maxWordLength}ch` }}
-        >
-            <span className={currentColor}>{text.charAt(0)}</span>
-            <span>{text.slice(1)}</span>
-            <span className={currentColor}>
-                <Cursor cursorStyle={cursorStyle} />
-            </span>
-        </span>
-    )
-}
+  return (
+    <span
+      className={clsx('inline-block w-full max-w-[90vw] text-center', className)}
+      style={{ minWidth: `${maxWordLength}ch` }}
+    >
+      <span className={currentColor}>{text.charAt(0)}</span>
+      <span>{text.slice(1)}</span>
+      <span className={currentColor}>
+        <Cursor cursorStyle={cursorStyle} />
+      </span>
+    </span>
+  );
+};
 
-export default TypewriterText
+export default TypewriterText;

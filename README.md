@@ -92,6 +92,7 @@ npm run check
 ```
 
 ---
+
 ## Tailwind CSS
 
 This project uses [Tailwind CSS](https://tailwindcss.com) via the official Astro + Vite plugin.

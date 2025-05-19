@@ -1,22 +1,22 @@
 # Karriere Kolleg – Projektstruktur
 
-Dies ist der strukturierte Plan zur Umsetzung der Landingpage auf Basis der Designvorlage und der Vorgaben aus dem Dokument *Konzept Landingpage Kollegs_07052025.docx*.
+Dies ist der strukturierte Plan zur Umsetzung der Landingpage auf Basis der Designvorlage und der Vorgaben aus dem Dokument _Konzept Landingpage Kollegs_07052025.docx_.
 
 ---
 
 ## 🔁 Zielstruktur der Landingpage
 
-| Abschnitt                  | Inhalt (aus Konzept)                             | Komponente                  |
-|---------------------------|--------------------------------------------------|-----------------------------|
-| Hero                      | Slogan + Call to Action                          | `HeroSection.astro`         |
-| Was ist ein Kolleg?       | Textblock (Ausbildungsform, Einleitung)         | `IntroSection.astro`        |
-| Vorteile                  | Liste + Icons (USP)                              | `BenefitsSection.astro`     |
-| Aufbau & Formen           | Kurzbeschreibung (Vollzeit / Berufsbegleitend)  | `StructureSection.astro`    |
-| Kompetenzen               | Soft & Hard Skills, berufliche Skills            | `SkillsSection.astro`       |
-| Anerkennung / Bachelor    | Textblock über NQR6, Anrechenbarkeit etc.        | `RecognitionSection.astro`  |
-| Weiterführendes Studium   | Link zu FH-Aufbaustudium, Text & Grafik          | `StudyPathSection.astro`    |
-| Alle Kollegs & Links      | Auflistung mit Logos oder Karten der Kollegs     | `CollegesGrid.astro`        |
-| Kontakt                   | Formular oder einfache Kontaktsektion            | `ContactSection.astro`      |
+| Abschnitt               | Inhalt (aus Konzept)                           | Komponente                 |
+| ----------------------- | ---------------------------------------------- | -------------------------- |
+| Hero                    | Slogan + Call to Action                        | `HeroSection.astro`        |
+| Was ist ein Kolleg?     | Textblock (Ausbildungsform, Einleitung)        | `IntroSection.astro`       |
+| Vorteile                | Liste + Icons (USP)                            | `BenefitsSection.astro`    |
+| Aufbau & Formen         | Kurzbeschreibung (Vollzeit / Berufsbegleitend) | `StructureSection.astro`   |
+| Kompetenzen             | Soft & Hard Skills, berufliche Skills          | `SkillsSection.astro`      |
+| Anerkennung / Bachelor  | Textblock über NQR6, Anrechenbarkeit etc.      | `RecognitionSection.astro` |
+| Weiterführendes Studium | Link zu FH-Aufbaustudium, Text & Grafik        | `StudyPathSection.astro`   |
+| Alle Kollegs & Links    | Auflistung mit Logos oder Karten der Kollegs   | `CollegesGrid.astro`       |
+| Kontakt                 | Formular oder einfache Kontaktsektion          | `ContactSection.astro`     |
 
 ---
 
@@ -68,4 +68,3 @@ Die Navigation greift auf die IDs der Sektionen zurück, z. B.:
 - Inhalte vollständig ausrichtbar nach Designvorlage & Textkonzept
 
 ---
-
