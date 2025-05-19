@@ -20,26 +20,26 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-6">
-                    <a href="/#kontakt" className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
+                    <a href={`${import.meta.env.BASE_URL}#kontakt`} className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
                         Kontakt
                     </a>
-                    <a href="/#kollegs" className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
+                    <a href={`${import.meta.env.BASE_URL}#kollegs`}  className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
                         Kollegs
                     </a>
-                    <a href="/#vorteile" className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
+                    <a href={`${import.meta.env.BASE_URL}#vorteile`}  className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
                         Vorteile
                     </a>
-                    <a href="/impressum/" className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
+                    <a href={`${import.meta.env.BASE_URL}impressum/`}  className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
                         Impressum
                     </a>
-                    <a href="/datenschutz/" className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
+                    <a href={`${import.meta.env.BASE_URL}datenschutz/`}  className="text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors">
                         Datenschutz
                     </a>
                 </div>
 
                 {/* Schräger Button */}
                 <motion.a
-                    href="/#startseite"
+                    href={`${import.meta.env.BASE_URL}#startseite`}
                     className="bg-lime-300 text-black font-bold px-6 py-3 -rotate-3 rounded-full hover:rotate-0 hover:scale-105 transition-transform"
                     whileHover={{ rotate: 0, scale: 1.05 }}
                 >

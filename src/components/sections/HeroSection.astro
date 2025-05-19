@@ -15,7 +15,7 @@ const { id } = Astro.props;
 
   <!-- Hauptinhalt -->
   <div
-    class="relative text-center w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl px-4 sm:px-6"
+    class="lg:mt-36 relative text-center w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl px-4 sm:px-6"
   >
     <h1
       class="text-[6.5vw] sm:text-3xl md:text-5xl lg:text-6xl font-headline font-bold mb-6 leading-tight"
@@ -49,7 +49,7 @@ const { id } = Astro.props;
       kannst.
     </p>
     <a
-      href="/#vorteile"
+      href={`${import.meta.env.BASE_URL}#vorteile`}
       class="cursor-none inline-block px-6 py-3 bg-primary text-white rounded-full shadow-md transition"
     >
       Jetzt informieren
