@@ -3,16 +3,22 @@ import TypewriterText from '../visual/animation/TypeWriterText';
 import UnderlineBrush from '../visual/animation/UnderlineBrush';
 const { id } = Astro.props;
 ---
+
 <section
     id={id}
-    class="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 py-24 sm:py-32"
+    class="relative w-full min-h-screen pt-16 pb-24 sm:pb-32 flex items-center justify-center overflow-hidden px-6"
 >
+  <!-- 🔮 Bewegter Gradient-Hintergrund (sanft animiert für Chrome + Safari) -->
+  <div
+      class="absolute inset-0 z-0"
+      style="
+      background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%);
+      will-change: transform;
+    "
+  ></div>
 
-  <!-- 🔮 Bewegter Gradient-Hintergrund (mit CSS oder Motion) -->
-  <div class="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_#1b95cc44,_transparent_90%)] animate-pulse animate-infinite animate-ease-linear" />
-
-  <!-- 🧊 Glass-Overlay -->
-  <div class="absolute inset-0 bg-white/5 backdrop-blur-[1.5px] z-0" />
+  <!-- 🧊 Glass-Overlay (Chrome-kompatibel) -->
+  <div class="absolute inset-0 z-0 backdrop-glass"></div>
 
   <!-- 💬 Inhalt -->
   <div class="relative z-10 text-center w-full max-w-6xl px-4 sm:px-6 py-12 sm:py-16">

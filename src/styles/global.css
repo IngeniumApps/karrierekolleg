@@ -32,4 +32,9 @@
     transition: transform 0.2s ease;
     will-change: transform;
   }
+  /* Chrome-kompatibler Glassmorphism-Effekt */
+  .backdrop-glass {
+    backdrop-filter: blur(1.5px);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 }
