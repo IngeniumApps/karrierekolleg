@@ -99,7 +99,7 @@ export default function MobileNavigation({ scrolled }: { scrolled: boolean }) {
                   >
                     <Shape shape={item.shape!} color={item.color!} />
                     <a
-                      href={`#${item.id}`}
+                      href={`${import.meta.env.BASE_URL}#${item.id}`}
                       className={clsx(
                         'relative z-10 text-3xl text-white font-headline font-bold px-2',
                         activeId === item.id ? 'border-b-2 border-white' : 'border-none',
