@@ -1,6 +1,7 @@
 @config "../../tailwind.config.mjs";
 @import './fonts.css';
 @import 'tailwindcss';
+@import "tailwindcss-animated";
 
 @layer base {
   html {

@@ -54,13 +54,13 @@ npm run preview
 ### 🔹 `.env` (local)
 
 ```env
-PUBLIC_BASE_URL=http://localhost:4321
+PUBLIC_BASE_URL=http://localhost:4321/
 ```
 
 ### 🔹 `.env.cdx` (CDX live deployment)
 
 ```env
-PUBLIC_BASE_URL=https://karrierekolleg.at
+PUBLIC_BASE_URL=https://karrierekolleg.at/
 ```
 
 Build for CDX:
