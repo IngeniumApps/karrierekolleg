@@ -1,15 +1,22 @@
 ---
-// CollegesGrid.astro
+import {colleges} from "../../constants/colleges";
+import CollegeCard from "../CollegeCard";
 const { id } = Astro.props;
 ---
+<section id={id} class="py-24 px-6 bg-gradient-to-br from-white via-[#f0f8ff] to-white">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">Kollegs entdecken</h2>
+    <p class="text-lg text-gray-600 mb-12">Wähle das Kolleg, das zu dir passt – von Technik bis Design.</p>
 
-<section id={id} class="w-full h-dvh flex items-center justify-center bg-gray-50">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8">Alle Kollegs</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="border p-6 bg-gray-50">Kolleg 1</div>
-      <div class="border p-6 bg-gray-50">Kolleg 2</div>
-      <div class="border p-6 bg-gray-50">Kolleg 3</div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {colleges.map((colleg) => (
+          <CollegeCard
+              name={colleg.name}
+              topic={colleg.topic}
+              link={colleg.link}
+              color={colleg.color}
+          />
+      ))}
     </div>
   </div>
 </section>
