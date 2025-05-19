@@ -69,7 +69,7 @@ export default function CustomCursor() {
             width: smoothW,
             height: smoothH,
             borderRadius: isActive ? 6 : '50%',
-            backgroundColor: '#d9e5f1',
+            backgroundColor: isActive ? '#d9e5f1' : 'rgba(44,111,160,0.5)',
           }}
       />
   );
