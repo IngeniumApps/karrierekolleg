@@ -17,6 +17,7 @@ const {
 <html lang="de">
   <head>
     <Head title={title} description={description} url={url} image={image} />
+
   </head>
   <body class="text-gray-800 font-body antialiased">
     <Header client:load />
@@ -25,5 +26,7 @@ const {
     </main>
     <CustomCursor client:only="react" />
     <Footer client:load/>
+
+    <script defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
   </body>
 </html>
