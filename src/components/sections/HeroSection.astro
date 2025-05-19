@@ -21,7 +21,7 @@ import UnderlineBrush from '../visual/animation/UnderlineBrush';
         class="inline-block text-[10vw] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black"
       >
         <TypewriterText
-          client:load
+          client:idle
           words={['Karriere', 'Zukunft', 'Bildung']}
           loop={Infinity}
           cursorStyle="_"
@@ -33,10 +33,10 @@ import UnderlineBrush from '../visual/animation/UnderlineBrush';
       >
         <span class="relative z-[1]">Kolleg</span>
         <UnderlineBrush
-          className="absolute left-0 bottom-0 z-0 w-full"
-          fillColor="#3c8bc1"
+          className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+          fillColor="#2C6FA0"
           bottomOffset={5}
-          client:load
+          client:visible
         />
       </span>
       starten. <br /><br />
@@ -47,7 +47,7 @@ import UnderlineBrush from '../visual/animation/UnderlineBrush';
     </p>
     <a
       href="#benefits"
-      class="cursor-none inline-block px-6 py-3 bg-primary text-white rounded-full shadow-md hover:bg-secondary transition"
+      class="cursor-none inline-block px-6 py-3 bg-primary text-white rounded-full shadow-md transition"
     >
       Jetzt informieren
     </a>

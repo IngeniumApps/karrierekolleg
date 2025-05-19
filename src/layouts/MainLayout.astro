@@ -1,9 +1,9 @@
 ---
 import '../styles/global.css';
 import Head from '@components/common/Head.astro';
-import Header from '@components/header/Header.tsx';
 import Footer from '@components/footer/Footer.astro';
-import IOSPointer from '../components/visual/IOSPointer';
+import CustomCursor from "../components/visual/CustomCursor";
+import Header from "../components/header/Header";
 
 // Optional: Props wie Titel oder Beschreibung setzen
 const {
@@ -23,7 +23,7 @@ const {
     <main>
       <slot />
     </main>
-    <IOSPointer client:load />
+    <CustomCursor client:only="react" />
     <Footer />
   </body>
 </html>

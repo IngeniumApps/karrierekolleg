@@ -17,7 +17,7 @@ export default {
         body: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        primary: '#3c8bc1',
+        primary: '#2C6FA0',
         pink: '#ef5d9f',
         yellow: '#f4c94e',
         red: '#ed4250',
