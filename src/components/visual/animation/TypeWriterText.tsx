@@ -57,7 +57,7 @@ const TypewriterText: FC<TypewriterTextProps> = ({
 
   return (
     <span
-      className={clsx('inline-block w-full max-w-[90vw] text-center', className)}
+      className={clsx('inline-block w-full max-w-[90vw]', className)}
       style={{ minWidth: `${maxWordLength}ch` }}
     >
       <span className={currentColor}>{text.charAt(0)}</span>
