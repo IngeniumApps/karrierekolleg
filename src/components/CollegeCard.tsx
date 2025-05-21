@@ -46,10 +46,10 @@ export default function CollegeCard({
         >
           {topic}
         </span>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1">
+                <h3 className="text-lg sm:text-xl font-bold mb-1">
                     {name}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{school}</p>
+                <p className="text-sm">{school}</p>
             </div>
         </motion.a>
     );
