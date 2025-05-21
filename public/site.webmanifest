@@ -7,26 +7,26 @@
   "theme_color": "#1b95cc",
   "screenshots": [
     {
-      "src": "/screenshots/kolleg-home.png",
+      "src": "/karriere-kolleg/screenshots/kolleg-home.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-        "src": "/screenshots/kolleg-mobile.png",
+        "src": "/karriere-kolleg/screenshots/kolleg-mobile.png",
         "sizes": "720x1280",
         "type": "image/png"
     }
   ],
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "/karriere-kolleg/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "/karriere-kolleg/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
