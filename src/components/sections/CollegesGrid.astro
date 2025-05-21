@@ -13,8 +13,9 @@ const groupedColleges = {
   "Naturwissenschaft": colleges.filter((c) => c.topic === "Naturwissenschaft"),
 };
 
-// Farbzuordnung je Themenbereich
-const topicColors = {
+type Topic = "Technik & Informatik" | "Design" | "Bau & Architektur" | "Naturwissenschaft";
+
+const topicColors: Record<Topic, string> = {
   "Technik & Informatik": "primary",
   "Design": "pink",
   "Bau & Architektur": "orange",
@@ -45,7 +46,7 @@ const topicColors = {
           .map(([topic, list]) => (
           <div class="text-left mb-28" id={topic.toLowerCase().replace(/ /g, '-')}>
             <!-- 🏷 Überschrift -->
-            <h3 class={`text-3xl font-bold mb-2 text-${topicColors[topic] ?? 'text-primary'}`}>
+            <h3 class={`text-3xl font-bold mb-2 text-${topicColors[topic as Topic] ?? 'text-primary'}`}>
               {topic}
             </h3>
 
