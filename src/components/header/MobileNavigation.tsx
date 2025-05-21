@@ -1,120 +1,125 @@
-import { useState, useEffect, useRef } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { navItems } from '../../constants/navItems'; // [{ href, text, shape, color }]
+import { navItems } from '../../constants/navItems';
 import XMarkIcon from '../../assets/icons/custom/XMarkIcon.tsx';
 import HamburgerIcon from '../../assets/icons/custom/HamburgerIcon.tsx';
-import Shape from '../../assets/icons/custom/Shape.tsx';
+import { useScrollSpy } from '../../hooks/useScrollSpy';
 import clsx from 'clsx';
-import { useScrollSpy } from '../../hooks/useScrollSpy.ts';
 
 export default function MobileNavigation({ scrolled }: { scrolled: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
-  const drawerRef = useRef<HTMLDivElement>(null);
-  const activeId = useScrollSpy(
-    navItems.map((item) => item.id),
-    100,
-  );
+  const activeId = useScrollSpy(navItems.map((item) => item.id), 100);
 
-  const closeDrawer = () => {
-    setIsOpen(false);
-    document.documentElement.classList.remove('overflow-hidden');
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+    document.documentElement.classList.toggle('overflow-hidden', !isOpen);
   };
 
-  const openDrawer = () => {
-    setIsOpen(true);
-    document.documentElement.classList.add('overflow-hidden');
-  };
-
-  // Close on Esc
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => e.key === 'Escape' && closeDrawer();
-    document.addEventListener('keydown', handleKey);
-    return () => document.removeEventListener('keydown', handleKey);
+    const closeOnEscape = (e: KeyboardEvent) => e.key === 'Escape' && setIsOpen(false);
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
   }, []);
 
   return (
-    <div className="flex items-center justify-between h-full">
-      {/* Toggle Button */}
-      <button
-        onClick={openDrawer}
-        aria-label="Menü öffnen"
-        className={clsx(
-          'focus:outline-none z-50 relative',
-          scrolled ? 'text-white' : 'text-gray-800',
-        )}
-      >
-        <HamburgerIcon className="w-11 h-11 stroke-current" />
-      </button>
+      <div className="lg:hidden z-50">
+        <button
+            onClick={toggleDrawer}
+            aria-label="Menü öffnen"
+            className={clsx('z-50 relative', scrolled ? 'text-white' : 'text-gray-800')}
+        >
+          <HamburgerIcon className="w-10 h-10 stroke-current" />
+        </button>
 
-      {/* Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-40 bg-black/50 touch-none" // evtl. backdrop-blur-xs
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-              onClick={closeDrawer}
-              aria-hidden="true"
-            />
+        <AnimatePresence>
+          {isOpen && (
+              <>
+                {/* Overlay */}
+                <motion.div
+                    className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={toggleDrawer}
+                />
 
-            {/* Drawer Content */}
-            <motion.div
-              ref={drawerRef}
-              style={{
-                backgroundImage: `linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('/images/background.svg')`,
-                backgroundSize: '150% auto',
-                backgroundRepeat: 'repeat-y',
-                backgroundPosition: 'top center',
-              }}
-              id="drawer"
-              className="fixed top-0 right-0 h-dvh w-3/4 max-w-[350px] z-[1100] bg-white
-                                       flex flex-col justify-between shadow-xl"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-            >
-              {/* Close Button */}
-              <div
-                className={clsx('flex items-center justify-end p-5', scrolled ? 'h-20' : 'h-36')}
-              >
-                <button onClick={closeDrawer} aria-label="Menü schließen" className="z-[1102]">
-                  <XMarkIcon className="w-11 h-11" />
-                </button>
-              </div>
-              {/* Navigation */}
-              <ul
-                className={clsx(
-                  'flex flex-col gap-1 items-center justify-center flex-1',
-                  scrolled ? '-mt-20' : '-mt-36',
-                )}
-              >
-                {navItems.map((item) => (
-                  <li
-                    key={item.id}
-                    className="relative w-[90%] h-20 flex items-center justify-center overflow-visible"
-                  >
-                    <Shape shape={item.shape!} color={item.color!} />
-                    <a
-                      href={`${import.meta.env.BASE_URL}#${item.id}`}
-                      className={clsx(
-                        'relative z-10 text-3xl text-white font-headline font-bold px-2',
-                        activeId === item.id ? 'border-b-2 border-white' : 'border-none',
-                      )}
-                      onClick={closeDrawer}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+                {/* Drawer */}
+                <motion.aside
+                    className="fixed top-0 right-0 h-full w-[85vw] max-w-sm z-50 flex bg-white flex-col rounded-s-3xl overflow-hidden"
+                    initial={{ x: '100%' }}
+                    animate={{ x: 0 }}
+                    exit={{ x: '100%' }}
+                    transition={{ type: 'spring', damping: 20, stiffness: 150 }}
+                >
+                  {/* Oberer Bereich */}
+                  <div className="flex-1 relative flex flex-col items-center justify-center px-4 overflow-hidden">
+                    {/* Hintergrundverlauf + Deko */}
+                    <motion.div
+                        className="absolute inset-0 z-0"
+                        style={{
+                          background: 'radial-gradient(ellipse at top right, #1b95cc33, transparent 90%)',
+                        }}
+                        animate={{ opacity: [0.8, 1, 0.8] }}
+                        transition={{ duration: 8, repeat: Infinity }}
+                    />
+
+                    {/* Close Button */}
+                    <div className="w-full flex items-center justify-end pt-4 pr-4 absolute top-0 right-0 z-10">
+                      <button onClick={toggleDrawer} aria-label="Menü schließen">
+                        <XMarkIcon className="w-10 h-10" />
+                      </button>
+                    </div>
+
+                    {/* Navigation */}
+                    <nav className="w-full max-w-xs mt-24 flex flex-col gap-4 px-4">
+                      {navItems.map((item, index) => {
+                        const isActive = activeId === item.id;
+
+                        return (
+                            <a
+                                key={item.id}
+                                href={`#${item.id}`}
+                                onClick={toggleDrawer}
+                                className={clsx(
+                                    'text-center text-2xl font-headline font-bold rounded-full shadow-md px-6 py-4 transition-all',
+                                    isActive
+                                        ? 'bg-accent border-2 border-transparent'
+                                        : 'bg-white text-primary border border-primary'
+                                )}
+                            >
+                              {item.label}
+                            </a>
+                        );
+                      })}
+                    </nav>
+                  </div>
+
+                  {/* Unterer Bereich wie echter Footer */}
+                  <div className="relative bg-primary text-white px-6 pt-10 pb-8 mt-auto overflow-hidden">
+                    {/* Dekoelement */}
+                    <motion.div
+                        className="absolute left-6 top-4 w-10 h-10 rounded-full bg-accent opacity-80"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                    />
+
+                    {/* Branding */}
+                    <div className="text-center z-10 relative space-y-2">
+                      <div className="text-2xl font-bold font-grotesque">
+                        Karriere <span className="text-accent">*</span>Kolleg
+                      </div>
+
+                      <p className="text-xs text-white/70">
+                        © Karriere Kolleg {new Date().getFullYear()}
+                      </p>
+                    </div>
+                  </div>
+                </motion.aside>
+              </>
+          )}
+        </AnimatePresence>
+      </div>
   );
 }
