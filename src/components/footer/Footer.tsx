@@ -39,7 +39,7 @@ export default function Footer() {
 
                 {/* Schräger Button */}
                 <motion.a
-                    href={`${import.meta.env.BASE_URL}#startseite`}
+                    href={`${import.meta.env.BASE_URL}#kollegs`}
                     className="bg-lime-300 text-black font-bold px-6 py-3 -rotate-3 rounded-full hover:rotate-0 hover:scale-105 transition-transform"
                     whileHover={{ rotate: 0, scale: 1.05 }}
                 >

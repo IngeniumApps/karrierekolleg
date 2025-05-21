@@ -3,6 +3,7 @@
 import TypewriterText from '../visual/animation/TypeWriterText';
 import UnderlineBrush from '../visual/animation/UnderlineBrush';
 import HeroChatBubble from "../visual/HeroChatBubbles";
+import {chatEntriesLeft, chatEntriesRight} from "../../constants/chatEntries";
 const { id } = Astro.props;
 ---
 
@@ -97,19 +98,16 @@ const { id } = Astro.props;
       <!--/>-->
       <HeroChatBubble
           client:load
-          sender="Lukas Steiner"
-          time="09:15"
-          text="Im IT-Kolleg lernst du alles über Softwareentwicklung, Netzwerke & Security."
           position="top-[50%] left-0"
-          image="lukas.webp"
+          delayOffset={0}
+          entries={chatEntriesLeft}
       />
+
       <HeroChatBubble
           client:load
-          sender="Lea Berger"
-          time="11:45"
-          text="Das Chemie-Kolleg verbindet Theorie und Labor – perfekt für alle, die Naturwissenschaften praxisnah erleben wollen."
           position="bottom-0 right-0"
-          image="lea.webp"
+          delayOffset={1500}
+          entries={chatEntriesRight}
       />
     </div>
   </div>
