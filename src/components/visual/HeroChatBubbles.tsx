@@ -31,7 +31,7 @@ export default function HeroChatBubble({
             <div className="flex items-start gap-2">
                 <img
                     className="w-10 h-10 rounded-full object-cover"
-                    src={`/images/${image}`}
+                    src={`${import.meta.env.BASE_URL}images/${image}`}
                     alt={`${sender} Avatar`}
                 />
                 <div className="flex flex-col w-full max-w-[220px] p-2 border border-gray-200 bg-white/70 backdrop-blur-md rounded-e-xl rounded-es-xl shadow-sm">
