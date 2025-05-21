@@ -4,7 +4,7 @@ export const colleges = [
         topic: "Technik",
         school: "HTL Bulme Graz",
         link: "https://www.bulme.at/e-technologies-17-plus/e-technologies-abendkolleg/",
-        color: "bg-green",
+        color: "bg-primary",
         image: "https://picsum.photos/seed/etech/800/600",
     },
     {
@@ -12,7 +12,7 @@ export const colleges = [
         topic: "Technik",
         school: "HTL Bulme Graz",
         link: "https://www.bulme.at/elektronik-technische-informatik-17-plus/elektronik-und-technische-informatik-abend-htl-2/",
-        color: "bg-green",
+        color: "bg-primary",
         image: "https://picsum.photos/seed/eti/800/600",
     },
     {
@@ -20,7 +20,7 @@ export const colleges = [
         topic: "Technik",
         school: "HTL Bulme Graz",
         link: "https://www.bulme.at/e-technologies-17/maschinenbau-abendkolleg/",
-        color: "bg-green",
+        color: "bg-primary",
         image: "https://picsum.photos/seed/maschinenbau1/800/600",
     },
     {
@@ -52,7 +52,7 @@ export const colleges = [
         topic: "Design",
         school: "HTL Ortweinschule",
         link: "https://www.ortweinschule.at/portfolio/fine-art-photography-und-multimediaart-18/",
-        color: "bg-yellow",
+        color: "bg-pink",
         image: "https://picsum.photos/seed/photography/800/600",
     },
     {
@@ -60,7 +60,7 @@ export const colleges = [
         topic: "Design",
         school: "HTL Ortweinschule",
         link: "https://www.ortweinschule.at/portfolio/abendkolleg-grafik-und-kommunikationsdesign/",
-        color: "bg-yellow",
+        color: "bg-pink",
         image: "https://picsum.photos/seed/design1/800/600",
     },
     {
@@ -68,7 +68,7 @@ export const colleges = [
         topic: "Informatik",
         school: "HTL Bulme Graz",
         link: "https://www.bulme.at/elektronik-technische-informatik-17-plus/informatik-tageskolleg/",
-        color: "bg-pink",
+        color: "bg-primary",
         image: "https://picsum.photos/seed/informatik/800/600",
     },
     {
@@ -76,7 +76,7 @@ export const colleges = [
         topic: "Technik",
         school: "HTL Bulme Graz",
         link: "https://www.bulme.at/e-technologies-17/maschinenbau-tageskolleg/",
-        color: "bg-green",
+        color: "bg-primary",
         image: "https://picsum.photos/seed/maschinenbau2/800/600",
     },
 ];
