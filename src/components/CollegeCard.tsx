@@ -1,41 +1,56 @@
-import clsx from 'clsx';
+'use client';
 
-export interface CollegeCardProps {
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
+
+type Props = {
     name: string;
     topic: string;
+    school: string;
     link: string;
     color: string;
-}
+    image: string;
+};
 
-export default function CollegeCard({ name, topic, link, color }: CollegeCardProps) {
+export default function CollegeCard({
+                                        name,
+                                        topic,
+                                        school,
+                                        link,
+                                        color,
+                                        image,
+                                    }: Props) {
     return (
-        <a
+        <motion.a
             href={link}
-            className="group relative overflow-hidden rounded-3xl border border-gray-200 shadow-lg p-6 bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-primary/40"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1}}
+            viewport={{ once: false, amount: 0.3 }} // 👈 wichtig!
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="group block max-w-xl mx-auto overflow-hidden transition-transform duration-300 hover:scale-[1.02] ring-primary/30"
+            aria-label={`Mehr erfahren über ${name} an der ${school}`}
         >
-            {/* Decorative rotated background shape */}
-            <div
-                className={clsx(
-                    'absolute -top-4 -left-4 w-20 h-20 rotate-45 opacity-10',
-                    color
-                )}
-                aria-hidden="true"
+            <img
+                src={image}
+                alt={`Symbolbild für ${topic}`}
+                className="w-full h-48 object-cover"
+                loading="lazy"
             />
 
-            {/* Title */}
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition">
-                {name}
-            </h3>
-
-            {/* Topic badge */}
-            <span
-                className={clsx(
-                    'inline-block mt-3 text-xs font-semibold text-white px-3 py-1 rounded-full',
-                    color
-                )}
-            >
-        {topic}
-      </span>
-        </a>
+            <div className="relative -mt-12 mx-6 bg-white p-6 z-10 h-full">
+        <span
+            className={clsx(
+                'inline-block mb-2 text-xs font-semibold text-white px-3 py-1 rounded-full',
+                color
+            )}
+        >
+          {topic}
+        </span>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1">
+                    {name}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{school}</p>
+            </div>
+        </motion.a>
     );
 }

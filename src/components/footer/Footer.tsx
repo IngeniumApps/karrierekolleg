@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="mt-16 text-center text-sm opacity-60">
+            <div className="mt-16 text-center text-sm">
                 © Karriere Kolleg {new Date().getFullYear()}
             </div>
         </footer>
