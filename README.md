@@ -67,7 +67,7 @@ Build for CDX:
 
 ### Important TODO: 
 When switching to a custom domain (like karrierekolleg.at),  
-change all "/karriere-kolleg/..." paths in site.webmanifest back to "/..."
+change all "/karrierekolleg/..." paths in site.webmanifest back to "/..."
 
 ```bash
 npm run build:cdx
