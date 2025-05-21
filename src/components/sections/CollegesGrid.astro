@@ -1,20 +1,36 @@
 ---
-import {colleges} from "../../constants/colleges";
-import CollegeCard from "../CollegeCard";
+import { colleges } from '../../constants/colleges';
+import CollegeCard from '../CollegeCard';
 const { id } = Astro.props;
 ---
-<section id={id} class="py-24 px-6 bg-gradient-to-br from-white via-[#f0f8ff] to-white">
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">Kollegs entdecken</h2>
-    <p class="text-lg text-gray-600 mb-12">Wähle das Kolleg, das zu dir passt – von Technik bis Design.</p>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<section id={id} class="relative py-24 px-6 overflow-hidden">
+  <!-- 🔮 Radialer Farbverlauf -->
+  <div class="absolute inset-0 z-0" style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"></div>
+
+  <!-- 🧊 Glass-Overlay -->
+  <div class="absolute inset-0 z-0 backdrop-glass"></div>
+
+  <!-- 🔲 Inhalt -->
+  <div class="relative z-10 max-w-7xl mx-auto text-center">
+    <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">
+      Kollegs entdecken
+    </h2>
+    <p class="text-lg text-gray-600 mb-12">
+      Wähle das Kolleg, das zu dir passt – von Technik bis Design.
+    </p>
+
+    <!-- 💠 Grid-Layout -->
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
       {colleges.map((colleg) => (
           <CollegeCard
+              client:load
               name={colleg.name}
               topic={colleg.topic}
+              school={colleg.school}
               link={colleg.link}
               color={colleg.color}
+              image={colleg.image}
           />
       ))}
     </div>

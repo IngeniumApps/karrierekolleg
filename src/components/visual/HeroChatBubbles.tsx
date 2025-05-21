@@ -12,15 +12,6 @@ interface ChatBubbleProps {
     image: string
 }
 
-const chatVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: (i: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: 0.3 + i * 0.3, duration: 0.5 },
-    }),
-}
-
 export default function HeroChatBubble({
                                            sender,
                                            time,
@@ -35,7 +26,7 @@ export default function HeroChatBubble({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0, scale }}
             transition={{ delay, duration: 0.4 }}
-            className={`absolute ${position} z-20`}
+            className={`absolute ${position} z-20 transition-transform duration-300 ease-in-out hover:scale-115`}
         >
             <div className="flex items-start gap-2">
                 <img
