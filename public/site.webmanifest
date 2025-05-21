@@ -1,7 +1,7 @@
 {
   "name": "Karriere Kolleg",
   "short_name": "Karriere Kolleg",
-  "start_url": "/",
+  "start_url": "/karrierekolleg/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1b95cc",
