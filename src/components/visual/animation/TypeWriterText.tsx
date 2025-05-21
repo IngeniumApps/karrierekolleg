@@ -27,7 +27,7 @@ const TypewriterText: FC<TypewriterTextProps> = ({
   });
 
   const colors = [
-    'text-primary',
+    'text-accent',
     'text-pink',
     'text-yellow',
     'text-red',
