@@ -2,7 +2,9 @@
 // Animationen
 import TypewriterText from '../visual/animation/TypeWriterText';
 import UnderlineBrush from '../visual/animation/UnderlineBrush';
+import HeroChatBubble from "../visual/HeroChatBubbles";
 const { id } = Astro.props;
+import { motion } from 'framer-motion';
 ---
 
 <section
@@ -19,7 +21,7 @@ const { id } = Astro.props;
   <div class="z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 h-full min-h-0 px-6 lg:pt-36 pt-26 gap-5">
 
     <!-- 🔠 Linke Spalte: Text + CTA + Cards -->
-    <div class="flex flex-col h-full min-h-0 overflow-hidden">
+    <div class="flex flex-col h-full min-h-0 overflow-hidden justify-center">
       <div class="lg:text-left self-center text-center">
         <h1 class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight text-gray-900">
       <span class="inline-block font-black text-[10vw] sm:text-6xl md:text-7xl lg:text-8xl text-primary">
@@ -48,12 +50,23 @@ const { id } = Astro.props;
           Mit einem Kolleg eröffnest du dir neue Wege – praxisnah, berufsbegleitend und staatlich anerkannt.
         </p>
 
-        <a
-            href={`${import.meta.env.BASE_URL}#vorteile`}
-            class="animate-wiggle animate-infinite animate-ease-linear inline-block bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md hover:bg-primary hover:text-white transition-transform transform hover:scale-105 motion-safe:animate-bounce-in"
-        >
-          Jetzt informieren
-        </a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <!-- 🎯 Gefüllter Button -->
+          <a
+              href={`${import.meta.env.BASE_URL}#vorteile`}
+              class="bg-accent font-bold px-8 py-4 rounded-full shadow-md border-2 border-transparent text-center"
+          >
+            Jetzt informieren
+          </a>
+
+          <!-- 🧭 Outline-Button -->
+          <a
+              href={`${import.meta.env.BASE_URL}#kollegs`}
+              class="inline-block bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md"
+          >
+            Alle Kollegs ansehen
+          </a>
+        </div>
       </div>
 
       <!--<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">-->
@@ -65,17 +78,40 @@ const { id } = Astro.props;
     </div>
 
     <!-- 👩‍💼 Rechte Spalte: Frau (am unteren Rand) -->
-    <div class="flex max-h-full min-h-0 mb-[-60px]">
+    <div class="hidden lg:flex relative h-full min-h-0 mb-[-60px]">
       <!-- 🔵 Kreis-Hintergrund -->
-      <div class="hidden lg:block absolute bottom-0 right-[5%] z-0 w-[600px] h-[600px] rounded-full bg-[#1b95cc33]"></div>
+      <div class="absolute w-[500px] h-[500px] rounded-full bg-[#1b95cc33] z-0 bottom-0"></div>
       <img
           src="/images/woman.webp"
           alt="Frau"
-          class="w-auto object-contain
-         h-[clamp(300px,calc(100vh-120px),720px)]
-         right-[10%] bottom-0
-         hidden lg:block absolute"
+          class="w-auto object-cover
+         relative mb-[-60px]"
           loading="eager"
+      />
+
+      <!-- 💬 Chat-Bubbles-->
+      <!--<HeroChatBubble-->
+      <!--    client:load-->
+      <!--    sender="Daniel Costa"-->
+      <!--    time="11:45"-->
+      <!--    text="Ein Kolleg eröffnet dir neue Wege – berufsbegleitend, praxisnah & anerkannt."-->
+      <!--    position="top-[60%] right-[8%]"-->
+      <!--/>-->
+      <HeroChatBubble
+          client:load
+          sender="Lukas Steiner"
+          time="09:15"
+          text="Im IT-Kolleg lernst du alles über Softwareentwicklung, Netzwerke & Security."
+          position="top-[50%] left-0"
+          image="lukas.jpg"
+      />
+      <HeroChatBubble
+          client:load
+          sender="Lea Berger"
+          time="11:45"
+          text="Das Chemie-Kolleg verbindet Theorie und Labor – perfekt für alle, die Naturwissenschaften praxisnah erleben wollen."
+          position="bottom-0 right-0"
+          image="lea.jpg"
       />
     </div>
   </div>

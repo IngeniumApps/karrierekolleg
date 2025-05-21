@@ -51,7 +51,7 @@ export default function Header() {
                 <motion.a
                     href={`${import.meta.env.BASE_URL}#startseite`}
                     className="
-                    inline-block bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md hover:bg-primary hover:text-white transition -rotate-3 hover:rotate-0 hover:scale-105"
+                    inline-block bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md transition -rotate-3 hover:rotate-0 hover:scale-105"
                     whileHover={{ rotate: 0, scale: 1.05 }}
                 >
                   Starte jetzt!

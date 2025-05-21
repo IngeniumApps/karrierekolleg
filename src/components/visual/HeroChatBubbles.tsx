@@ -9,6 +9,7 @@ interface ChatBubbleProps {
     position?: string // z.B. "top-[15%] left-[5%]" oder "bottom-[20%] right-[10%]"
     delay?: number
     scale?: number
+    image: string
 }
 
 const chatVariants = {
@@ -26,7 +27,8 @@ export default function HeroChatBubble({
                                            text,
                                            position = 'top-0 left-0',
                                            delay = 0,
-                                           scale = 0.95
+                                           scale = 0.95,
+                                           image
                                        }: ChatBubbleProps) {
     return (
         <motion.div
@@ -35,19 +37,19 @@ export default function HeroChatBubble({
             transition={{ delay, duration: 0.4 }}
             className={`absolute ${position} z-20`}
         >
-            <div className="flex items-start gap-2.5">
+            <div className="flex items-start gap-2">
                 <img
-                    className="w-7 h-7 rounded-full"
-                    src="/images/profile-picture-3.jpg"
+                    className="w-10 h-10 rounded-full object-cover"
+                    src={`/images/${image}`}
                     alt={`${sender} Avatar`}
                 />
-                <div className="flex flex-col w-full max-w-[280px] leading-1.5 p-3 border border-gray-200 bg-white/90 backdrop-blur-md rounded-e-xl rounded-es-xl shadow-sm">
-                    <div className="flex items-center space-x-2">
-                        <span className="text-xs font-semibold text-gray-900">{sender}</span>
-                        <span className="text-xs text-gray-500">{time}</span>
+                <div className="flex flex-col w-full max-w-[220px] p-2 border border-gray-200 bg-white/70 backdrop-blur-md rounded-e-xl rounded-es-xl shadow-sm">
+                    <div className="flex items-center space-x-1">
+                        <span className="text-[10px] font-semibold">{sender}</span>
+                        <span className="text-[10px] text-gray-500">{time}</span>
                     </div>
-                    <p className="text-sm text-gray-900 py-2">{text}</p>
-                    <span className="text-xs text-gray-400">Zugestellt</span>
+                    <p className="text-xs py-1">{text}</p>
+                    <span className="text-[10px] text-gray-400">Zugestellt</span>
                 </div>
             </div>
         </motion.div>
