@@ -6,16 +6,16 @@ export const Benefits = () => {
     return (
         <div className="bg-white">
             <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1584697964403-e3f4b4142956?auto=format&fit=crop&w=2560&q=80"
+                imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
                 subheading="Lorem ipsum dolor sit amet"
                 heading="USP 1"
             >
-                <FadeDownOnScroll>
+                <FadeDownOnScroll duration={1}>
                     <ExampleContent
                         title="USP 1"
                         paragraphs={[
-                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-                            "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
                         ]}
                     />
                 </FadeDownOnScroll>
@@ -26,12 +26,12 @@ export const Benefits = () => {
                 subheading="Lorem ipsum dolor sit amet"
                 heading="USP 2"
             >
-                <FadeDownOnScroll>
+                <FadeDownOnScroll duration={1}>
                     <ExampleContent
                         title="USP 2"
                         paragraphs={[
-                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-                            "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
                         ]}
                     />
                 </FadeDownOnScroll>
@@ -42,12 +42,12 @@ export const Benefits = () => {
                 subheading="Lorem ipsum dolor sit amet"
                 heading="USP 3"
             >
-                <FadeDownOnScroll>
+                <FadeDownOnScroll duration={1}>
                     <ExampleContent
                         title="USP 3"
                         paragraphs={[
-                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-                            "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
                         ]}
                     />
                 </FadeDownOnScroll>
@@ -56,8 +56,7 @@ export const Benefits = () => {
     );
 };
 
-const IMG_PADDING = 12;
-
+const IMG_PADDING = 0;
 
 interface TextParallaxContentProps {
     imgUrl: string;
@@ -65,7 +64,6 @@ interface TextParallaxContentProps {
     heading: string;
     children: React.ReactNode;
 }
-
 
 const TextParallaxContent = ({
                                  imgUrl,
@@ -75,7 +73,7 @@ const TextParallaxContent = ({
                              }: TextParallaxContentProps) => {
     return (
         <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-            <div className="relative h-[150vh]">
+            <div className="relative h-[100vh]">
                 <StickyImage imgUrl={imgUrl} />
                 <OverlayCopy heading={heading} subheading={subheading} />
             </div>
@@ -95,11 +93,13 @@ const StickyImage = ({ imgUrl }: StickyImageProps) => {
         offset: ["end end", "end start"],
     });
 
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
     const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+    const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "9999px"]);
 
     return (
         <motion.div
+            ref={targetRef}
             style={{
                 backgroundImage: `url(${imgUrl})`,
                 backgroundSize: "cover",
@@ -107,14 +107,20 @@ const StickyImage = ({ imgUrl }: StickyImageProps) => {
                 height: `calc(100vh - ${IMG_PADDING * 2}px)`,
                 top: IMG_PADDING,
                 scale,
+                borderRadius
             }}
-            ref={targetRef}
-            className="sticky z-0 overflow-hidden rounded-3xl"
+            className="sticky z-0 overflow-hidden shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.3)]"
         >
+            {/* Farbverlauf: Übergang von Bild ins Blau des Headers */}
             <motion.div
-                className="absolute inset-0 bg-neutral-950/70"
-                style={{ opacity }}
+                className="absolute inset-0 z-10"
+                style={{
+                    background: `linear-gradient(to top, rgba(44,111,160,0.6), rgba(44,111,160,0.9))`,
+                    opacity,
+                }}
             />
+            {/* Lesbarkeit auf kleinen Screens */}
+            <div className="absolute inset-0 md:hidden bg-black/40 z-0" />
         </motion.div>
     );
 };
@@ -132,18 +138,20 @@ const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-    const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
+    const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [1, 1, 1]);
 
     return (
         <motion.div
             style={{ y, opacity }}
             ref={targetRef}
-            className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white"
+            className="absolute left-0 top-0 z-20 flex h-screen w-full flex-col items-center justify-center text-white px-4"
         >
-            <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
+            <p className="mb-2 text-center text-xl tracking-wide text-accent md:mb-4 md:text-3xl">
                 {subheading}
             </p>
-            <p className="text-center text-4xl font-bold md:text-7xl">{heading}</p>
+            <p className="text-center text-4xl font-bold tracking-tight  drop-shadow-lg md:text-7xl">
+                {heading}
+            </p>
         </motion.div>
     );
 };
@@ -153,15 +161,14 @@ interface ExampleContentProps {
     paragraphs: string[];
 }
 
-
 const ExampleContent = ({ title, paragraphs }: ExampleContentProps) => (
-    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
+    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 pb-24 pt-12 md:grid-cols-12">
         <h2 className="col-span-1 text-3xl font-bold md:col-span-4">{title}</h2>
         <div className="col-span-1 md:col-span-8">
             {paragraphs.map((text, idx) => (
                 <p
                     key={idx}
-                    className="mb-4 text-xl text-neutral-600 md:text-2xl last:mb-8"
+                    className="mb-6 text-base sm:text-lg md:text-xl leading-relaxed last:mb-0 max-w-2xl"
                 >
                     {text}
                 </p>
