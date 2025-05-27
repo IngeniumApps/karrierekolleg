@@ -4,54 +4,70 @@ import FadeDownOnScroll from "@components/visual/animation/FadeDownOnScroll.tsx"
 
 export const Benefits = () => {
     return (
-        <div className="bg-white">
-            <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
-                subheading="Lorem ipsum dolor sit amet"
-                heading="USP 1"
-            >
-                <FadeDownOnScroll duration={1}>
-                    <ExampleContent
-                        title="USP 1"
-                        paragraphs={[
-                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
-                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
-                        ]}
-                    />
-                </FadeDownOnScroll>
-            </TextParallaxContent>
+        <div className="relative w-full bg-transparent overflow-hidden">
 
-            <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=2560&q=80"
-                subheading="Lorem ipsum dolor sit amet"
-                heading="USP 2"
-            >
-                <FadeDownOnScroll duration={1}>
-                    <ExampleContent
-                        title="USP 2"
-                        paragraphs={[
-                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
-                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
-                        ]}
-                    />
-                </FadeDownOnScroll>
-            </TextParallaxContent>
+            {/* 🔮 Gradient-Hintergrund */}
+            <div
+                className="absolute inset-0 z-0"
+                style={{
+                    background: "radial-gradient(ellipse at top right, #1b95cc44, transparent 90%)",
+                    willChange: "transform",
+                }}
+            />
 
-            <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=2560&q=80"
-                subheading="Lorem ipsum dolor sit amet"
-                heading="USP 3"
-            >
-                <FadeDownOnScroll duration={1}>
-                    <ExampleContent
-                        title="USP 3"
-                        paragraphs={[
-                            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
-                            "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
-                        ]}
-                    />
-                </FadeDownOnScroll>
-            </TextParallaxContent>
+            {/* 🧊 Glass-Overlay */}
+            <div className="absolute inset-0 z-0 backdrop-glass" />
+
+            {/* 💡 Inhalt */}
+            <div className="relative z-10">
+                <TextParallaxContent
+                    imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
+                    subheading="Lorem ipsum dolor sit amet"
+                    heading="USP 1"
+                >
+                    <FadeDownOnScroll duration={1}>
+                        <ExampleContent
+                            title="USP 1"
+                            paragraphs={[
+                                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                                "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
+                            ]}
+                        />
+                    </FadeDownOnScroll>
+                </TextParallaxContent>
+
+                <TextParallaxContent
+                    imgUrl="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=2560&q=80"
+                    subheading="Lorem ipsum dolor sit amet"
+                    heading="USP 2"
+                >
+                    <FadeDownOnScroll duration={1}>
+                        <ExampleContent
+                            title="USP 2"
+                            paragraphs={[
+                                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                                "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
+                            ]}
+                        />
+                    </FadeDownOnScroll>
+                </TextParallaxContent>
+
+                <TextParallaxContent
+                    imgUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=2560&q=80"
+                    subheading="Lorem ipsum dolor sit amet"
+                    heading="USP 3"
+                >
+                    <FadeDownOnScroll duration={1}>
+                        <ExampleContent
+                            title="USP 3"
+                            paragraphs={[
+                                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                                "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.",
+                            ]}
+                        />
+                    </FadeDownOnScroll>
+                </TextParallaxContent>
+            </div>
         </div>
     );
 };
