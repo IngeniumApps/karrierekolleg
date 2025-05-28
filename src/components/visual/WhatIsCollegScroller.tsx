@@ -7,6 +7,10 @@ import type {MotionValue} from "motion";
 import FadeDownOnScroll from "@components/visual/animation/FadeDownOnScroll.tsx";
 import {chatEntriesLeft, chatEntriesRight} from "../../constants/chatEntries.ts";
 import HeroChatBubble from "@components/visual/HeroChatBubbles.tsx";
+import HeroLeftContent from "@components/visual/HeroLeftContent.tsx";
+import type {Slide} from "../../constants/whatIsCollegData.ts";
+
+type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 
 const DummyContent = () => {
     return (
@@ -32,6 +36,7 @@ const useScrollYProgress = () => {
 export default function WhatIsCollegScroller() {
     const {ref: targetRefIndex1, scrollYProgress: scrollProgressIndex1} = useScrollYProgress();
     const {ref: targetRefIndex2, scrollYProgress: scrollProgressIndex2} = useScrollYProgress();
+    const {ref: targetRefIndex3, scrollYProgress: scrollProgressIndex3} = useScrollYProgress();
 
     const scrollProgressIndex0 = useMotionValue(1);
 
@@ -44,13 +49,22 @@ export default function WhatIsCollegScroller() {
                 <div className="">
                     {whatIsCollegData.map((item, index) => (
                         <FadeDownOnScroll key={index} className="z-10" duration={1} delay={1}>
-                            <WhatIsCollegSection
-                                {...item}
-                                ref={
-                                    index === 1 ? targetRefIndex1 :
-                                    index === 2 ? targetRefIndex2 : null
-                                }
-                            />
+                            {item.kind === 'hero' ? (
+                                /* Slide #1 – spezieller Hero-Text */
+                                <div className="z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center px-6">
+                                    <HeroLeftContent />
+                                </div>
+                            ) : (
+                                /* Slides #2–#4 – normales Colleg-Markup */
+                                <WhatIsCollegSection
+                                    {...item}
+                                    ref={
+                                        index === 1 ? targetRefIndex1 :
+                                            index === 2 ? targetRefIndex2 :
+                                                index === 3 ? targetRefIndex3 : null
+                                    }
+                                />
+                            )}
                         </FadeDownOnScroll>
                     ))}
                 </div>
@@ -60,14 +74,15 @@ export default function WhatIsCollegScroller() {
                     <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))]">
 
                         {/* Mask-Bilder */}
-                            {whatIsCollegData.map((item, idx) => (
+                            {whatIsCollegData.map((item, index) => (
                                 <WipeContainer
-                                    key={idx}
+                                    key={index}
                                     alt={item.alt}
                                     imageUrl={item.image}
                                     scrollYProgress={
-                                        idx === 0 ? scrollProgressIndex0 :
-                                            idx === 1 ? scrollProgressIndex1 : scrollProgressIndex2
+                                        index === 0 ? scrollProgressIndex0 :
+                                            index === 1 ? scrollProgressIndex1 :
+                                                index === 2 ? scrollProgressIndex2 : scrollProgressIndex3
                                     }
                                 />
                             ))}
@@ -95,8 +110,8 @@ export default function WhatIsCollegScroller() {
     );
 }
 
-const WhatIsCollegSection = forwardRef<HTMLDivElement, (typeof whatIsCollegData)[number]>(
-    ({title, description, classNames, image, alt}, ref) => {
+const WhatIsCollegSection = forwardRef<HTMLDivElement, CollegSlide>(
+    ({title, description, classNames}, ref) => {
         return (
             <div
                 ref={ref}

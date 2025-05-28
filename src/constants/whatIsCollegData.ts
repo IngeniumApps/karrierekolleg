@@ -1,15 +1,27 @@
-export const whatIsCollegData = [
+export type Slide =
+    | {
+    kind: 'hero';
+    image: string;
+    alt: string;
+}                                // nur Flag
+    | {
+    kind: 'colleg';
+    title: string;
+    description: string;
+    image: string;
+    alt: string;
+    classNames: { container: string };
+};
+
+export const whatIsCollegData: Slide[] = [
     {
-        title: "Colleg 1",
-        description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        kind: 'hero',
         image: "woman.webp",
         alt: "What is Colleg image",
-        classNames: {
-            container: "bg-green-600",
-        }
     },
     {
-        title: "Colleg 2",
+        kind: 'colleg',
+        title: "Colleg 1",
         description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         image: "woman-bau.webp",
         alt: "Our Mission image",
@@ -18,9 +30,20 @@ export const whatIsCollegData = [
         }
     },
     {
-        title: "Colleg 3",
+        kind: 'colleg',
+        title: "Colleg 2",
         description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         image: "woman-photo.webp",
+        alt: "Join Us image",
+        classNames: {
+            container: "bg-red-600",
+        }
+    },
+    {
+        kind: 'colleg',
+        title: "Colleg 3",
+        description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        image: "woman.webp",
         alt: "Join Us image",
         classNames: {
             container: "bg-red-600",
