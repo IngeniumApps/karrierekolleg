@@ -46,7 +46,7 @@ export const whatIsCollegData: Slide[] = [
         image: "woman.webp",
         alt: "Join Us image",
         classNames: {
-            container: "bg-red-600",
+            container: "bg-yellow-600",
         }
     }
 ]

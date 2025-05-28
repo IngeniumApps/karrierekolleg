@@ -33,7 +33,7 @@ const useScrollYProgress = () => {
     return {scrollYProgress, ref}
 }
 
-export default function WhatIsCollegScroller() {
+export default function WhatIsCollegScroller({className}: { className?: string }) {
     const {ref: targetRefIndex1, scrollYProgress: scrollProgressIndex1} = useScrollYProgress();
     const {ref: targetRefIndex2, scrollYProgress: scrollProgressIndex2} = useScrollYProgress();
     const {ref: targetRefIndex3, scrollYProgress: scrollProgressIndex3} = useScrollYProgress();
@@ -41,7 +41,7 @@ export default function WhatIsCollegScroller() {
     const scrollProgressIndex0 = useMotionValue(1);
 
     return (
-        <>
+        <div className={className}>
             {/* Wrapper sorgt für gleiche Ränder + 2 Spalten */}
             <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5">
 
@@ -106,7 +106,7 @@ export default function WhatIsCollegScroller() {
                 </div>
 
             </div>
-        </>
+        </div>
     );
 }
 
