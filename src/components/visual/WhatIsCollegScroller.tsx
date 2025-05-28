@@ -5,6 +5,8 @@ import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
 import clsx from "clsx";
 import type {MotionValue} from "motion";
 import FadeDownOnScroll from "@components/visual/animation/FadeDownOnScroll.tsx";
+import {chatEntriesLeft, chatEntriesRight} from "../../constants/chatEntries.ts";
+import HeroChatBubble from "@components/visual/HeroChatBubbles.tsx";
 
 const DummyContent = () => {
     return (
@@ -35,47 +37,60 @@ export default function WhatIsCollegScroller() {
 
     return (
         <>
-            <section>
-                <div className="hidden lg:block h-screen sticky top-0 right-0 w-[50vw] ml-auto z-10">
-                    <div className="absolute inset-0">
-                        {/* mask */}
-                        {whatIsCollegData.map((item, index) => {
-                            return (
+            {/* Wrapper sorgt für gleiche Ränder + 2 Spalten */}
+            <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5">
+
+                {/* 1️⃣  Linke Text-Spalte  */}
+                <div>
+                    {whatIsCollegData.map((item, index) => (
+                        <FadeDownOnScroll key={index} className="z-10" duration={1} delay={1}>
+                            <WhatIsCollegSection
+                                {...item}
+                                ref={
+                                    index === 1 ? targetRefIndex1 :
+                                    index === 2 ? targetRefIndex2 : null
+                                }
+                            />
+                        </FadeDownOnScroll>
+                    ))}
+                </div>
+
+                {/* 2️⃣  Rechte Sticky-Spalte  */}
+                <div className="hidden lg:block z-10">
+                    <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))]">
+
+                        {/* Mask-Bilder */}
+                            {whatIsCollegData.map((item, idx) => (
                                 <WipeContainer
-                                    key={index}
+                                    key={idx}
                                     alt={item.alt}
-                                    imageUrl={`${item.image}`}
-                                    scrollYProgress={index === 0 ? scrollProgressIndex0 : index === 1 ? scrollProgressIndex1 : scrollProgressIndex2 }
+                                    imageUrl={item.image}
+                                    scrollYProgress={
+                                        idx === 0 ? scrollProgressIndex0 :
+                                            idx === 1 ? scrollProgressIndex1 : scrollProgressIndex2
+                                    }
                                 />
-                            );
-                        })}
-                    </div>
-                    <div className="absolute bottom-0 left-0 -translate-x-1/2 z-20 h-[60px]">
-                        <div className="bg-white text-primary font-bold border border-primary
-                        px-8 py-4 rounded-full shadow-md text-center text-sm animate-bounce pointer-events-none">
-                            ↓ Scroll weiter
+                            ))}
+
+                        {/* 🔵 Kreis */}
+                        <div className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33]" />
+
+                        {/* 💬 Chat-Bubbles */}
+                        <HeroChatBubble position="top-[50%] left-0" delayOffset={0}  entries={chatEntriesLeft} />
+                        <HeroChatBubble position="bottom-[60px] right-0" delayOffset={1500} entries={chatEntriesRight} />
+
+                        {/* Scroll-Hint */}
+                        <div className="absolute bottom-0 left-0 -translate-x-1/2 h-[60px]">
+                            <div className="bg-white text-primary font-bold border border-primary
+                          px-8 py-4 rounded-full shadow-md text-sm animate-bounce
+                          pointer-events-none">
+                                ↓ Scroll weiter
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="lg:-mt-[100vh]">
-                    {whatIsCollegData.map((item, index) => {
-                        return (
-                            <>
-                                <FadeDownOnScroll className="z-10" duration={1} delay={1}>
-                                    <WhatIsCollegSection
-                                        key={index}
-                                        {...item}
-                                        ref={index === 1 ? targetRefIndex1 : index === 2 ? targetRefIndex2 : null}
-                                    />
-                                </FadeDownOnScroll>
-                            </>
-                        )
-                    })}
-                </div>
-            </section>
-
-            <DummyContent/>
+            </div>
         </>
     );
 }
@@ -85,13 +100,15 @@ const WhatIsCollegSection = forwardRef<HTMLDivElement, (typeof whatIsCollegData)
         return (
             <div
                 ref={ref}
-                className={clsx(`z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 h-full min-h-screen lg:pt-36 pt-26`,
-                    //classNames.container
+                className={clsx("" +
+                    "z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center",
+                    // Backgroundcolor for debugging purposes
+                    // classNames.container
                 )}
             >
-                <div className="flex flex-col h-full min-h-0 overflow-hidden justify-center px-6">
+                <div className="px-6">
                     <div className="lg:text-left self-center text-center">
-                        <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight text-gray-900">
+                        <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
                             <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
               <span className="relative z-[1] text-primary">{title}</span>
               <UnderlineBrush
@@ -102,7 +119,7 @@ const WhatIsCollegSection = forwardRef<HTMLDivElement, (typeof whatIsCollegData)
             </span>
                         </h1>
 
-                        <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                        <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                             {description}
                         </p>
                     </div>
@@ -127,10 +144,11 @@ const WipeContainer = ({
         <motion.div className={clsx(
             "absolute inset-0",
             "[mask-image:linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1))]",
-            "bg-white",
+            "bg-transparent",
             "[mask-size:100%_0%]",
             "[mask-position:center_bottom]",
-            "[mask-repeat:no-repeat]"
+            "[mask-repeat:no-repeat]",
+            "z-10"
         )}
                     style={{
                         maskSize: transformedMask
