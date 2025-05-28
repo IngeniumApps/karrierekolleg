@@ -96,8 +96,8 @@ export default function WhatIsCollegScroller({className}: { className?: string }
 
                         {/* Scroll-Hint */}
                         <div className="absolute bottom-0 left-0 -translate-x-1/2 -ml-[0.625rem] h-[60px]">
-                            <div className="bg-white text-primary font-bold border border-primary
-                          px-8 py-4 rounded-full shadow-md text-sm animate-bounce
+                            <div className="
+                          px-8 py-4 text-sm animate-bounce
                           pointer-events-none">
                                 ↓ Scroll weiter
                             </div>
