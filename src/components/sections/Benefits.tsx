@@ -24,6 +24,7 @@ export const Benefits = () => {
                     imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
                     subheading="Lorem ipsum dolor sit amet"
                     heading="USP 1"
+                    color="text-pink"
                 >
                     <FadeDownOnScroll duration={1}>
                         <ExampleContent
@@ -40,6 +41,7 @@ export const Benefits = () => {
                     imgUrl="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=2560&q=80"
                     subheading="Lorem ipsum dolor sit amet"
                     heading="USP 2"
+                    color="text-yellow"
                 >
                     <FadeDownOnScroll duration={1}>
                         <ExampleContent
@@ -56,6 +58,7 @@ export const Benefits = () => {
                     imgUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=2560&q=80"
                     subheading="Lorem ipsum dolor sit amet"
                     heading="USP 3"
+                    color="text-orange"
                 >
                     <FadeDownOnScroll duration={1}>
                         <ExampleContent
@@ -78,6 +81,7 @@ interface TextParallaxContentProps {
     imgUrl: string;
     subheading: string;
     heading: string;
+    color?: string;
     children: React.ReactNode;
 }
 
@@ -85,13 +89,14 @@ const TextParallaxContent = ({
                                  imgUrl,
                                  subheading,
                                  heading,
+                                 color,
                                  children,
                              }: TextParallaxContentProps) => {
     return (
         <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
             <div className="relative h-[100vh]">
                 <StickyImage imgUrl={imgUrl} />
-                <OverlayCopy heading={heading} subheading={subheading} />
+                <OverlayCopy heading={heading} subheading={subheading} textColor={color}/>
             </div>
             {children}
         </div>
@@ -111,7 +116,7 @@ const StickyImage = ({ imgUrl }: StickyImageProps) => {
 
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
     const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-    const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "9999px"]);
+    // const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "9999px"]);
 
     return (
         <motion.div
@@ -123,15 +128,15 @@ const StickyImage = ({ imgUrl }: StickyImageProps) => {
                 height: `calc(100vh - ${IMG_PADDING * 2}px)`,
                 top: IMG_PADDING,
                 scale,
-                borderRadius
+                // borderRadius, // Uncomment if you want rounded corners
             }}
-            className="sticky z-0 overflow-hidden shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.3)]"
+            className="sticky z-0 overflow-hidden"
         >
             {/* Farbverlauf: Übergang von Bild ins Blau des Headers */}
             <motion.div
-                className="absolute inset-0 z-10"
+                className="absolute inset-0 z-10 backdrop-glass"
                 style={{
-                    background: `linear-gradient(to top, rgba(44,111,160,0.6), rgba(44,111,160,0.9))`,
+                    background: `linear-gradient(to top, rgba(44,111,160,0.8), rgba(255,255,255,1))`,
                     opacity,
                 }}
             />
@@ -144,9 +149,10 @@ const StickyImage = ({ imgUrl }: StickyImageProps) => {
 interface OverlayCopyProps {
     subheading: string;
     heading: string;
+    textColor?: string;
 }
 
-const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
+const OverlayCopy = ({ subheading, heading, textColor="text-accent" }: OverlayCopyProps) => {
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -160,9 +166,9 @@ const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
         <motion.div
             style={{ y, opacity }}
             ref={targetRef}
-            className="absolute left-0 top-0 z-20 flex h-screen w-full flex-col items-center justify-center text-white px-4"
+            className={`absolute left-0 top-0 z-20 flex h-screen w-full flex-col items-center justify-center ${textColor} px-4`}
         >
-            <p className="mb-2 text-center text-xl tracking-wide text-accent md:mb-4 md:text-3xl">
+            <p className="mb-2 text-center text-xl tracking-wide text-white md:mb-4 md:text-3xl">
                 {subheading}
             </p>
             <p className="text-center text-4xl font-bold tracking-tight  drop-shadow-lg md:text-7xl">
@@ -175,6 +181,7 @@ const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
 interface ExampleContentProps {
     title: string;
     paragraphs: string[];
+    color?: string;
 }
 
 const ExampleContent = ({ title, paragraphs }: ExampleContentProps) => (
