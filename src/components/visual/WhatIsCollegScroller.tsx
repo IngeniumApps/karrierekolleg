@@ -41,7 +41,7 @@ export default function WhatIsCollegScroller() {
             <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5">
 
                 {/* 1️⃣  Linke Text-Spalte  */}
-                <div>
+                <div className="">
                     {whatIsCollegData.map((item, index) => (
                         <FadeDownOnScroll key={index} className="z-10" duration={1} delay={1}>
                             <WhatIsCollegSection
@@ -80,7 +80,7 @@ export default function WhatIsCollegScroller() {
                         <HeroChatBubble position="bottom-[60px] right-0" delayOffset={1500} entries={chatEntriesRight} />
 
                         {/* Scroll-Hint */}
-                        <div className="absolute bottom-0 left-0 -translate-x-1/2 h-[60px]">
+                        <div className="absolute bottom-0 left-0 -translate-x-1/2 -ml-[0.625rem] h-[60px]">
                             <div className="bg-white text-primary font-bold border border-primary
                           px-8 py-4 rounded-full shadow-md text-sm animate-bounce
                           pointer-events-none">
