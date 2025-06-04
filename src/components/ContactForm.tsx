@@ -19,7 +19,9 @@ export default function ContactForm() {
         message: '',
         privacy: false,
     });
+    const [errors, setErrors] = useState<{ area?: string; message?: string }>({});
     const [submitted, setSubmitted] = useState(false);
+    const [formErrorSummary, setFormErrorSummary] = useState<string | null>(null);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -30,9 +32,27 @@ export default function ContactForm() {
         setForm((prev) => ({...prev, [name]: newValue}));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        const newErrors: { area?: string; message?: string } = {};
+        if (!form.area) newErrors.area = "Bitte wähle einen Bereich.";
+        if (!form.message) newErrors.message = "Bitte gib eine Nachricht ein.";
         if (!form.privacy) return;
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            setFormErrorSummary("Bitte überprüfe die markierten Felder.");
+            return;
+        } else {
+            setFormErrorSummary(null);
+        }
+
+        alert(
+            `📩 Kontaktformular ausgefüllt – Datenübermittlung ist aktuell noch deaktiviert.\n\n` +
+            `Studienrichtung: ${form.area}\n` +
+            `Nachricht:\n${form.message}`
+        );
         setSubmitted(true);
     };
 
@@ -52,31 +72,16 @@ export default function ContactForm() {
     return (
         <form
             onSubmit={handleSubmit}
+            noValidate
             className="bg-white/60 backdrop-blur-lg border border-white/30 shadow-2xl rounded-3xl p-8 w-full max-w-2xl mx-auto text-left space-y-6"
         >
-            {/*<div className="flex items-center gap-2 text-primary font-semibold">*/}
-            {/*    <GraduationCapIcon className="w-6 h-6" />*/}
-            {/*    Kolleg-Bereich*/}
-            {/*</div>*/}
-            {/*<select*/}
-            {/*    name="area"*/}
-            {/*    required*/}
-            {/*    value={form.area}*/}
-            {/*    onChange={handleChange}*/}
-            {/*    className="w-full mt-1 rounded-xl bg-white px-4 py-3 pr-12 text-sm shadow-inner border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary appearance-none relative"*/}
-            {/*>*/}
-            {/*    <option value="">Bitte wählen …</option>*/}
-            {/*    {areas.map((s) => (*/}
-            {/*        <option key={s} value={s}>{s}</option>*/}
-            {/*    ))}*/}
-            {/*</select>*/}
-
             <DropdownSelect
                 label={"Kolleg-Bereich"}
                 value={form.area}
                 onChange={(val) =>
                     setForm((prev) => ({...prev, area: val}))
                 }
+                error={errors.area}
             />
 
             <div className="flex items-center gap-2 text-primary font-semibold">
@@ -90,8 +95,16 @@ export default function ContactForm() {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="Wie können wir dir helfen?"
-                className="cursor-none w-full rounded-xl bg-white/90 px-4 py-3 text-sm shadow-inner border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                className={clsx(
+                    "cursor-none w-full rounded-xl bg-white/90 px-4 py-3 text-sm shadow-inner border transition-all duration-300 resize-none",
+                    errors.message ? "border-red-500 ring-1 ring-red-300" : "border-gray-200 focus:ring-2 focus:ring-primary"
+                )}
             />
+            {errors.message && (
+                <p className="-mt-5 text-sm text-red-500 font-medium pl-1">
+                    {errors.message}
+                </p>
+            )}
 
             <label className="flex items-start gap-2 text-sm text-gray-700 select-none cursor-none">
                 <input
@@ -127,6 +140,11 @@ export default function ContactForm() {
             >
                 Nachricht senden
             </button>
+            {formErrorSummary && (
+                <div className="mt-4 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3 shadow">
+                    {formErrorSummary}
+                </div>
+            )}
         </form>
     );
 }

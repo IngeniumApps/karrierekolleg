@@ -14,6 +14,7 @@ interface DropdownSelectProps {
     label?: string;
     value: string;
     onChange: (val: string) => void;
+    error?: string;
 }
 
 const wrapperVariants = {
@@ -48,7 +49,7 @@ const itemVariants = {
     },
 };
 
-const DropdownSelect = ({ label, value, onChange }: DropdownSelectProps) => {
+const DropdownSelect = ({ label, value, onChange, error }: DropdownSelectProps) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -61,13 +62,18 @@ const DropdownSelect = ({ label, value, onChange }: DropdownSelectProps) => {
                 <div
                     onClick={() => setOpen((pv) => !pv)}
                     className={clsx(
-                        "w-full rounded-xl bg-white px-4 py-3 text-sm shadow-inner border border-gray-200 focus-within:ring-2 focus-within:ring-primary transition-all appearance-none select-none cursor-none",
-                        value ? "text-gray-900" : "text-gray-400"
+                        "w-full rounded-xl bg-white px-4 py-3 text-sm shadow-inner border focus-within:ring-2 focus-within:ring-primary transition-all appearance-none select-none cursor-none",
+                        value ? "text-gray-900" : "text-gray-400",
+                        error ? "border-red-500" : "border-gray-200" // 👈 Fehlerfarbe nur bei error
                     )}
                 >
                     {value || "Bitte wählen …"}
                 </div>
             </div>
+            {/* Fehleranzeige */}
+            {error && (
+                <p className="mt-2 text-sm text-red-600">{error}</p>
+            )}
 
             {/* Dropdown-List */}
             {open && (
