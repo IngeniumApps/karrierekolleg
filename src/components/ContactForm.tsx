@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 import clsx from 'clsx';
 import GraduationCapIcon from "../assets/icons/custom/GraduationCapIcon.tsx";
 import MessageIcon from "../assets/icons/custom/MessageIcon.tsx";
@@ -24,10 +24,10 @@ export default function ContactForm() {
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
-        const { name, type, value } = e.target;
+        const {name, type, value} = e.target;
         const newValue =
             type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
-        setForm((prev) => ({ ...prev, [name]: newValue }));
+        setForm((prev) => ({...prev, [name]: newValue}));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -75,12 +75,12 @@ export default function ContactForm() {
                 label={"Kolleg-Bereich"}
                 value={form.area}
                 onChange={(val) =>
-                    setForm((prev) => ({ ...prev, area: val }))
+                    setForm((prev) => ({...prev, area: val}))
                 }
             />
 
             <div className="flex items-center gap-2 text-primary font-semibold">
-                <MessageIcon className="w-6 h-6 text-primary shrink-0" />
+                <MessageIcon className="w-6 h-6 text-primary shrink-0"/>
                 Deine Nachricht
             </div>
             <textarea
@@ -93,21 +93,27 @@ export default function ContactForm() {
                 className="cursor-none w-full rounded-xl bg-white/90 px-4 py-3 text-sm shadow-inner border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
             />
 
-            <div className="flex items-start gap-2 text-sm">
+            <label className="flex items-start gap-2 text-sm text-gray-700 select-none cursor-none">
                 <input
                     type="checkbox"
                     name="privacy"
                     checked={form.privacy}
                     onChange={handleChange}
                     required
-                    className="mt-1 accent-primary rounded-sm"
+                    className="mt-1 accent-primary rounded-sm pointer-events-none"
                 />
-                Ich stimme der Verarbeitung meiner Daten laut
-                <a href={`${import.meta.env.BASE_URL}datenschutz/`} className="underline text-primary hover:text-primary/80">
-                    Datenschutzerklärung
-                </a>
-                zu.
-            </div>
+                <span>
+    Ich stimme der Verarbeitung meiner Daten laut{' '}
+                    <a
+                        href={`${import.meta.env.BASE_URL}datenschutz/`}
+                        className="underline text-primary hover:text-primary/80 cursor-none"
+                        onClick={(e) => e.stopPropagation()} // ← verhindert, dass Klick auf Link Checkbox toggelt
+                    >
+      Datenschutzerklärung
+    </a>{' '}
+                    zu.
+  </span>
+            </label>
 
             <button
                 type="submit"
@@ -116,7 +122,7 @@ export default function ContactForm() {
                     'w-full py-3 px-6 rounded-full font-semibold text-lg transition-all duration-300',
                     form.privacy
                         ? 'bg-accent border border-accent shadow-md hover:brightness-110'
-                        : 'bg-white text-primary border border-primary shadow-sm cursor-not-allowed'
+                        : 'bg-white text-primary border border-primary shadow-sm cursor-not-allowed pointer-events-none',
                 )}
             >
                 Nachricht senden
