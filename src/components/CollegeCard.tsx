@@ -40,7 +40,7 @@ export default function CollegeCard({
             <div className="relative -mt-12 mx-6 bg-white p-6 z-10 h-full">
         <span
             className={clsx(
-                'inline-block mb-2 text-xs font-semibold text-white px-3 py-1 rounded-full',
+                `inline-block mb-2 text-xs font-semibold ${color === "bg-ortwein" ? "text-gray-800" : "text-white"} px-3 py-1 rounded-full`,
                 color
             )}
         >

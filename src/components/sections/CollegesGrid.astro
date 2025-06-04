@@ -46,7 +46,7 @@ const topicColors: Record<Topic, string> = {
           .map(([topic, list]) => (
           <div class="text-left mb-28" id={topic.toLowerCase().replace(/ /g, '-')}>
             <!-- 🏷 Überschrift -->
-            <h3 class={`text-3xl font-bold mb-2 text-${topicColors[topic as Topic] ?? 'text-primary'}`}>
+            <h3 class="text-3xl font-bold mb-2">
               {topic}
             </h3>
 

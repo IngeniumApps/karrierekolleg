@@ -17,10 +17,10 @@ export default function CustomCursor() {
   const width = useMotionValue(32);
   const height = useMotionValue(32);
 
-  const smoothX = useSpring(x, { stiffness: 800, damping: 40 });
-  const smoothY = useSpring(y, { stiffness: 800, damping: 40 });
-  const smoothW = useSpring(width, { stiffness: 800, damping: 40 });
-  const smoothH = useSpring(height, { stiffness: 800, damping: 40 });
+  const smoothX = useSpring(x, { stiffness: 1000, damping: 40 });
+  const smoothY = useSpring(y, { stiffness: 1000, damping: 40 });
+  const smoothW = useSpring(width, { stiffness: 1000, damping: 40 });
+  const smoothH = useSpring(height, { stiffness: 1000, damping: 40 });
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {

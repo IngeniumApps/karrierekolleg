@@ -27,6 +27,13 @@ export default {
         orange: '#f79d43',
         lavendel: '#d7c0db',
         dark_orange: '#f06359',
+        ortwein: "#ffed00",
+        chemie_kolleg: "#7d9ac8",
+        bulme_e_technologie: "#de5428",
+        bulme_elektrotechnik: "#a2cb3e",
+        bulme_maschinenbau: "#7bb7e5",
+        bulme_informatik: "#a2cb3e",
+        ingenium: "#009fe3"
       },
     }
   },
