@@ -71,7 +71,7 @@ export const colleges = [
     },
     {
         name: "Kolleg für Grafik- und Kommunikationsdesign",
-        topic: "Design",
+        topic: "Kunst und Design",
         school: "HTL Ortweinschule",
         link: "https://www.ortweinschule.at/portfolio/abendkolleg-grafik-und-kommunikationsdesign/",
         color: "bg-ortwein",
