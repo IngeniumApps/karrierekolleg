@@ -12,7 +12,7 @@ Dies ist die zentrale Aufgabenliste für die Umsetzung der Landingpage **karrier
 - [ ] Komponenten-Gerüst erstellen:
   - [ ] `HeroSection.astro`
   - [ ] `IntroSection.astro`
-  - [ ] `BenefitsSection.astro`
+  - [ ] `Benefits.astro`
   - [ ] `StructureSection.astro`
   - [ ] `SkillsSection.astro`
   - [ ] `RecognitionSection.astro`

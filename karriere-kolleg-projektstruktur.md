@@ -10,7 +10,7 @@ Dies ist der strukturierte Plan zur Umsetzung der Landingpage auf Basis der Desi
 | ----------------------- | ---------------------------------------------- | -------------------------- |
 | Hero                    | Slogan + Call to Action                        | `HeroSection.astro`        |
 | Was ist ein Kolleg?     | Textblock (Ausbildungsform, Einleitung)        | `IntroSection.astro`       |
-| Vorteile                | Liste + Icons (USP)                            | `BenefitsSection.astro`    |
+| Vorteile                | Liste + Icons (USP)                            | `Benefits.astro`    |
 | Aufbau & Formen         | Kurzbeschreibung (Vollzeit / Berufsbegleitend) | `StructureSection.astro`   |
 | Kompetenzen             | Soft & Hard Skills, berufliche Skills          | `SkillsSection.astro`      |
 | Anerkennung / Bachelor  | Textblock über NQR6, Anrechenbarkeit etc.      | `RecognitionSection.astro` |
@@ -35,7 +35,7 @@ src/
 │   └── DesktopNavigation.astro
 │   └── HeroSection.astro
 │   └── IntroSection.astro
-│   └── BenefitsSection.astro
+│   └── Benefits.astro
 │   └── StructureSection.astro
 │   └── SkillsSection.astro
 │   └── RecognitionSection.astro
