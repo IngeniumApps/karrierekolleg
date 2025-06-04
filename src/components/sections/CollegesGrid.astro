@@ -5,18 +5,27 @@ const { id } = Astro.props;
 
 // Themengruppen
 const groupedColleges = {
-  "Technik & Informatik": colleges.filter(
-      (c) => c.topic === "Technik" || c.topic === "Informatik"
+  "Technik & Informatik (Tageskolleg)": colleges.filter(
+      (c) => (c.topic === "Technik" || c.topic === "Informatik") && c.mode === "Tageskolleg"
   ),
-  "Design": colleges.filter((c) => c.topic === "Design"),
-  "Bau & Architektur": colleges.filter((c) => c.topic === "Bau & Architektur"),
+  "Technik & Informatik (Abendkolleg)": colleges.filter(
+      (c) => (c.topic === "Technik" || c.topic === "Informatik") && c.mode === "Abendkolleg"
+  ),
+  "Design": colleges.filter((c) => c.topic === "Design" || c.topic === "Kunst und Design"),
+  "Bau & Architektur": colleges.filter((c) => c.topic === "Bau & Architektur" || c.topic === "Bautechnik"),
   "Naturwissenschaft": colleges.filter((c) => c.topic === "Naturwissenschaft"),
 };
 
-type Topic = "Technik & Informatik" | "Design" | "Bau & Architektur" | "Naturwissenschaft";
+type Topic =
+    | "Technik & Informatik (Tageskolleg)"
+    | "Technik & Informatik (Abendkolleg)"
+    | "Design"
+    | "Bau & Architektur"
+    | "Naturwissenschaft";
 
 const topicColors: Record<Topic, string> = {
-  "Technik & Informatik": "primary",
+  "Technik & Informatik (Tageskolleg)": "primary",
+  "Technik & Informatik (Abendkolleg)": "primary",
   "Design": "pink",
   "Bau & Architektur": "orange",
   "Naturwissenschaft": "red",
@@ -53,11 +62,14 @@ const topicColors: Record<Topic, string> = {
             <!-- 📝 Einleitung -->
             <p class="text-gray-600 mb-10 max-w-3xl">
               {
-                topic === 'Technik & Informatik' ? 'Praktisch, zukunftsorientiert und gefragt – Technik- und Informatik-Kollegs bereiten dich optimal auf Industrie, IT und Digitalisierung vor.'
-                    : topic === 'Design' ? 'Gestalten, entwerfen, kreativ denken – Kollegs im Design-Bereich fördern deine gestalterische Stärke.'
-                        : topic === 'Bau & Architektur' ? 'Du willst Räume planen, Bauwerke entwerfen und mit Technik verbinden? Diese Kollegs bieten dir eine solide Grundlage.'
-                            : topic === 'Naturwissenschaft' ? 'Wenn du experimentierst, analysierst und forschst – entdecke naturwissenschaftliche Kollegs.'
-                                : 'Diese Kollegs könnten dich ebenfalls interessieren.'
+                topic === 'Technik & Informatik (Tageskolleg)'
+                    ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                    : topic === 'Technik & Informatik (Abendkolleg)'
+                        ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                        : topic === 'Design' ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                        : topic === 'Bau & Architektur' ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                            : topic === 'Naturwissenschaft' ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                                : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
               }
             </p>
 

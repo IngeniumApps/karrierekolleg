@@ -6,6 +6,7 @@ export const colleges = [
         link: "https://www.bulme.at/e-technologies-17-plus/e-technologies-abendkolleg/",
         color: "bg-bulme_e_technologie",
         image: "https://picsum.photos/seed/etech/800/600",
+        mode: "Abendkolleg",
     },
     {
         name: "Abendkolleg Elektronik & Technische Informatik",
@@ -14,6 +15,7 @@ export const colleges = [
         link: "https://www.bulme.at/elektronik-technische-informatik-17-plus/elektronik-und-technische-informatik-abend-htl-2/",
         color: "bg-bulme_elektrotechnik",
         image: "https://picsum.photos/seed/eti/800/600",
+        mode: "Abendkolleg",
     },
     {
         name: "Abendkolleg Maschinenbau",
@@ -22,6 +24,7 @@ export const colleges = [
         link: "https://www.bulme.at/e-technologies-17/maschinenbau-abendkolleg/",
         color: "bg-bulme_maschinenbau",
         image: "https://picsum.photos/seed/maschinenbau1/800/600",
+        mode: "Abendkolleg",
     },
     {
         name: "Kolleg für Informatik für Berufstätige",
@@ -30,14 +33,25 @@ export const colleges = [
         link: "https://www.ingenium.co.at/studium/informatik/it-kolleg",
         color: "bg-ingenium",
         image: "https://picsum.photos/seed/it-kolleg/800/600",
+        mode: "Abendkolleg",
     },
     {
-        name: "Kolleg für Bautechnik (Tag und Abend)",
+        name: "Abendkolleg Kolleg für Bautechnik",
         topic: "Bautechnik",
         school: "HTL Ortweinschule",
         link: "https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/",
         color: "bg-ortwein",
         image: "https://picsum.photos/seed/bautechnik/800/600",
+        mode: "Abendkolleg",
+    },
+    {
+        name: "Tageskolleg Kolleg für Bautechnik",
+        topic: "Bautechnik",
+        school: "HTL Ortweinschule",
+        link: "https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/",
+        color: "bg-ortwein",
+        image: "https://picsum.photos/seed/bautechnik/800/600",
+        mode: "Tageskolleg",
     },
     {
         name: "Kolleg für Chemie",
@@ -70,6 +84,7 @@ export const colleges = [
         link: "https://www.bulme.at/elektronik-technische-informatik-17-plus/informatik-tageskolleg/",
         color: "bg-bulme_informatik",
         image: "https://picsum.photos/seed/informatik/800/600",
+        mode: "Tageskolleg",
     },
     {
         name: "Tageskolleg Maschinenbau",
@@ -78,5 +93,6 @@ export const colleges = [
         link: "https://www.bulme.at/e-technologies-17/maschinenbau-tageskolleg/",
         color: "bg-bulme_maschinenbau",
         image: "https://picsum.photos/seed/maschinenbau2/800/600",
+        mode: "Tageskolleg",
     },
 ];
