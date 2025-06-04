@@ -13,14 +13,19 @@ export default function ImageScrollSlider({
 
     // Berechne Bildindex abhängig vom Scrollfortschritt
     //const imgIndex = useTransform(scrollYProgress, [0, 1], [0, images.length - 1]);
-
     useEffect(() => {
-        const unsubscribes = progressList.map((progress, i) =>
-            progress.on("change", (v) => {
-                if (v > 0.5) {
-                    setActiveIndex(i);
+        const updateIndex = () => {
+            let highestVisibleIndex = 0;
+            for (let i = 0; i < progressList.length; i++) {
+                if (progressList[i].get() > 0.5) {
+                    highestVisibleIndex = i;
                 }
-            })
+            }
+            setActiveIndex(highestVisibleIndex);
+        };
+
+        const unsubscribes = progressList.map((progress) =>
+            progress.on("change", updateIndex)
         );
 
         return () => {
@@ -28,13 +33,22 @@ export default function ImageScrollSlider({
         };
     }, [progressList]);
 
-    const x = `-${activeIndex * 100}%`;
 
-    // const x = useTransform(imgIndex, (index) => `-${Math.round(index) * 100}%`);
+    // useEffect(() => {
+    //     const unsubscribes = progressList.map((progress, i) =>
+    //         progress.on("change", (v) => {
+    //             if (v > 0.5) {
+    //                 setActiveIndex(i);
+    //             }
+    //         })
+    //     );
     //
-    // useMotionValueEvent(imgIndex, "change", (latest) => {
-    //     setActiveIndex(Math.round(latest));
-    // });
+    //     return () => {
+    //         unsubscribes.forEach((unsubscribe) => unsubscribe());
+    //     };
+    // }, [progressList]);
+
+    const x = `-${activeIndex * 100}%`;
 
     return (
         <div className="absolute inset-0 overflow-hidden z-10 rounded-xl">
@@ -48,15 +62,17 @@ export default function ImageScrollSlider({
                     damping: 40,
                 }}
             >
-                {images.map((img, idx) => (
-                    <div
-                        key={idx}
-                        className="w-full h-full shrink-0 bg-cover bg-center"
-                        style={{
-                            backgroundImage: `url(${img})`,
-                        }}
-                    />
-                ))}
+                {images.map((img, idx) => {
+                    return (
+                        <div
+                            key={idx}
+                            className="w-full h-full shrink-0 bg-cover bg-center"
+                            style={{
+                                backgroundImage: `url(${img})`,
+                            }}
+                        />
+                    )
+                })}
             </motion.div>
         </div>
     );
