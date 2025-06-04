@@ -24,7 +24,7 @@ export const colleges = [
         image: "https://picsum.photos/seed/maschinenbau1/800/600",
     },
     {
-        name: "IT-Kolleg – Kolleg für Informatik",
+        name: "Kolleg für Informatik für Berufstätige",
         topic: "Informatik",
         school: "Ingenium Education",
         link: "https://www.ingenium.co.at/studium/informatik/it-kolleg",
