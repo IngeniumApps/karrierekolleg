@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-export default function CustomCursor() {
+export function CustomCursor() {
   // Diese Prüfung verhindert fälschliches Laden auf Touch-Devices
   if (typeof window === 'undefined') return null;
 
@@ -17,10 +17,10 @@ export default function CustomCursor() {
   const width = useMotionValue(32);
   const height = useMotionValue(32);
 
-  const smoothX = useSpring(x, { stiffness: 1000, damping: 40 });
-  const smoothY = useSpring(y, { stiffness: 1000, damping: 40 });
-  const smoothW = useSpring(width, { stiffness: 1000, damping: 40 });
-  const smoothH = useSpring(height, { stiffness: 1000, damping: 40 });
+  const smoothX = useSpring(x, {stiffness: 1000, damping: 60});
+  const smoothY = useSpring(y, {stiffness: 1000, damping:60});
+  const smoothW = useSpring(width, {stiffness: 1000, damping: 60});
+  const smoothH = useSpring(height, {stiffness: 1000, damping:60});
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
@@ -64,8 +64,8 @@ export default function CustomCursor() {
       <motion.div
           className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-multiply"
           style={{
-            x: smoothX,
-            y: smoothY,
+            x: x,
+            y: y,
             width: smoothW,
             height: smoothH,
             borderRadius: isActive ? 6 : '50%',
