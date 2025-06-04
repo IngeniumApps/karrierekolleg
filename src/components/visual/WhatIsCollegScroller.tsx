@@ -1,5 +1,5 @@
-import {motion, useMotionValue, useScroll, useTransform} from "framer-motion";
-import {forwardRef, useRef} from "react";
+import {motion, useMotionValue, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+import {forwardRef, useRef, useState} from "react";
 import {whatIsCollegData} from "../../constants/whatIsCollegData.ts";
 import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
 import clsx from "clsx";
@@ -9,6 +9,7 @@ import {chatEntriesLeft, chatEntriesRight} from "../../constants/chatEntries.ts"
 import HeroChatBubble from "@components/visual/HeroChatBubbles.tsx";
 import HeroLeftContent from "@components/visual/HeroLeftContent.tsx";
 import type {Slide} from "../../constants/whatIsCollegData.ts";
+import ImageScrollSlider from "@components/visual/animation/ImageScrollSlider.tsx";
 
 type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 
@@ -34,11 +35,22 @@ const useScrollYProgress = () => {
 }
 
 export default function WhatIsCollegScroller({className}: { className?: string }) {
+    const scrollProgressIndex0 = useMotionValue(1);
     const {ref: targetRefIndex1, scrollYProgress: scrollProgressIndex1} = useScrollYProgress();
     const {ref: targetRefIndex2, scrollYProgress: scrollProgressIndex2} = useScrollYProgress();
     const {ref: targetRefIndex3, scrollYProgress: scrollProgressIndex3} = useScrollYProgress();
 
-    const scrollProgressIndex0 = useMotionValue(1);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useMotionValueEvent(scrollProgressIndex1, "change", (v) => {
+        if (v > 0.5) setActiveIndex(1);
+    });
+    useMotionValueEvent(scrollProgressIndex2, "change", (v) => {
+        if (v > 0.5) setActiveIndex(2);
+    });
+    useMotionValueEvent(scrollProgressIndex3, "change", (v) => {
+        if (v > 0.5) setActiveIndex(3);
+    });
 
     return (
         <div className={className}>
@@ -74,18 +86,15 @@ export default function WhatIsCollegScroller({className}: { className?: string }
                     <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))]">
 
                         {/* Mask-Bilder */}
-                            {whatIsCollegData.map((item, index) => (
-                                <WipeContainer
-                                    key={index}
-                                    alt={item.alt}
-                                    imageUrl={item.image}
-                                    scrollYProgress={
-                                        index === 0 ? scrollProgressIndex0 :
-                                            index === 1 ? scrollProgressIndex1 :
-                                                index === 2 ? scrollProgressIndex2 : scrollProgressIndex3
-                                    }
-                                />
-                            ))}
+                        <ImageScrollSlider
+                            progressList={[
+                                scrollProgressIndex0,
+                                scrollProgressIndex1,
+                                scrollProgressIndex2,
+                                scrollProgressIndex3,
+                            ]}
+                            images={whatIsCollegData.map((i) => `${import.meta.env.BASE_URL}images/${i.image}`)}
+                        />
 
                         {/* 🔵 Kreis */}
                         <div className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33]" />
@@ -142,33 +151,3 @@ const WhatIsCollegSection = forwardRef<HTMLDivElement, CollegSlide>(
             </div>
         );
     });
-
-const WipeContainer = ({
-                           alt,
-                           imageUrl,
-                           scrollYProgress
-                       }: {
-    alt: string;
-    imageUrl: string;
-    scrollYProgress: MotionValue<number>;
-}) => {
-
-    const transformedMask = useTransform(scrollYProgress, [0, 1], ["100% 0%", "100% 100%"]);
-
-    return (
-        <motion.div className={clsx(
-            "absolute inset-0",
-            "[mask-image:linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1))]",
-            "bg-transparent",
-            "[mask-size:100%_0%]",
-            "[mask-position:center_bottom]",
-            "[mask-repeat:no-repeat]",
-            "z-10"
-        )}
-                    style={{
-                        maskSize: transformedMask
-                    }}>
-            <img src={`${import.meta.env.BASE_URL}images/${imageUrl}`} alt={alt} className="w-full h-full object-cover"/>
-        </motion.div>
-    )
-}
