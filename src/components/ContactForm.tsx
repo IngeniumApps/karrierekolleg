@@ -96,8 +96,10 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Wie können wir dir helfen?"
                 className={clsx(
-                    "cursor-none w-full rounded-xl bg-white/90 px-4 py-3 text-sm shadow-inner border transition-all duration-300 resize-none",
-                    errors.message ? "border-red-500 ring-1 ring-red-300" : "border-gray-200 focus:ring-2 focus:ring-primary"
+                    "cursor-none w-full rounded-xl bg-white/90 px-4 py-3 text-sm shadow-inner border transition-all duration-150 resize-none focus:outline-none",
+                    errors.message
+                        ? "border-red-500"
+                        : "border-gray-200 focus:border-primary"
                 )}
             />
             {errors.message && (

@@ -62,9 +62,9 @@ const DropdownSelect = ({ label, value, onChange, error }: DropdownSelectProps) 
                 <div
                     onClick={() => setOpen((pv) => !pv)}
                     className={clsx(
-                        "w-full rounded-xl bg-white px-4 py-3 text-sm shadow-inner border focus-within:ring-2 focus-within:ring-primary transition-all appearance-none select-none cursor-none",
+                        "w-full rounded-xl bg-white px-4 py-3 text-sm shadow-inner border transition-all duration-150 appearance-none select-none cursor-none",
                         value ? "text-gray-900" : "text-gray-400",
-                        error ? "border-red-500" : "border-gray-200" // 👈 Fehlerfarbe nur bei error
+                        error ? "border-red-500" : open ? "border-primary" : "border-gray-200"
                     )}
                 >
                     {value || "Bitte wählen …"}
