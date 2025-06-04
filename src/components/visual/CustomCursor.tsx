@@ -11,6 +11,7 @@ export function CustomCursor() {
   if (!isDesktop) return null;
 
   const [isActive, setIsActive] = useState(false);
+  const [isTextInput, setIsTextInput] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -25,6 +26,24 @@ export function CustomCursor() {
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
+
+      const isInputElement =
+          target?.tagName === "TEXTAREA" ||
+          target?.tagName === "INPUT" ||
+          target?.tagName === "SELECT" ||
+          target?.getAttribute("contenteditable") === "true";
+
+      if (isInputElement) {
+        setIsTextInput(true);
+        width.set(2);    // 👈 schmaler Balken
+        height.set(28);  // 👈 typische Textcursor-Höhe
+        x.set(e.clientX - 1);
+        y.set(e.clientY - 14); // zentriert den Balken
+        return;
+      } else {
+        setIsTextInput(false);
+      }
+
       const interactive = target?.closest('a, button, [role="button"], [data-hover-box]') as HTMLElement | null;
       const padding = 8;
 
@@ -68,8 +87,12 @@ export function CustomCursor() {
             y: y,
             width: smoothW,
             height: smoothH,
-            borderRadius: isActive ? 6 : '50%',
-            backgroundColor: isActive ? '#d9e5f1' : 'rgba(44,111,160,0.5)',
+            borderRadius: isTextInput ? 0 : isActive ? 6 : "50%",
+            backgroundColor: isTextInput
+                ? "rgba(44,111,160,0.5)"             // Textcursor-Farbe (blau)
+                : isActive
+                    ? "#d9e5f1"
+                    : "rgba(44,111,160,0.5)",
           }}
       />
   );
