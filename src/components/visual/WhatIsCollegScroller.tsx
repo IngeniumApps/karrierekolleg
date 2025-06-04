@@ -3,7 +3,6 @@ import {forwardRef, useRef, useState} from "react";
 import {whatIsCollegData} from "../../constants/whatIsCollegData.ts";
 import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
 import clsx from "clsx";
-import type {MotionValue} from "motion";
 import FadeDownOnScroll from "@components/visual/animation/FadeDownOnScroll.tsx";
 import {chatEntriesLeft, chatEntriesRight} from "../../constants/chatEntries.ts";
 import HeroChatBubble from "@components/visual/HeroChatBubbles.tsx";
