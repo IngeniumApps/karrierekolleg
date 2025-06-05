@@ -9,6 +9,7 @@ import HeroChatBubble from "@components/visual/HeroChatBubbles.tsx";
 import HeroLeftContent from "@components/visual/HeroLeftContent.tsx";
 import type {Slide} from "../../constants/whatIsCollegData.ts";
 import ImageScrollSlider from "@components/visual/animation/ImageScrollSlider.tsx";
+import {useIsDesktop} from "../../hooks/useIsDesktop.ts";
 
 type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 
@@ -38,6 +39,7 @@ export default function WhatIsCollegScroller({className}: { className?: string }
     const {ref: targetRefIndex1, scrollYProgress: scrollProgressIndex1} = useScrollYProgress();
     const {ref: targetRefIndex2, scrollYProgress: scrollProgressIndex2} = useScrollYProgress();
     const {ref: targetRefIndex3, scrollYProgress: scrollProgressIndex3} = useScrollYProgress();
+    const isDesktop = useIsDesktop();
 
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -85,15 +87,17 @@ export default function WhatIsCollegScroller({className}: { className?: string }
                     <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))]">
 
                         {/* Mask-Bilder */}
-                        <ImageScrollSlider
-                            progressList={[
-                                scrollProgressIndex0,
-                                scrollProgressIndex1,
-                                scrollProgressIndex2,
-                                scrollProgressIndex3,
-                            ]}
-                            images={whatIsCollegData.map((i) => `${import.meta.env.BASE_URL}images/${i.image}`)}
-                        />
+                        {isDesktop && (
+                            <ImageScrollSlider
+                                progressList={[
+                                    scrollProgressIndex0,
+                                    scrollProgressIndex1,
+                                    scrollProgressIndex2,
+                                    scrollProgressIndex3,
+                                ]}
+                                images={whatIsCollegData.map((i) => `${import.meta.env.BASE_URL}images/${i.image}`)}
+                            />
+                        )}
 
                         {/* 🔵 Kreis */}
                         <div className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33]" />
