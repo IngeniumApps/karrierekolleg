@@ -38,6 +38,7 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
               className={clsx(
                   'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
                     color,
+                  'text-gray-900'
               )}
           >
           {topic}
@@ -70,6 +71,7 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
               className={clsx(
                   'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
                   color,
+                  'text-gray-900'
               )}
           >
           {topic}
