@@ -17,8 +17,8 @@ export const Benefits = () => {
       {/* Glass-Overlay */}
       <div className="absolute inset-0 z-0 backdrop-glass" />
 
-      {/* Content */}
-      <div className="relative z-10">
+      {/* Content Dektop */}
+      <div className="hidden lg:block relative z-10">
         <TextParallaxContent
           imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
           subheading="Lorem ipsum dolor sit amet"
@@ -70,6 +70,54 @@ export const Benefits = () => {
           </FadeDownOnScroll>
         </TextParallaxContent>
       </div>
+
+      {/* Content Mobile */}
+      <div className="block lg:hidden relative z-10">
+            <TextParallaxContent
+                imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
+                subheading="Lorem ipsum dolor sit amet"
+                heading="USP 1"
+                color="text-pink"
+            >
+                    <ExampleContent
+                        title="USP 1"
+                        paragraphs={[
+                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+                            'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
+                        ]}
+                    />
+            </TextParallaxContent>
+
+            <TextParallaxContent
+                imgUrl="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=2560&q=80"
+                subheading="Lorem ipsum dolor sit amet"
+                heading="USP 2"
+                color="text-yellow"
+            >
+                    <ExampleContent
+                        title="USP 2"
+                        paragraphs={[
+                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+                            'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
+                        ]}
+                    />
+            </TextParallaxContent>
+
+            <TextParallaxContent
+                imgUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=2560&q=80"
+                subheading="Lorem ipsum dolor sit amet"
+                heading="USP 3"
+                color="text-orange"
+            >
+                    <ExampleContent
+                        title="USP 3"
+                        paragraphs={[
+                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+                            'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
+                        ]}
+                    />
+            </TextParallaxContent>
+        </div>
     </div>
   );
 };

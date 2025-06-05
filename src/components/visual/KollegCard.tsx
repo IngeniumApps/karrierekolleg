@@ -14,40 +14,76 @@ type Props = {
 
 export default function KollegCard({ name, topic, school, link, color, image }: Props) {
   return (
-    <motion.a
-      href={link}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="group block w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-      aria-label={`Mehr erfahren über ${name} an der ${school}`}
-    >
-      {/* 📸 Bild */}
-      <div className="relative">
-        <img
-          src={image}
-          alt={`Symbolbild für ${topic}`}
-          className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
-        {/* 🏷 Farb-Badge */}
-        <span
-          className={clsx(
-            'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
-            color,
-            color === 'bg-ortwein' ? 'text-gray-800' : 'text-white',
-          )}
-        >
+    <>
+      {/* Kolleg Card on Desktop */}
+      <motion.a
+          href={link}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="hidden lg:block group w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          aria-label={`Mehr erfahren über ${name} an der ${school}`}
+      >
+        {/* 📸 Bild */}
+        <div className="relative">
+          <img
+              src={image}
+              alt={`Symbolbild für ${topic}`}
+              className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+          />
+          {/* 🏷 Farb-Badge */}
+          <span
+              className={clsx(
+                  'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
+                  color,
+                  color === 'bg-ortwein' ? 'text-gray-800' : 'text-white',
+              )}
+          >
           {topic}
         </span>
-      </div>
+        </div>
 
-      {/* 📄 Textbereich */}
-      <div className={`bg-white backdrop-blur-md h-full p-5 rounded-b-2xl`}>
-        <h3 className="text-lg font-bold mb-1">{name}</h3>
-        <p className="text-sm text-gray-600">{school}</p>
-      </div>
-    </motion.a>
+        {/* 📄 Textbereich */}
+        <div className={`bg-white backdrop-blur-md h-full p-5 rounded-b-2xl`}>
+          <h3 className="text-lg font-bold mb-1">{name}</h3>
+          <p className="text-sm text-gray-600">{school}</p>
+        </div>
+      </motion.a>
+
+      {/* Kolleg Card on Mobile */}
+      <a
+          href={link}
+          className="block lg:hidden group w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          aria-label={`Mehr erfahren über ${name} an der ${school}`}
+      >
+        {/* 📸 Bild */}
+        <div className="relative">
+          <img
+              src={image}
+              alt={`Symbolbild für ${topic}`}
+              className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+          />
+          {/* 🏷 Farb-Badge */}
+          <span
+              className={clsx(
+                  'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
+                  color,
+                  color === 'bg-ortwein' ? 'text-gray-800' : 'text-white',
+              )}
+          >
+          {topic}
+        </span>
+        </div>
+
+        {/* 📄 Textbereich */}
+        <div className={`bg-white backdrop-blur-md h-full p-5 rounded-b-2xl`}>
+          <h3 className="text-lg font-bold mb-1">{name}</h3>
+          <p className="text-sm text-gray-600">{school}</p>
+        </div>
+      </a>
+    </>
   );
 }
