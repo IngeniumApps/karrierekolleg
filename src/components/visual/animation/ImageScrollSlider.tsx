@@ -44,16 +44,19 @@ export default function ImageScrollSlider({
                     //     }}
                     //     transition={{ duration: 3, ease: "easeInOut" }}
                     // />
-                    <motion.img
-                        key={idx}
-                        src={img}
-                        alt=""
-                        loading="eager"
-                        decoding="async"
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                        style={{ opacity: activeIndex === idx ? 1 : 0 }}
-                        transition={{ duration: 3, ease: "easeInOut" }}
-                    />
+                    <picture>
+                        <source media="(max-width: 1023px)" srcSet="" />
+                        <motion.img
+                            key={idx}
+                            src={img}
+                            alt=""
+                            loading="eager"
+                            decoding="async"
+                            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                            style={{ opacity: activeIndex === idx ? 1 : 0 }}
+                            transition={{ duration: 3, ease: "easeInOut" }}
+                        />
+                    </picture>
                 ))}
             </div>
         </div>
