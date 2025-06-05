@@ -44,7 +44,11 @@ export function CustomCursor() {
         setIsTextInput(false);
       }
 
-      const interactive = target?.closest('a, button, [role="button"], [data-hover-box]') as HTMLElement | null;
+      //const interactive = target?.closest('a, button, [role="button"], [data-hover-box]') as HTMLElement | null;
+      const interactive = target?.closest(
+          'a:not([data-no-cursor-hover]), button:not([data-no-cursor-hover]), [role="button"]:not([data-no-cursor-hover]), [data-hover-box]:not([data-no-cursor-hover])'
+      ) as HTMLElement | null;
+
       const padding = 8;
 
       if (interactive) {
@@ -69,8 +73,14 @@ export function CustomCursor() {
         y.set(e.clientY - 10);
         setIsActive(false);
 
+        // document.querySelectorAll('a, button, [role="button"], [data-hover-box]').forEach((el) => {
+        //   (el as HTMLElement).style.transform = 'translate(0px, 0px)';
+        // });
+
         document.querySelectorAll('a, button, [role="button"], [data-hover-box]').forEach((el) => {
-          (el as HTMLElement).style.transform = 'translate(0px, 0px)';
+          if (!el.matches('[data-no-cursor-hover]')) {
+            (el as HTMLElement).style.transform = 'translate(0px, 0px)';
+          }
         });
       }
     };

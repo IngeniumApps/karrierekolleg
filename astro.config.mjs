@@ -17,6 +17,9 @@ export default defineConfig({
   integrations: [react()],
 
   vite: {
+    build: {
+      target: 'esnext',
+    },
     plugins: [tailwindcss()],
   },
 });

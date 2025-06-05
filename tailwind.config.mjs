@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin';
+
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   safelist: [
@@ -13,6 +15,15 @@ export default {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            '::placeholder': {
+              fontStyle: "italic",
+            }
+          }
+        }
+      },
       fontFamily: {
         headline: ['Brandon Grotesque', 'Montserrat', 'sans-serif'],
         body: ['Montserrat', 'sans-serif'],
@@ -37,5 +48,13 @@ export default {
       },
     }
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.placeholder-italic::placeholder': {
+          fontStyle: 'italic',
+        },
+      });
+    }),
+  ],
 };

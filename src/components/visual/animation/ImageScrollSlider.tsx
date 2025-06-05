@@ -35,13 +35,23 @@ export default function ImageScrollSlider({
         <div className="absolute inset-0 overflow-hidden z-10 rounded-xl">
             <div className="relative w-full h-full">
                 {images.map((img, idx) => (
-                    <motion.div
+                    // <motion.div
+                    //     key={idx}
+                    //     className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+                    //     style={{
+                    //         backgroundImage: `url(${img})`,
+                    //         opacity: activeIndex === idx ? 1 : 0,
+                    //     }}
+                    //     transition={{ duration: 3, ease: "easeInOut" }}
+                    // />
+                    <motion.img
                         key={idx}
-                        className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
-                        style={{
-                            backgroundImage: `url(${img})`,
-                            opacity: activeIndex === idx ? 1 : 0,
-                        }}
+                        src={img}
+                        alt=""
+                        loading="eager"
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                        style={{ opacity: activeIndex === idx ? 1 : 0 }}
                         transition={{ duration: 3, ease: "easeInOut" }}
                     />
                 ))}
