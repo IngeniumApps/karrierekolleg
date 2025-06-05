@@ -38,7 +38,6 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
               className={clsx(
                   'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
                     color,
-                    ['bg-ortwein', 'bg-chemie_kolleg', 'bg-bulme_e_technologie', 'bg-bulme_elektrotechnik', 'bg-bulme_maschinenbau', 'bg-ingenium', 'bg-bulme_maschinenbau'].includes(color) ? 'text-gray-900' : 'text-white'
               )}
           >
           {topic}
@@ -71,7 +70,6 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
               className={clsx(
                   'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
                   color,
-                  color === 'bg-ortwein' ? 'text-gray-800' : 'text-white',
               )}
           >
           {topic}
