@@ -61,12 +61,12 @@ export default function WhatIsCollegScroller({className}: { className?: string }
                 {/* 1️⃣  Linke Text-Spalte  */}
                 <div className="">
                     {whatIsCollegData.map((item, index) => (
-                        <FadeDownOnScroll key={index} className="z-10" duration={1} delay={1}>
+                        <div key={index} className="z-10">
                             {item.kind === 'hero' ? (
                                 /* Slide #1 – spezieller Hero-Text */
-                                <div className="z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center px-6">
+                                <FadeDownOnScroll duration={1} delay={1} className="z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center px-6">
                                     <HeroLeftContent />
-                                </div>
+                                </FadeDownOnScroll>
                             ) : (
                                 /* Slides #2–#4 – normales Colleg-Markup */
                                 <WhatIsCollegSection
@@ -78,7 +78,7 @@ export default function WhatIsCollegScroller({className}: { className?: string }
                                     }
                                 />
                             )}
-                        </FadeDownOnScroll>
+                        </div>
                     ))}
                 </div>
 
@@ -133,7 +133,28 @@ const WhatIsCollegSection = forwardRef<HTMLDivElement, CollegSlide>(
                     // classNames.container
                 )}
             >
-                <div className="px-6">
+                {/* Fade-In Animation Desktop */}
+                <FadeDownOnScroll className="px-6 hidden lg:block" duration={1} delay={1}>
+                    <div className="lg:text-left self-center text-center">
+                        <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
+                            <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+              <span className="relative z-[1] text-primary">{title}</span>
+              <UnderlineBrush
+                  className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+                  fillColor="#BBF451"
+                  bottomOffset={8}
+              />
+            </span>
+                        </h1>
+
+                        <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            {description}
+                        </p>
+                    </div>
+                </FadeDownOnScroll>
+
+                {/* Fade-In Animation Mobile */}
+                <div className="px-6 block lg:hidden">
                     <div className="lg:text-left self-center text-center">
                         <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
                             <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
