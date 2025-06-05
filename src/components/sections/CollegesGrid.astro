@@ -77,7 +77,7 @@ const topicColors: Record<Topic, string> = {
             <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
               {
                 list.map((colleg) => (
-                    <CollegeCardOptional client:load {...colleg} />
+                    <CollegeCardOptional client:visible {...colleg} />
                 ))
               }
             </div>
