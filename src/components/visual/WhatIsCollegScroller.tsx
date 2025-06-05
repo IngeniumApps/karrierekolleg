@@ -64,9 +64,16 @@ export default function WhatIsCollegScroller({className}: { className?: string }
                         <div key={index} className="z-10">
                             {item.kind === 'hero' ? (
                                 /* Slide #1 – spezieller Hero-Text */
-                                <FadeDownOnScroll duration={1} delay={1} className="z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center px-6">
-                                    <HeroLeftContent />
-                                </FadeDownOnScroll>
+                                <>
+                                    {/* Hide on mobile */}
+                                    <FadeDownOnScroll duration={1} delay={1} className="hidden lg:flex z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
+                                        <HeroLeftContent />
+                                    </FadeDownOnScroll>
+                                    {/* Show on mobile */}
+                                    <div className="flex lg:hidden z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
+                                        <HeroLeftContent />
+                                    </div>
+                                </>
                             ) : (
                                 /* Slides #2–#4 – normales Colleg-Markup */
                                 <WhatIsCollegSection
