@@ -1,0 +1,85 @@
+---
+import { colleges } from '../../constants/colleges';
+import KollegCard from '../visual/KollegCard';
+const { id } = Astro.props;
+
+// Group colleges by topic and mode
+const groupedColleges = {
+  'Technik & Informatik (Tageskolleg)': colleges.filter(
+    (c) => (c.topic === 'Technik' || c.topic === 'Informatik') && c.mode === 'Tageskolleg',
+  ),
+  'Technik & Informatik (Abendkolleg)': colleges.filter(
+    (c) => (c.topic === 'Technik' || c.topic === 'Informatik') && c.mode === 'Abendkolleg',
+  ),
+  'Kunst und Design': colleges.filter(
+    (c) => c.topic === 'Kunst und Design' || c.topic === 'Kunst und Design',
+  ),
+  Bautechnik: colleges.filter((c) => c.topic === 'Bautechnik' || c.topic === 'Bautechnik'),
+  Naturwissenschaft: colleges.filter((c) => c.topic === 'Naturwissenschaft'),
+};
+
+type Topic =
+  | 'Technik & Informatik (Tageskolleg)'
+  | 'Technik & Informatik (Abendkolleg)'
+  | 'Kunst und Design'
+  | 'Bautechnik'
+  | 'Naturwissenschaft';
+
+// Colors for theme - actually not used in this component, but can be used for styling
+const topicColors: Record<Topic, string> = {
+  'Technik & Informatik (Tageskolleg)': 'primary',
+  'Technik & Informatik (Abendkolleg)': 'primary',
+  'Kunst und Design': 'pink',
+  Bautechnik: 'orange',
+  Naturwissenschaft: 'red',
+};
+---
+
+<section id={id} class="relative py-32 px-6 overflow-hidden">
+  <div
+    class="absolute inset-0 z-0"
+    style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+  >
+  </div>
+  <div class="absolute inset-0 z-0 backdrop-glass"></div>
+
+  <div class="relative z-10 max-w-screen-xl mx-auto text-center">
+    <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">
+      Kollegs entdecken
+    </h2>
+    <p class="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+      In ganz Österreich findest du Kollegs für Technik, Design und mehr – entdecke, was zu dir
+      passt.
+    </p>
+
+    {
+      Object.entries(groupedColleges)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([topic, list]) => (
+          <div class="text-left mb-28" id={topic.toLowerCase().replace(/ /g, '-')}>
+            <h3 class="text-3xl font-bold mb-2">{topic}</h3>
+
+            <p class="text-gray-600 mb-10 max-w-3xl">
+              {topic === 'Technik & Informatik (Tageskolleg)'
+                ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                : topic === 'Technik & Informatik (Abendkolleg)'
+                  ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                  : topic === 'Kunst und Design'
+                    ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                    : topic === 'Bautechnik'
+                      ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                      : topic === 'Naturwissenschaft'
+                        ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                        : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'}
+            </p>
+
+            <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+              {list.map((colleg) => (
+                <KollegCard client:visible {...colleg} />
+              ))}
+            </div>
+          </div>
+        ))
+    }
+  </div>
+</section>

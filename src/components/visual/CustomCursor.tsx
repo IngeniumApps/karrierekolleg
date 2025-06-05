@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export function CustomCursor() {
-  // Diese Prüfung verhindert fälschliches Laden auf Touch-Devices
+  // This check prevents incorrect charging on touch devices
   if (typeof window === 'undefined') return null;
 
   const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -18,35 +18,36 @@ export function CustomCursor() {
   const width = useMotionValue(32);
   const height = useMotionValue(32);
 
-  const smoothX = useSpring(x, {stiffness: 1000, damping: 60});
-  const smoothY = useSpring(y, {stiffness: 1000, damping:60});
-  const smoothW = useSpring(width, {stiffness: 1000, damping: 60});
-  const smoothH = useSpring(height, {stiffness: 1000, damping:60});
+  // Use smoothX and smoothY for smoother cursor movement - actually not needed here, but can be used for more complex animations
+  const smoothX = useSpring(x, { stiffness: 1000, damping: 60 });
+  const smoothY = useSpring(y, { stiffness: 1000, damping: 60 });
+  // Use smoothW and smoothH for smoother size transitions
+  const smoothW = useSpring(width, { stiffness: 1000, damping: 60 });
+  const smoothH = useSpring(height, { stiffness: 1000, damping: 60 });
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
 
       const isInputElement =
-          target?.tagName === "TEXTAREA" ||
-          target?.tagName === "INPUT" ||
-          target?.tagName === "SELECT" ||
-          target?.getAttribute("contenteditable") === "true";
+        target?.tagName === 'TEXTAREA' ||
+        target?.tagName === 'INPUT' ||
+        target?.tagName === 'SELECT' ||
+        target?.getAttribute('contenteditable') === 'true';
 
       if (isInputElement) {
         setIsTextInput(true);
-        width.set(2);    // 👈 schmaler Balken
-        height.set(28);  // 👈 typische Textcursor-Höhe
+        width.set(2); // small width for text cursor
+        height.set(28); // typical height for text cursor
         x.set(e.clientX - 1);
-        y.set(e.clientY - 14); // zentriert den Balken
+        y.set(e.clientY - 14); // center the cursor vertically
         return;
       } else {
         setIsTextInput(false);
       }
 
-      //const interactive = target?.closest('a, button, [role="button"], [data-hover-box]') as HTMLElement | null;
       const interactive = target?.closest(
-          'a:not([data-no-cursor-hover]), button:not([data-no-cursor-hover]), [role="button"]:not([data-no-cursor-hover]), [data-hover-box]:not([data-no-cursor-hover])'
+        'a:not([data-no-cursor-hover]), button:not([data-no-cursor-hover]), [role="button"]:not([data-no-cursor-hover]), [data-hover-box]:not([data-no-cursor-hover])',
       ) as HTMLElement | null;
 
       const padding = 8;
@@ -73,10 +74,6 @@ export function CustomCursor() {
         y.set(e.clientY - 10);
         setIsActive(false);
 
-        // document.querySelectorAll('a, button, [role="button"], [data-hover-box]').forEach((el) => {
-        //   (el as HTMLElement).style.transform = 'translate(0px, 0px)';
-        // });
-
         document.querySelectorAll('a, button, [role="button"], [data-hover-box]').forEach((el) => {
           if (!el.matches('[data-no-cursor-hover]')) {
             (el as HTMLElement).style.transform = 'translate(0px, 0px)';
@@ -90,20 +87,20 @@ export function CustomCursor() {
   }, [x, y, width, height]);
 
   return (
-      <motion.div
-          className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-multiply"
-          style={{
-            x: x,
-            y: y,
-            width: smoothW,
-            height: smoothH,
-            borderRadius: isTextInput ? 0 : isActive ? 6 : "50%",
-            backgroundColor: isTextInput
-                ? "rgba(44,111,160,0.5)"             // Textcursor-Farbe (blau)
-                : isActive
-                    ? "#d9e5f1"
-                    : "rgba(44,111,160,0.5)",
-          }}
-      />
+    <motion.div
+      className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-multiply"
+      style={{
+        x: x,
+        y: y,
+        width: smoothW,
+        height: smoothH,
+        borderRadius: isTextInput ? 0 : isActive ? 6 : '50%',
+        backgroundColor: isTextInput
+          ? 'rgba(44,111,160,0.5)' // Textcursor-Color (blau)
+          : isActive
+            ? '#d9e5f1'
+            : 'rgba(44,111,160,0.5)',
+      }}
+    />
   );
 }

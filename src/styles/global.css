@@ -1,8 +1,8 @@
 @config "../../tailwind.config.mjs";
 @import './fonts.css';
 @import 'tailwindcss';
-@import "tailwindcss-animated";
-@import "tailwindcss-intersect";
+@import 'tailwindcss-animated';
+@import 'tailwindcss-intersect';
 
 @layer base {
   html {
@@ -48,9 +48,9 @@
   }
 
   textarea::-webkit-scrollbar-thumb {
-    background-color: #dcecf7;     /* Deine kräftige Akzentfarbe */
-    border-radius: 9999px;         /* Voll rund */
+    background-color: #dcecf7; /* Deine kräftige Akzentfarbe */
+    border-radius: 9999px; /* Voll rund */
     border: 4px solid transparent; /* Padding für optische Tiefe */
-    background-clip: padding-box;  /* Verhindert Farbüberschuss */
+    background-clip: padding-box; /* Verhindert Farbüberschuss */
   }
 }

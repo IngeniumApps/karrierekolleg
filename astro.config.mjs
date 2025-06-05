@@ -18,10 +18,7 @@ export default defineConfig({
   integrations: [react()],
 
   vite: {
-    plugins: [
-      tailwindcss(),
-      visualizer({ open: true })
-    ],
+    plugins: [tailwindcss(), visualizer({ open: true })],
     build: {
       target: 'esnext',
       rollupOptions: {
