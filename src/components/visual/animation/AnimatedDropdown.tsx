@@ -60,7 +60,7 @@ const DropdownSelect = ({ label, value, onChange, error }: DropdownSelectProps) 
           aria-expanded={open}
           onClick={() => setOpen((pv) => !pv)}
           className={clsx(
-            'w-full rounded-xl bg-white px-4 py-3 text-sm shadow-inner border transition-all duration-150 appearance-none select-none cursor-none',
+            'w-full rounded-xl bg-white px-4 py-3 text-base shadow-inner border transition-all duration-150 appearance-none select-none cursor-none',
             value ? 'text-gray-900' : 'text-gray-500 italic',
             error ? 'border-red-500' : open ? 'border-primary' : 'border-gray-200',
           )}
