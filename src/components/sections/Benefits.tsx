@@ -7,8 +7,10 @@ import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
 export const Benefits = () => {
 
     return (
-        <section className="relative w-full bg-white py-20 lg:py-32 overflow-hidden">
-            {/* Card-Flow Linie wie im Bild */}
+        <section className="relative w-full py-20 lg:py-32 overflow-hidden">
+            {/*Glass-Overlay*/}
+            <div className="absolute inset-0 z-0 backdrop-glass"></div>
+
             <CardFlowLine/>
 
             <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -36,7 +38,7 @@ export const Benefits = () => {
                     {benefits.map((benefit, index) => (
                         <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
                             <div
-                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col group relative">
+                                className="bg-white/85 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col group relative">
 
                                 <div
                                     className="absolute inset-0 z-20 flex items-start justify-center pointer-events-none -mt-5">
