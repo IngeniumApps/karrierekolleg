@@ -21,9 +21,10 @@ export const whatIsCollegData: Slide[] = [
   },
   {
     kind: 'colleg',
-    title: 'Lorem i',
+    title: 'Gestalten. Planen. Umsetzen.',
     description:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      'Du willst verstehen, wie Technik funktioniert – und sie mitgestalten.\n' +
+        'Das Kolleg verbindet Theorie mit Praxis – und macht dich zur gefragten Fachkraft.',
     image: 'woman-bau.webp',
     alt: 'Our Mission image',
     classNames: {
@@ -32,9 +33,9 @@ export const whatIsCollegData: Slide[] = [
   },
   {
     kind: 'colleg',
-    title: 'Lorem i',
+    title: 'Kreativ denken. Beruflich nutzen.',
     description:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      'Im Kolleg entwickelst du deine gestalterischen Stärken weiter – in Grafik, Kommunikation oder Medien.',
     image: 'woman-photo.webp',
     alt: 'Join Us image',
     classNames: {
@@ -43,9 +44,10 @@ export const whatIsCollegData: Slide[] = [
   },
   {
     kind: 'colleg',
-    title: 'Lorem i',
+    title: 'Wissen, was wirkt.',
     description:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      'Du interessierst dich für Naturwissenschaften, Labor oder Technik?\n' +
+        'Im Kolleg wirst du zur Lösungssucherin mit System.',
     image: 'woman-chemie.webp',
     alt: 'Join Us image',
     classNames: {

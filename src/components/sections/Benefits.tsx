@@ -1,248 +1,68 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
+import FadeDownOnScroll from "@components/visual/animation/FadeDownOnScroll.tsx";
+import React from "react";
+import CardFlowLine from "@components/visual/animation/CardFlowLine.tsx";
+import {benefits} from "../../constants/benefits.ts";
+import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
 
 export const Benefits = () => {
-  return (
-    <div className="relative w-full bg-transparent overflow-hidden">
-      {/* Gradient-Background */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background: 'radial-gradient(ellipse at top right, #1b95cc44, transparent 90%)',
-          willChange: 'transform',
-        }}
-      />
 
-      {/* Glass-Overlay */}
-      <div className="absolute inset-0 z-0 backdrop-glass" />
+    return (
+        <section className="relative w-full bg-white py-20 lg:py-32 overflow-hidden">
+            {/* Card-Flow Linie wie im Bild */}
+            <CardFlowLine/>
 
-      {/* Content Dektop */}
-      <div className="hidden lg:block relative z-10">
-        <TextParallaxContent
-          imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
-          subheading="Lorem ipsum dolor sit amet"
-          heading="USP 1"
-          color="text-pink"
-        >
-          <FadeDownOnScroll duration={1}>
-            <ExampleContent
-              title="USP 1"
-              paragraphs={[
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
-              ]}
+            <div className="relative z-10 max-w-6xl mx-auto px-6">
+                <FadeDownOnScroll duration={0.8}>
+                    <div className="text-center mb-16 lg:mb-20">
+                        <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
+        <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="relative z-[1] text-primary">Deine Vorteile</span>
+            <UnderlineBrush
+                className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+                fillColor="#BBF451"
+                bottomOffset={8}
             />
-          </FadeDownOnScroll>
-        </TextParallaxContent>
+        </span>
+                            <br/>
+                            <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">im Kolleg</span>
+                        </h2>
+                        <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            Warum das Kolleg der perfekte Weg für deine Zukunft ist
+                        </p>
+                    </div>
+                </FadeDownOnScroll>
 
-        <TextParallaxContent
-          imgUrl="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=2560&q=80"
-          subheading="Lorem ipsum dolor sit amet"
-          heading="USP 2"
-          color="text-yellow"
-        >
-          <FadeDownOnScroll duration={1}>
-            <ExampleContent
-              title="USP 2"
-              paragraphs={[
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
-              ]}
-            />
-          </FadeDownOnScroll>
-        </TextParallaxContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {benefits.map((benefit, index) => (
+                        <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
+                            <div
+                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col group relative">
 
-        <TextParallaxContent
-          imgUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=2560&q=80"
-          subheading="Lorem ipsum dolor sit amet"
-          heading="USP 3"
-          color="text-orange"
-        >
-          <FadeDownOnScroll duration={1}>
-            <ExampleContent
-              title="USP 3"
-              paragraphs={[
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
-              ]}
-            />
-          </FadeDownOnScroll>
-        </TextParallaxContent>
-      </div>
+                                <div
+                                    className="absolute inset-0 z-20 flex items-start justify-center pointer-events-none -mt-5">
+                                    <div
+                                        className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-300"
+                                        style={{
+                                            backgroundColor: benefit.color,
+                                        }}
+                                    >
+                                        <span className="text-xl font-bold text-white">
+                                            {index + 1}
+                                        </span>
+                                    </div>
+                                </div>
 
-      {/* Content Mobile */}
-      <div className="block lg:hidden relative z-10">
-            <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2560&q=80"
-                subheading="Lorem ipsum dolor sit amet"
-                heading="USP 1"
-                color="text-pink"
-            >
-                    <ExampleContent
-                        title="USP 1"
-                        paragraphs={[
-                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                            'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
-                        ]}
-                    />
-            </TextParallaxContent>
-
-            <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=2560&q=80"
-                subheading="Lorem ipsum dolor sit amet"
-                heading="USP 2"
-                color="text-yellow"
-            >
-                    <ExampleContent
-                        title="USP 2"
-                        paragraphs={[
-                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                            'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
-                        ]}
-                    />
-            </TextParallaxContent>
-
-            <TextParallaxContent
-                imgUrl="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=2560&q=80"
-                subheading="Lorem ipsum dolor sit amet"
-                heading="USP 3"
-                color="text-orange"
-            >
-                    <ExampleContent
-                        title="USP 3"
-                        paragraphs={[
-                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                            'Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum.',
-                        ]}
-                    />
-            </TextParallaxContent>
-        </div>
-    </div>
-  );
+                                <h3 className="relative z-10 text-lg lg:text-xl font-semibold text-gray-900 mb-4 leading-tight mt-16">
+                                    {benefit.title}
+                                </h3>
+                                <p className="relative z-10 text-gray-600 leading-relaxed flex-1 text-sm lg:text-base">
+                                    {benefit.description}
+                                </p>
+                            </div>
+                        </FadeDownOnScroll>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 };
-
-const IMG_PADDING = 0;
-
-interface TextParallaxContentProps {
-  imgUrl: string;
-  subheading: string;
-  heading: string;
-  color?: string;
-  children: React.ReactNode;
-}
-
-const TextParallaxContent = ({
-  imgUrl,
-  subheading,
-  heading,
-  color,
-  children,
-}: TextParallaxContentProps) => {
-  return (
-    <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-      <div className="relative h-[100vh]">
-        <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} textColor={color} />
-      </div>
-      {children}
-    </div>
-  );
-};
-
-interface StickyImageProps {
-  imgUrl: string;
-}
-
-const StickyImage = ({ imgUrl }: StickyImageProps) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['end end', 'end start'],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ['0px', '300px']);
-
-  return (
-    <motion.div
-      ref={targetRef}
-      style={{
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-        top: IMG_PADDING,
-        scale,
-        borderRadius, // Uncomment if you want rounded corners
-      }}
-      className="sticky z-0 overflow-hidden"
-    >
-      {/* Color gradient from the image to the blue color of the header */}
-      <motion.div
-        className="absolute inset-0 z-10 backdrop-glass"
-        style={{
-          background: `linear-gradient(to top, rgba(44,111,160,0.8), rgba(255,255,255,1))`,
-          opacity,
-        }}
-      />
-      {/* For better visibility on smaller screens */}
-      <div className="absolute inset-0 md:hidden bg-black/40 z-0" />
-    </motion.div>
-  );
-};
-
-interface OverlayCopyProps {
-  subheading: string;
-  heading: string;
-  textColor?: string;
-}
-
-const OverlayCopy = ({ subheading, heading, textColor = 'text-accent' }: OverlayCopyProps) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [1, 1, 1]);
-
-  return (
-    <motion.div
-      style={{ y, opacity }}
-      ref={targetRef}
-      className={`absolute left-0 top-0 z-20 flex h-screen w-full flex-col items-center justify-center ${textColor} px-4`}
-    >
-      <p className="mb-2 text-center text-xl tracking-wide text-white md:mb-4 md:text-3xl">
-        {subheading}
-      </p>
-      <p className="text-center text-4xl font-bold tracking-tight  drop-shadow-lg md:text-7xl">
-        {heading}
-      </p>
-    </motion.div>
-  );
-};
-
-interface ExampleContentProps {
-  title: string;
-  paragraphs: string[];
-  color?: string;
-}
-
-const ExampleContent = ({ title, paragraphs }: ExampleContentProps) => (
-  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 pb-24 pt-12 md:grid-cols-12">
-    <h2 className="col-span-1 text-3xl font-bold md:col-span-4">{title}</h2>
-    <div className="col-span-1 md:col-span-8">
-      {paragraphs.map((text, idx) => (
-        <p
-          key={idx}
-          className="mb-6 text-base sm:text-lg md:text-xl leading-relaxed last:mb-0 max-w-2xl"
-        >
-          {text}
-        </p>
-      ))}
-    </div>
-  </div>
-);
