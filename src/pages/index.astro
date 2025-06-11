@@ -2,7 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import BenefitsSection from '../components/sections/BenefitsSection.astro';
-import SkillsSection from '../components/sections/SkillsSection.astro';
+import KollegVsBa from '../components/sections/KollegVsBa.astro';
 import RecognitionSection from '../components/sections/RecognitionSection.astro';
 import StudyPathSection from '../components/sections/StudyPathSection.astro';
 import KollegsGrid from '../components/sections/KollegsGrid.astro';
@@ -13,8 +13,15 @@ import IntroSection from "../components/sections/IntroSection.astro";
 <MainLayout>
   <HeroSection id="startseite" />
   <!--<IntroSection id="intro" />-->
-  <BenefitsSection id="vorteile" />
-  <SkillsSection id="skills" />
+  <div class="relative bg-white" id="vorteile">
+    <!-- Gradient-Background -->
+    <div
+        class="absolute inset-0 z-0"
+        style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+    ></div>
+    <BenefitsSection/>
+    <KollegVsBa/>
+  </div>
   <RecognitionSection id="anerkennung" />
   <StudyPathSection id="weiterstudieren" />
   <KollegsGrid id="kollegs" />

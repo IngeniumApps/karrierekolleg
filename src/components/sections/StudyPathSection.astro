@@ -1,12 +1,16 @@
 ---
+import StudyPathContent from "./StudyPathContent";
 const { id } = Astro.props;
 ---
 
-<section id={id} class="w-full min-h-screen flex items-center justify-center bg-white">
+<section id={id} class="relative w-full h-screen flex items-center justify-center bg-white">
+  <!-- Gradient-Background -->
   <div
-    class="lg:intersect:animate-fade-left lg:animate-once lg:animate-ease-in lg:intersect-full max-w-4xl mx-auto px-4 text-center"
-  >
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">Weiterführendes Studium</h2>
-    <p class="text-gray-600">Möglichkeiten zur Fortsetzung an einer FH oder Universität.</p>
-  </div>
+      class="absolute inset-0 z-0"
+      style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+  ></div>
+
+  <!-- Glass-Overlay -->
+  <div class="absolute inset-0 z-0 backdrop-glass"></div>
+  <StudyPathContent client:visible/>
 </section>
