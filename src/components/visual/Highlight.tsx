@@ -1,37 +1,39 @@
-'use client';
-
-import { motion } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
-import clsx from 'clsx';
-import type {ReactNode} from "react";
-
-export function cn(...inputs: (string | undefined | false | null)[]) {
-    return twMerge(clsx(...inputs));
-}
+import {type ReactNode, useEffect, useRef, useState} from "react";
+import {motion, useInView} from "framer-motion";
+import clsx from "clsx";
 
 export const Highlight = ({
                               children,
                               className,
-                              color = '#bbf452', // z. B. Tailwind "accent" blau
+                              color = '#A3E635', // z. B. dein Akzentgrün
                           }: {
     children: ReactNode;
     className?: string;
     color?: string;
 }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-100px 0px' });
+    const [shouldAnimate, setShouldAnimate] = useState(false);
+
+    // Trigger Animation bei erstem InView
+    useEffect(() => {
+        if (isInView) setShouldAnimate(true);
+    }, [isInView]);
+
     return (
         <motion.span
+            ref={ref}
             initial={{ backgroundSize: '0% 100%' }}
-            animate={{ backgroundSize: '100% 100%' }}
-            transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
+            animate={shouldAnimate ? { backgroundSize: '100% 100%' } : {}}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
             style={{
                 backgroundImage: `linear-gradient(90deg, ${color}, ${color})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'left center',
-                backgroundSize: '0% 100%',
                 display: 'inline',
             }}
-            className={cn(
-                'relative inline-block px-1 pb-1 rounded-md',
+            className={clsx(
+                'relative inline-block rounded-md px-1 pb-1',
                 className
             )}
         >

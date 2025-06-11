@@ -28,24 +28,24 @@ export const whatIsCollegData: Slide[] = [
         description: (
             <>
                 Im Kolleg für Bautechnik lernst du alles rund um{' '}
-                <Highlight color={"#ffed00"}>
+                <Highlight>
                     Planung, Konstruktion, Bauphysik und Projektmanagement
                 </Highlight>
                 .<br/>
                 <br/>
                 Die Ausbildung verknüpft technisches Know-how mit Zukunftsthemen wie
                 Nachhaltigkeit und Digitalisierung – etwa durch{' '}
-                <Highlight color={"#ffed00"}>
+                <Highlight>
                     Building Information Modeling (BIM)
                 </Highlight>{' '}
                 oder{' '}
-                <Highlight color={"#ffed00"}>
+                <Highlight>
                     energieeffiziente Bauweisen
                 </Highlight>
                 .<br/>
                 <br/>
                 Du wirst optimal vorbereitet für Positionen in{' '}
-                <Highlight color={"#ffed00"}>
+                <Highlight>
                     Architektur-, Bau- und Ingenieurbüros
                 </Highlight>{' '}
                 oder im öffentlichen Dienst. Mit diesem Praxiswissen gestaltest du die
@@ -104,18 +104,18 @@ export const whatIsCollegData: Slide[] = [
         description: (
             <>
                 <p>
-                    <Highlight>Digitalisierung, Automatisierung & Innovation</Highlight> – alles in einem Paket: In den Kollegs für Informatik, E-Technologies, Elektronik & Maschinenbau erhältst du eine <Highlight>praxisnahe Ausbildung</Highlight> für zukunftsweisende Berufe.
+                    <Highlight>Digitalisierung, Automatisierung & Innovation</Highlight> – vereint in einer praxisnahen Ausbildung für zukunftsweisende technische Berufe.
                 </p>
                 <br />
                 <ul className="list-disc ml-4 text-left space-y-1">
-                    <li><strong>Informatik:</strong> Programmierung, KI & Softwareentwicklung</li>
-                    <li><strong>E-Technologies:</strong> Energie- & Automatisierungssysteme</li>
-                    <li><strong>Elektronik:</strong> Mikrocontroller & Embedded Systems</li>
+                    <li><strong>Informatik:</strong> Programmieren, KI & Software</li>
+                    <li><strong>E-Technologies:</strong> Energie & Automatisierung</li>
+                    <li><strong>Elektronik:</strong> Mikrocontroller & Embedded</li>
                     <li><strong>Maschinenbau:</strong> Konstruktion & Fertigung</li>
                 </ul>
                 <br />
                 <p>
-                    Du wirst fit für die <Highlight>Industrie 4.0</Highlight> und eröffnest dir <Highlight>vielfältige Karrierewege</Highlight>.
+                    Du wirst fit für die <Highlight>Industrie 4.0</Highlight> – mit <Highlight>vielseitigen Karrierechancen</Highlight> in Technik und IT.
                 </p>
             </>
         ),
