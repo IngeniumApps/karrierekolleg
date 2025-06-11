@@ -28,6 +28,7 @@
     "astro": "^5.7.13",
     "framer-motion": "^12.11.3",
     "hls.js": "^1.6.5",
+    "html-react-parser": "^5.2.5",
     "lucide-react": "^0.510.0",
     "motion": "^12.12.1",
     "motion-plus": "^0.1.9",
