@@ -1,16 +1,16 @@
 import {useMotionValue, useScroll} from 'framer-motion';
 import {forwardRef, useRef} from 'react';
-import {whatIsCollegData} from '../../constants/whatIsCollegData.ts';
 import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
 import clsx from 'clsx';
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
 import {chatEntriesLeft, chatEntriesRight} from '../../constants/chatEntries.ts';
 import HeroChatBubble from '@components/visual/HeroChatBubbles.tsx';
 import HeroLeftContent from '@components/visual/HeroLeftContent.tsx';
-import type {Slide} from '../../constants/whatIsCollegData.ts';
+import {type Slide, whatIsCollegData} from '../../constants/whatIsCollegData.tsx';
 import ImageScrollSlider from '@components/visual/animation/ImageScrollSlider.tsx';
 import {useIsDesktop} from '../../hooks/useIsDesktop.ts';
 import parse from 'html-react-parser';
+import {Highlight} from "@components/visual/Highlight.tsx";
 
 type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 
@@ -63,20 +63,23 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                                 </>
                             ) : (
                                 /* Slides #2–#4 – normal Kolleg-Markup */
-                                <WhatIsKollegSection
-                                    {...item}
-                                    ref={
-                                        index === 1
-                                            ? targetRefIndex1
-                                            : index === 2
-                                                ? targetRefIndex2
-                                                : index === 3
-                                                    ? targetRefIndex3
-                                                    : index === 4
-                                                        ? targetRefIndex4
-                                                        : null
-                                    }
-                                />
+                               <>
+                                   {/*<div className="absolute left-40 bg-white w-[1000px] h-[1000px] rounded-full"/>*/}
+                                   <WhatIsKollegSection
+                                       {...item}
+                                       ref={
+                                           index === 1
+                                               ? targetRefIndex1
+                                               : index === 2
+                                                   ? targetRefIndex2
+                                                   : index === 3
+                                                       ? targetRefIndex3
+                                                       : index === 4
+                                                           ? targetRefIndex4
+                                                           : null
+                                       }
+                                   />
+                               </>
                             )}
                         </div>
                     ))}
@@ -101,7 +104,7 @@ export default function WhatIsKollegScroller({className}: { className?: string }
 
                                 {/* Circle */}
                                 <div
-                                    className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33]"/>
+                                    className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33] -z-20"/>
 
                                 {/* Chat-Bubbles */}
                                 <HeroChatBubble position="top-[50%] left-0" delayOffset={0} entries={chatEntriesLeft}/>
@@ -130,47 +133,67 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
             <div
                 ref={ref}
                 className={clsx(
-                    '' + 'z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center',
-                    // Background color for debugging purposes
-                    // classNames.container
+                    'z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center',
                 )}
             >
                 {/* Fade-In Animation Desktop */}
                 <FadeDownOnScroll className="px-6 hidden lg:block" duration={1} delay={0}>
-                    <div className="lg:text-left self-center text-center">
-                        <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
-              <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
-                <span className="relative z-[1] text-primary">{title}</span>
-                <UnderlineBrush
-                    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
-                    fillColor="#BBF451"
-                    bottomOffset={8}
-                />
-              </span>
+                    <div className="lg:text-left self-center text-center relative">
+                        {/* Kreis hier - relativ zum Text-Container */}
+                        <div className="absolute
+                            -left-[40%] sm:-left-[30%] md:-left-[12%] lg:-left-[25%]
+                            top-[55%] -translate-y-1/2
+                            bg-white
+                            w-[150%] sm:w-[70%] md:w-[60%] lg:w-[150%]
+                            aspect-square
+                            rounded-full
+                            -z-10"
+                        />
+
+                        <h1 className="text-center text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight relative z-10">
+                            <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+                                <span className="relative z-[1] text-primary">{title}</span>
+                                {/*<UnderlineBrush*/}
+                                {/*    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"*/}
+                                {/*    fillColor="#BBF451"*/}
+                                {/*    bottomOffset={8}*/}
+                                {/*/>*/}
+                            </span>
                         </h1>
 
-                        <div className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            {parse(description)}
+                        <div className="relative z-[1] text-center text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            {typeof description === 'string' ? parse(description) : description}
                         </div>
                     </div>
                 </FadeDownOnScroll>
 
                 {/* No Fade-In Animation Mobile */}
                 <div className="px-6 block lg:hidden">
-                    <div className="lg:text-left self-center text-center">
-                        <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
-              <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
-                <span className="relative z-[1] text-primary">{title}</span>
-                <UnderlineBrush
-                    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
-                    fillColor="#BBF451"
-                    bottomOffset={8}
-                />
-              </span>
+                    <div className="lg:text-left self-center text-center relative">
+                        {/* Kreis auch hier für Mobile */}
+                        <div className="absolute
+                            -left-[25%] sm:-left-[20%]
+                            top-1/2 -translate-y-1/2
+                            bg-white
+                            w-[90%] sm:w-[80%]
+                            aspect-square
+                            rounded-full
+                            -z-10"
+                        />
+
+                        <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight relative z-10">
+                            <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+                                <span className="relative z-[1] text-primary">{title}</span>
+                                <UnderlineBrush
+                                    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+                                    fillColor="#BBF451"
+                                    bottomOffset={8}
+                                />
+                            </span>
                         </h1>
 
-                        <p  className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            {parse(description)}
+                        <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            {typeof description === 'string' ? parse(description) : description}
                         </p>
                     </div>
                 </div>
