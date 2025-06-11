@@ -12,10 +12,10 @@ export default function RecognitionVideoHLS() {
 
         if (Hls.isSupported()) {
             hls = new Hls();
-            hls.loadSource("/videos/kolleg-hls/anerkennung.m3u8");
+            hls.loadSource(`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung.m3u8`);
             hls.attachMedia(video);
         } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-            video.src = "/videos/anerkennung-hls/anerkennung.m3u8";
+            video.src = `${import.meta.env.BASE_URL}videos/anerkennung-hls/anerkennung.m3u8`;
         }
 
         video.playbackRate = 3.0;
