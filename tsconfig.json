@@ -1,7 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": ["src", ".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "exclude": ["dist",
+    "public/videos/**/*.ts"
+  ],
   "compilerOptions": {
     "plugins": [
       {
