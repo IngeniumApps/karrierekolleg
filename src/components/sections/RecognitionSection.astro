@@ -1,12 +1,14 @@
 ---
+import RecognitionVideoHLS from "./RecognitionVideo";
 const { id } = Astro.props;
 ---
 
-<section id={id} class="w-full min-h-screen flex items-center justify-center bg-transparent">
-  <div
-    class="lg:intersect:animate-fade-right lg:animate-once lg:animate-ease-in lg:intersect-full max-w-4xl mx-auto px-4 text-center"
-  >
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">Anerkennung & Bachelor</h2>
-    <p class="text-gray-600">NQR6, Anrechenbarkeit und akademische Anerkennung.</p>
+<section id={id} class="relative w-full min-h-screen grid grid-rows-[1fr_auto] bg-transparent">
+  <!-- 🧊 Glass-Effekt -->
+  <div class="absolute inset-0 z-0 backdrop-glass"></div>
+
+  <!-- 🧩 Inhalt -->
+  <div class="z-10 max-w-6xl mx-auto px-6 py-32 w-full text-center flex flex-col items-center justify-center gap-10">
+    <RecognitionVideoHLS client:visible />
   </div>
 </section>

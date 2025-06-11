@@ -10,6 +10,7 @@ import HeroLeftContent from '@components/visual/HeroLeftContent.tsx';
 import type {Slide} from '../../constants/whatIsCollegData.ts';
 import ImageScrollSlider from '@components/visual/animation/ImageScrollSlider.tsx';
 import {useIsDesktop} from '../../hooks/useIsDesktop.ts';
+import parse from 'html-react-parser';
 
 type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 
@@ -32,6 +33,7 @@ export default function WhatIsKollegScroller({className}: { className?: string }
     const {ref: targetRefIndex1, scrollYProgress: scrollProgressIndex1} = useScrollYProgress();
     const {ref: targetRefIndex2, scrollYProgress: scrollProgressIndex2} = useScrollYProgress();
     const {ref: targetRefIndex3, scrollYProgress: scrollProgressIndex3} = useScrollYProgress();
+    const {ref: targetRefIndex4, scrollYProgress: scrollProgressIndex4} = useScrollYProgress();
     const isDesktop = useIsDesktop();
 
     return (
@@ -70,7 +72,9 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                                                 ? targetRefIndex2
                                                 : index === 3
                                                     ? targetRefIndex3
-                                                    : null
+                                                    : index === 4
+                                                        ? targetRefIndex4
+                                                        : null
                                     }
                                 />
                             )}
@@ -90,6 +94,7 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                                         scrollProgressIndex1,
                                         scrollProgressIndex2,
                                         scrollProgressIndex3,
+                                        scrollProgressIndex4,
                                     ]}
                                     images={whatIsCollegData.map((i) => `${import.meta.env.BASE_URL}images/${i.image}`)}
                                 />
@@ -144,9 +149,9 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
               </span>
                         </h1>
 
-                        <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            {description}
-                        </p>
+                        <div className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            {parse(description)}
+                        </div>
                     </div>
                 </FadeDownOnScroll>
 
@@ -164,8 +169,8 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
               </span>
                         </h1>
 
-                        <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            {description}
+                        <p  className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            {parse(description)}
                         </p>
                     </div>
                 </div>
