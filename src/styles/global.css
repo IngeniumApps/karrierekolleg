@@ -13,8 +13,8 @@
     @apply font-body bg-white text-gray-800 font-sans;
 
     background-image:
-            radial-gradient(ellipse at top right, #1b95cc44, transparent 90%), /* 🎯 DEIN GRADIENT */
-      linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
+      radial-gradient(ellipse at top right, #1b95cc44, transparent 90%),
+      /* 🎯 DEIN GRADIENT */ linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
       url('/images/background.svg');
     background-repeat: repeat-y;
     background-position: top center;

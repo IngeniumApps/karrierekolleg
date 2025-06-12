@@ -1,5 +1,5 @@
 ---
-import RecognitionVideoHLS from "./RecognitionVideo";
+import RecognitionVideoHLS from './RecognitionVideo';
 const { id } = Astro.props;
 ---
 
@@ -8,7 +8,9 @@ const { id } = Astro.props;
   <div class="absolute inset-0 z-0 backdrop-glass"></div>
 
   <!-- 🧩 Inhalt -->
-  <div class="z-10 max-w-6xl mx-auto px-6 py-32 w-full text-center flex flex-col items-center justify-center gap-10">
+  <div
+    class="z-10 max-w-6xl mx-auto px-6 py-32 w-full text-center flex flex-col items-center justify-center gap-10"
+  >
     <RecognitionVideoHLS client:visible />
   </div>
 </section>
