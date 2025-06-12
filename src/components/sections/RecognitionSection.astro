@@ -6,14 +6,14 @@ const { id = 'kolleg-hero' } = Astro.props;
 ---
 <section
     id={id}
-    class="relative min-h-screen w-full overflow-hidden px-6"
+    class="relative min-h-screen w-full overflow-hidden"
 >
   <!-- 🔹 Glass-Overlay -->
   <div class="absolute inset-0 backdrop-glass z-0 pointer-events-none"></div>
   <!-- Grid: 1/3 Text – 2/3 Video -->
   <div
       class="absolute inset-0 grid lg:grid-cols-[1.75fr_1.25fr] items-center
-           w-full max-w-7xl mx-auto gap-10"
+           w-full max-w-7xl mx-auto gap-10 px-8"
   >
     <!-- ➡︎ VIDEO (2/3) – Originalformat, nicht beschnitten -->
     <div class="relative w-full
