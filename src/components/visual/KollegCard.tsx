@@ -13,6 +13,12 @@ type Props = {
 };
 
 export default function KollegCard({ name, topic, school, link, color, image }: Props) {
+
+  const imgSrc =
+      image.startsWith('http')          // absoluter Link?
+          ? image                         // → so lassen
+          : `${import.meta.env.BASE_URL}images/${image}`; // → lokalen Pfad prefixen
+
   return (
     <>
       {/* Kolleg Card on Desktop */}
@@ -28,7 +34,7 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
         {/* 📸 Bild */}
         <div className="relative">
           <img
-            src={image}
+            src={imgSrc}
             alt={`Symbolbild für ${topic}`}
             className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"

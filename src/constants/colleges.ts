@@ -55,11 +55,11 @@ export const colleges = [
   },
   {
     name: 'Kolleg für Chemie',
-    topic: 'Naturwissenschaft',
+    topic: 'Chemie',
     school: 'Chemie Akademie',
     link: 'https://chemie-akademie.at/chemie-kolleg-home-page/',
     color: 'bg-chemie_kolleg',
-    image: 'https://picsum.photos/seed/chemie/800/600',
+    image: 'chemie-card.webp',
   },
   {
     name: 'Kolleg für Fine Art Photography & MultimediaArt',
