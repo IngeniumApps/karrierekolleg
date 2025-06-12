@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function StudyPathContent() {
   return (
     <section className="relative w-full py-20 lg:py-32 overflow-hidden">

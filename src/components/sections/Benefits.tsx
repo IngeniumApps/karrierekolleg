@@ -1,5 +1,4 @@
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
-import React from 'react';
 import CardFlowLine from '@components/visual/animation/CardFlowLine.tsx';
 import { benefits } from '../../constants/benefits.ts';
 import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
