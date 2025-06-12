@@ -1,5 +1,5 @@
-import {useMotionValue, useScroll} from 'framer-motion';
-import {forwardRef, useRef} from 'react';
+import {useMotionValue, useMotionValueEvent, useScroll} from 'framer-motion';
+import {forwardRef, useRef, useState} from 'react';
 import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
 import clsx from 'clsx';
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScrollExit.tsx';
@@ -36,12 +36,23 @@ export default function WhatIsKollegScroller({className}: { className?: string }
     const {ref: targetRefIndex4, scrollYProgress: scrollProgressIndex4} = useScrollYProgress();
     const isDesktop = useIsDesktop();
 
+
+    /* 1️⃣  State für die Sichtbarkeit */
+    const [showBubbles, setShowBubbles] = useState(true);
+
+    /* 2️⃣  MotionValue beobachten */
+    useMotionValueEvent(scrollProgressIndex1, 'change', (latest) => {
+        // sichtbar, solange erster Colleg-Slide noch nicht im Viewport-Bottom angekommen ist
+        setShowBubbles(latest < 0.01);
+    });
+
     return (
         <div className={className}>
             {/* Wrapper for the same edge + 2 Spalten */}
             <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5">
                 {/* Left Text-Column  */}
                 <div className="">
+
                     {whatIsCollegData.map((item, index) => (
                         <div key={index} className="z-10">
                             {item.kind === 'hero' ? (
@@ -102,14 +113,14 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                                     images={whatIsCollegData.map((i) => `${import.meta.env.BASE_URL}images/${i.image}`)}
                                 />
 
-                                {/*/!* Circle *!/*/}
-                                {/*<div*/}
-                                {/*    className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33] -z-20"/>*/}
-
                                 {/* Chat-Bubbles */}
-                                <HeroChatBubble position="top-[55%] left-0" delayOffset={0} entries={chatEntriesLeft}/>
-                                <HeroChatBubble position="bottom-[60px] right-0" delayOffset={1500}
-                                                entries={chatEntriesRight}/>
+
+                                {showBubbles && (
+                                    <>
+                                        <HeroChatBubble position="top-[55%] left-0" delayOffset={0} entries={chatEntriesLeft} />
+                                        <HeroChatBubble position="bottom-[60px] right-0" delayOffset={1500} entries={chatEntriesRight} />
+                                    </>
+                                )}
 
                                 {/* Scroll-Hint */}
                                 <div className="absolute bottom-0 left-0 -translate-x-1/2 -ml-[0.625rem] h-[60px] z-20">
@@ -134,23 +145,20 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
             <div
                 ref={ref}
                 className={clsx(
-                    'z-10 w-full h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center',
+                    'z-10 w-full lg:h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center',
                 )}
             >
                 {/* Fade-In Animation Desktop */}
                 <FadeDownOnScroll className="px-6 hidden lg:block" duration={1} delay={0}>
                     <div className="lg:text-left self-center text-center relative">
                         {/* Kreis hier - relativ zum Text-Container */}
-                        <div className="absolute
-                            -left-[40%] sm:-left-[30%] md:-left-[12%] lg:-left-[25%]
-                            top-[55%] -translate-y-1/2
-                            bg-white
-                            w-[150%] sm:w-[70%] md:w-[60%] lg:w-[150%]
-                            aspect-square
-                            rounded-full
-                            -z-10"
+                        <div
+                            className={clsx(
+                                'absolute top-1/2 -translate-y-1/2 bg-white rounded-full -z-10 aspect-square',
+                                'left-1/2 -translate-x-1/2',
+                                'w-[750px]'   // <- NIE kleiner als 900 px
+                            )}
                         />
-
                         <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-headline font-extrabold mb-8 leading-tight relative z-10">
                         <span className="relative inline-block text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-primary">
                                 <span className="relative z-[1] text-primary">{title}</span>
@@ -169,18 +177,8 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
                 </FadeDownOnScroll>
 
                 {/* No Fade-In Animation Mobile */}
-                <div className="px-6 block lg:hidden">
+                <div className="mb-6 p-8 block lg:hidden bg-white rounded-3xl border border-gray-100 shadow-sm">
                     <div className="lg:text-left self-center text-center relative">
-                        {/* Kreis auch hier für Mobile */}
-                        <div className="absolute
-                            -left-[25%] sm:-left-[20%]
-                            top-1/2 -translate-y-1/2
-                            bg-white
-                            w-[90%] sm:w-[80%]
-                            aspect-square
-                            rounded-full
-                            -z-10"
-                        />
 
                         <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight relative z-10">
                             <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">

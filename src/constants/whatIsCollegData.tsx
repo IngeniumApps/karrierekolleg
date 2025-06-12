@@ -83,21 +83,21 @@ export const whatIsCollegData: Slide[] = [
         title: "Chemie.",
         description: (
             <>
-                Das Kolleg der <Highlight>Chemie Akademie</Highlight> vermittelt dir in nur{" "}
+                Das Kolleg der Chemie Akademie vermittelt dir in nur{" "}
                 <Highlight>4 Semestern</Highlight> ein fundiertes Wissen in allen
                 Bereichen der Chemie.
                 <br />
                 <br />
                 Dank eines <Highlight>sehr hohen Laboranteils</Highlight> setzt du Theorie
-                sofort in die Praxis um. Während deiner <Highlight>Diplomarbeit</Highlight>{" "}
-                begleiten dich renommierte <Highlight>Industriebetriebe</Highlight> des
-                Landes – ideale Voraussetzungen für den <Highlight>direkten
-                Berufseinstieg</Highlight> und exzellente{" "}
-                <Highlight>Aufstiegschancen</Highlight>.
+                sofort in die Praxis um. Während deiner Diplomarbeit{" "}
+                begleiten dich renommierte Industriebetriebe des
+                Landes – ideale Voraussetzungen für den direkten
+                Berufseinstieg und <Highlight>exzellente{" "}
+                Aufstiegschancen</Highlight>.
                 <br />
                 <br />
-                Ein <Highlight>praxisorientierter Lehrplan</Highlight> und{" "}
-                <Highlight>modernste Labors</Highlight> an unserem top-ausgestatteten
+                Ein <Highlight>praxisorientierter Lehrplan und{" "}
+                modernste Labors</Highlight> an unserem top-ausgestatteten
                 Standort schaffen die besten Voraussetzungen für deine erfolgreiche
                 Zukunft.
             </>
