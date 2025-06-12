@@ -197,9 +197,9 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
               </span>
             </h1>
 
-            <p className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            <div className="relative z-[1] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               {typeof description === 'string' ? parse(description) : description}
-            </p>
+            </div>
           </div>
         </div>
       </div>
