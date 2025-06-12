@@ -27,8 +27,8 @@ export default function HeroLeftContent() {
       </h1>
 
       <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-        Du hast die Matura – vielleicht auch schon Berufserfahrung.
-        Mit dem Kolleg entscheidest du dich für eine moderne, praxisnahe Ausbildung mit Zukunft.
+        Du hast die Matura – vielleicht auch schon Berufserfahrung. Mit dem Kolleg entscheidest du
+        dich für eine moderne, praxisnahe Ausbildung mit Zukunft.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

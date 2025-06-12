@@ -21,7 +21,6 @@ export default function Header() {
         scrolled ? 'bg-primary shadow-md h-20' : 'bg-transparent h-36 lg:overflow-hidden',
       )}
     >
-
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 flex items-center justify-between h-full z-10">
         <Logo scrolled={scrolled} />

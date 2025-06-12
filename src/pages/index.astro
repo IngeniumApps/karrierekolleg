@@ -7,7 +7,6 @@ import RecognitionSection from '../components/sections/RecognitionSection.astro'
 import StudyPathSection from '../components/sections/StudyPathSection.astro';
 import KollegsGrid from '../components/sections/KollegsGrid.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
-import IntroSection from "../components/sections/IntroSection.astro";
 ---
 
 <MainLayout>
@@ -16,11 +15,12 @@ import IntroSection from "../components/sections/IntroSection.astro";
   <div class="relative bg-white" id="vorteile">
     <!-- Gradient-Background -->
     <div
-        class="absolute inset-0 z-0"
-        style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
-    ></div>
-    <BenefitsSection/>
-    <KollegVsBa/>
+      class="absolute inset-0 z-0"
+      style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+    >
+    </div>
+    <BenefitsSection />
+    <KollegVsBa />
   </div>
   <RecognitionSection id="anerkennung" />
   <StudyPathSection id="weiterstudieren" />
