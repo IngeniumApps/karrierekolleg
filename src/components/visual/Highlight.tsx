@@ -33,7 +33,7 @@ export const Highlight = ({
                 display: 'inline',
             }}
             className={clsx(
-                'relative inline-block rounded-md px-1 pb-1',
+                'relative inline-block rounded-full px-2 pb-1',
                 className
             )}
         >
