@@ -30,7 +30,7 @@ export default function ImageScrollSlider({
   }, [progressList]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden z-10 rounded-xl">
+    <div className="absolute inset-0 overflow-visible z-20 rounded-xl">
       <div className="relative w-full h-full">
         {images.map((img, idx) => (
           <picture>
@@ -41,7 +41,8 @@ export default function ImageScrollSlider({
               alt=""
               loading="eager"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+              //className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                className="absolute top-1/2 left-1/2 h-full w-auto max-w-none -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700"
               style={{ opacity: activeIndex === idx ? 1 : 0 }}
               transition={{ duration: 3, ease: 'easeInOut' }}
             />

@@ -79,23 +79,33 @@ export const whatIsCollegData: Slide[] = [
         },
     },
     {
-        kind: 'colleg',
-        title: 'Chemie.',
+        kind: "colleg",
+        title: "Chemie.",
         description: (
             <>
-                Im Kolleg für <Highlight>Chemie</Highlight> wirst du Expert:in in Bereichen wie Laboranalytik, Umwelttechnik und chemische Verfahren.
+                Das Kolleg der <Highlight>Chemie Akademie</Highlight> vermittelt dir in nur{" "}
+                <Highlight>4 Semestern</Highlight> ein fundiertes Wissen in allen
+                Bereichen der Chemie.
                 <br />
                 <br />
-                Die Ausbildung ist <Highlight>stark praxisorientiert</Highlight> – mit modern ausgestatteten Laboren und realen Projektarbeiten.
+                Dank eines <Highlight>sehr hohen Laboranteils</Highlight> setzt du Theorie
+                sofort in die Praxis um. Während deiner <Highlight>Diplomarbeit</Highlight>{" "}
+                begleiten dich renommierte <Highlight>Industriebetriebe</Highlight> des
+                Landes – ideale Voraussetzungen für den <Highlight>direkten
+                Berufseinstieg</Highlight> und exzellente{" "}
+                <Highlight>Aufstiegschancen</Highlight>.
                 <br />
                 <br />
-                Ob in der <Highlight>Pharma-, Lebensmittel-</Highlight> oder <Highlight>Umweltbranche</Highlight>: Mit deinem Fachwissen bist du ein gefragter Profi in <Highlight>Industrie und Forschung</Highlight>.
+                Ein <Highlight>praxisorientierter Lehrplan</Highlight> und{" "}
+                <Highlight>modernste Labors</Highlight> an unserem top-ausgestatteten
+                Standort schaffen die besten Voraussetzungen für deine erfolgreiche
+                Zukunft.
             </>
         ),
-        image: 'woman-chemie.webp',
-        alt: 'Join Us image',
+        image: "chemie-mirrored.webp",   // bleibt gleich
+        alt: "Kolleg Chemie image",
         classNames: {
-            container: 'bg-yellow-600',
+            container: "bg-yellow-600",
         },
     },
     {

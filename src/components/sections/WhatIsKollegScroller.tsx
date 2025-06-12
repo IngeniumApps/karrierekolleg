@@ -2,7 +2,7 @@ import {useMotionValue, useScroll} from 'framer-motion';
 import {forwardRef, useRef} from 'react';
 import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
 import clsx from 'clsx';
-import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
+import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScrollExit.tsx';
 import {chatEntriesLeft, chatEntriesRight} from '../../constants/chatEntries.ts';
 import HeroChatBubble from '@components/visual/HeroChatBubbles.tsx';
 import HeroLeftContent from '@components/visual/HeroLeftContent.tsx';
@@ -86,8 +86,8 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                 </div>
 
                 {/* 2️⃣  Right Sticky-Column  */}
-                <div className="hidden lg:block z-10">
-                    <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))]">
+                <div className="hidden lg:block z-10 overflow-visible">
+                    <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))] overflow-visible">
                         {/* Animate Images */}
                         {isDesktop && (
                             <>
@@ -102,12 +102,12 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                                     images={whatIsCollegData.map((i) => `${import.meta.env.BASE_URL}images/${i.image}`)}
                                 />
 
-                                {/* Circle */}
-                                <div
-                                    className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33] -z-20"/>
+                                {/*/!* Circle *!/*/}
+                                {/*<div*/}
+                                {/*    className="absolute bottom-[60px] w-[500px] h-[500px] rounded-full bg-[#1b95cc33] -z-20"/>*/}
 
                                 {/* Chat-Bubbles */}
-                                <HeroChatBubble position="top-[50%] left-0" delayOffset={0} entries={chatEntriesLeft}/>
+                                <HeroChatBubble position="top-[55%] left-0" delayOffset={0} entries={chatEntriesLeft}/>
                                 <HeroChatBubble position="bottom-[60px] right-0" delayOffset={1500}
                                                 entries={chatEntriesRight}/>
 
