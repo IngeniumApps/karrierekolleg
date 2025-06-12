@@ -1,6 +1,4 @@
-// KollegVsBachelor.tsx
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
-import React from 'react';
 import CardFlowLineMirrored from '@components/visual/animation/CardFlowLineMirrored.tsx';
 import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
 
