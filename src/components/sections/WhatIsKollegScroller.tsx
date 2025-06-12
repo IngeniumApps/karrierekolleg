@@ -112,9 +112,10 @@ export default function WhatIsKollegScroller({className}: { className?: string }
                                                 entries={chatEntriesRight}/>
 
                                 {/* Scroll-Hint */}
-                                <div className="absolute bottom-0 left-0 -translate-x-1/2 -ml-[0.625rem] h-[60px]">
+                                <div className="absolute bottom-0 left-0 -translate-x-1/2 -ml-[0.625rem] h-[60px] z-20">
                                     <div
-                                        className="px-8 py-4 text-sm animate-bounce pointer-events-none">
+                                        className="bg-white/70 backdrop-blur-md text-primary text-sm sm:text-base px-6 py-2 rounded-full shadow-md animate-bounce"
+                                        aria-hidden="true">
                                         ↓ Scroll weiter
                                     </div>
                                 </div>
