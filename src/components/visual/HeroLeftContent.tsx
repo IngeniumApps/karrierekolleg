@@ -3,7 +3,7 @@ import UnderlineBrush from '@components/visual/animation/UnderlineBrush';
 
 export default function HeroLeftContent() {
   return (
-    <div className="relative z-[1] lg:text-left self-center text-center">
+    <div className="relative z-30 lg:text-left self-center text-center">
       <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
         <span className="inline-block font-black text-[10vw] sm:text-6xl md:text-7xl lg:text-8xl text-primary">
           <TypewriterText
@@ -32,16 +32,10 @@ export default function HeroLeftContent() {
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-        <a
-          href={`${import.meta.env.BASE_URL}#vorteile`}
-          className="bg-accent font-bold px-8 py-4 rounded-full shadow-md border-2 border-transparent text-center"
-        >
+        <a href={`${import.meta.env.BASE_URL}#vorteile`} className="bg-accent font-bold px-8 py-4 rounded-full shadow-md border-2 border-transparent text-center">
           Jetzt informieren
         </a>
-        <a
-          href={`${import.meta.env.BASE_URL}#kollegs`}
-          className="inline-block bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md"
-        >
+        <a href={`${import.meta.env.BASE_URL}#kollegs`} className="bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md">
           Alle Kollegs ansehen
         </a>
       </div>

@@ -51,7 +51,7 @@ export default function WhatIsKollegScroller({ className }: { className?: string
         {/* Left Text-Column  */}
         <div className="">
           {whatIsCollegData.map((item, index) => (
-            <div key={index} className="z-10">
+            <div key={index} className="">
               {item.kind === 'hero' ? (
                 /* Slide #1 – special Hero-Text */
                 <>
