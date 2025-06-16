@@ -67,7 +67,7 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
         {/* 📸 Bild */}
         <div className="relative">
           <img
-            src={image}
+            src={imgSrc}
             alt={`Symbolbild für ${topic}`}
             className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"

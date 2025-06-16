@@ -3,10 +3,9 @@ import { useState } from 'react';
 import GraduationCapIcon from '../../../assets/icons/custom/GraduationCapIcon.tsx';
 import clsx from 'clsx';
 
-const areas = ['Bautechnik', 'Kunst und Design', 'Naturwissenschaft', 'Technik & Informatik'];
-
 interface DropdownSelectProps {
   label?: string;
+  options: string[];
   value: string;
   onChange: (val: string) => void;
   error?: string;
@@ -43,7 +42,7 @@ const itemVariants = {
   },
 };
 
-const DropdownSelect = ({ label, value, onChange, error }: DropdownSelectProps) => {
+const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSelectProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -80,19 +79,19 @@ const DropdownSelect = ({ label, value, onChange, error }: DropdownSelectProps) 
           variants={wrapperVariants}
           className="absolute mt-2 w-full rounded-xl bg-white border border-gray-200 shadow-xl z-10 overflow-hidden"
         >
-          {areas.map((area) => (
+          {options.map((opt) => (
             <motion.li
               role="option"
-              key={area}
+              key={opt}
               variants={itemVariants}
               onClick={() => {
-                onChange(area);
+                onChange(opt);
                 setOpen(false);
               }}
               className="px-4 py-3 text-sm text-gray-800 transition-colors duration-200 hover:bg-primary/10 select-none"
               style={{ cursor: 'default' }} // 👈 Kein Cursorwechsel!
             >
-              {area}
+              {opt}
             </motion.li>
           ))}
         </motion.ul>

@@ -4,6 +4,7 @@ import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from 'r
 import clsx from 'clsx';
 import DropdownSelect from '@components/visual/animation/AnimatedDropdown.tsx';
 import MessageIcon from '../../assets/icons/custom/MessageIcon.tsx';
+import AreaWithModeSelect from "@components/forms/AreaWithModeSelect.tsx";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -78,7 +79,7 @@ export default function ContactForm() {
           noValidate
           className="bg-white/60 backdrop-blur-lg border border-white/30 shadow-2xl rounded-3xl p-8 w-full max-w-2xl mx-auto text-left space-y-6"
         >
-          <DropdownSelect
+          <AreaWithModeSelect
             label={'Kolleg-Bereich'}
             value={form.area}
             onChange={(val) => setForm((prev) => ({ ...prev, area: val }))}

@@ -29,4 +29,10 @@ export const benefits = [
       'Flexibilität ist Trumpf: Ob du lieber im Klassenzimmer lernst, ortsunabhängig online arbeitest oder beides kombinierst – das Kolleg bietet dir passende Formate. So lässt sich Ausbildung optimal mit deinem Lebensstil oder Beruf vereinbaren.',
     color: '#8b5cf6',
   },
+  {
+    title: 'Schneller Verdienst nach Abschluss',
+    description:
+        'In nur zwei bis drei Jahren steigst du ins Berufsleben ein und sicherst dir direkt ein attraktives Einstiegsgehalt – deine Investition in die Ausbildung zahlt sich schnell aus.',
+    color: '#06b6d4',
+  },
 ];
