@@ -2,7 +2,6 @@
 
 import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import DropdownSelect from '@components/visual/animation/AnimatedDropdown.tsx';
 import MessageIcon from '../../assets/icons/custom/MessageIcon.tsx';
 import AreaWithModeSelect from "@components/forms/AreaWithModeSelect.tsx";
 
