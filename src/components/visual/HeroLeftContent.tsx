@@ -32,10 +32,10 @@ export default function HeroLeftContent() {
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-        <a href={`${import.meta.env.BASE_URL}#vorteile`} className="bg-accent font-bold px-8 py-4 rounded-full shadow-md border-2 border-transparent text-center">
+        <a href={`${import.meta.env.BASE_URL}#vorteile`} className="cursor-none bg-accent font-bold px-8 py-4 rounded-full shadow-md border-2 border-transparent text-center">
           Jetzt informieren
         </a>
-        <a href={`${import.meta.env.BASE_URL}#kollegs`} className="bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md">
+        <a href={`${import.meta.env.BASE_URL}#kollegs`} className="cursor-none bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md">
           Alle Kollegs ansehen
         </a>
       </div>

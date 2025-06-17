@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import BenefitsSection from '../components/sections/BenefitsSection.astro';
 import KollegVsBa from '../components/sections/KollegVsBa.astro';
-import RecognitionSection from '../components/sections/RecognitionSection.astro';
+import WhatIsKollegSection from '../components/sections/WhatIsKollegSection.astro';
 import StudyPathSection from '../components/sections/StudyPathSection.astro';
 import KollegsGrid from '../components/sections/KollegsGrid.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
@@ -19,11 +19,11 @@ import ContactSection from '../components/sections/ContactSection.astro';
       style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
     >
     </div>
+    <WhatIsKollegSection />
     <BenefitsSection />
     <KollegVsBa />
+    <StudyPathSection/>
   </div>
-  <RecognitionSection id="anerkennung" />
-  <StudyPathSection id="weiterstudieren" />
   <KollegsGrid id="kollegs" />
   <ContactSection id="kontakt" />
 </MainLayout>

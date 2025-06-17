@@ -1,0 +1,124 @@
+---
+import UnderlineBrush from "../visual/animation/UnderlineBrush";
+import SplitHeroVideo from '../visual/SplitHeroVideo.tsx';
+import FadeDownOnScroll from "../visual/animation/FadeDownOnScroll";
+import CardFlowLineMirrored from "../visual/animation/CardFlowLineMirrored";
+const { id = 'kolleg-hero' } = Astro.props;
+---
+<section
+    id={id}
+    class="relative w-full min-h-screen z-20 flex items-center justify-center"
+>
+  <CardFlowLineMirrored client:visible/>
+
+  <div class="">
+    <!-- Warum funktioniert item-center nicht sowie z-index? -->
+    <FadeDownOnScroll duration={0.8} client:visible className="hidden lg:flex justify-center items-center w-full h-auto pb-16 lg:pb-20">
+      <div class="h-auto">
+        <h2 class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold leading-tight">
+          <span>Was ist ein </span>
+          <span class="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+                <span class="relative z-10 text-primary">Kolleg</span>
+                <UnderlineBrush
+                    client:visible
+                    className="hidden lg:block left-0 bottom-0 z-0 w-full"
+                    fillColor="#BBF451"
+                    bottomOffset={8}
+                />
+              </span>
+          ?
+          <br />
+        </h2>
+      </div>
+    </FadeDownOnScroll>
+
+
+    <!-- Desktop Grid: 1/3 Text – 2/3 Video -->
+    <div
+        class="relative z-20 hidden lg:flex items-center
+           w-full h-auto max-w-7xl mx-auto gap-10 px-8"
+    >
+      <!-- ➡VIDEO (2/3) -->
+      <div class="w-2/3 rounded-3xl overflow-hidden shadow-2xl">
+        <SplitHeroVideo
+            client:visible
+            className="w-full h-auto object-contain"
+            src={`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung.m3u8`}
+        />
+      </div>
+
+      <!-- TEXT (1/3) -->
+      <FadeDownOnScroll client:visible>
+        <div class="flex flex-col gap-10">
+          <p class="text-lg sm:text-xl max-w-md leading-relaxed">
+            Im Video erfährst du kurz und klar, was ein Kolleg ist und wie die Ausbildung abläuft.
+          </p>
+
+          <div class="flex flex-wrap gap-5">
+            <a
+                href="#kollegs"
+                class="cursor-none bg-accent font-bold px-8 py-4 rounded-full shadow-md
+                 border-2 border-transparent text-center w-full"
+            >
+              Kolleg entdecken
+            </a>
+            <a
+                href="#kontakt"
+                class="cursor-none bg-white text-primary font-bold border
+           border-primary px-8 py-4 rounded-full shadow-md text-center self-center w-full"
+            >
+              Noch&nbsp;Fragen?
+            </a>
+          </div>
+        </div>
+      </FadeDownOnScroll>
+    </div>
+
+    <!-- Mobile View bitte nicht ändern!! Code funktioniert! -->
+    <div class="flex lg:hidden z-10 w-full min-h-full flex-col justify-center px-6">
+      <div class="w-full text-center mt-16">
+        <h1 class="text-[8vw] sm:text-4xl md:text-5xl font-headline font-bold mb-6">
+          Was ist ein
+          <span class="relative inline-block text-[11vw] sm:text-6xl md:text-7xl text-primary">
+          <span class="relative z-[1]">Kolleg</span>
+          <UnderlineBrush
+              className="absolute left-0 bottom-1 z-0 w-full"
+              fillColor="#BBF451"
+              bottomOffset={6}
+          />
+        </span>
+          ?
+        </h1>
+
+        <p class="text-lg sm:text-xl leading-relaxed mb-6">
+          Im Video erfährst du kurz und klar, was ein Kolleg ist und wie die Ausbildung abläuft.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <a
+            href={`${import.meta.env.BASE_URL}#vorteile`}
+            class="bg-accent font-bold px-8 py-4 rounded-full shadow-md border-2 border-transparent text-center"
+        >
+          Kollegs entdecken
+        </a>
+        <a
+            href={`${import.meta.env.BASE_URL}#kollegs`}
+            class="inline-block bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md text-center"
+        >
+          Noch&nbsp;Fragen?
+        </a>
+      </div>
+
+      <div class="relative w-full
+                flex items-center justify-center
+                rounded-3xl shadow-2xl my-16">
+        <SplitHeroVideo
+            client:visible
+            className="w-full h-auto max-h-[70vh] object-contain"
+            src={`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung.m3u8`}
+        />
+      </div>
+    </div>
+  </div>
+</section>

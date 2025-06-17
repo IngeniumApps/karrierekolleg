@@ -18,7 +18,7 @@ export default function RecognitionVideoHLS() {
       video.src = `${import.meta.env.BASE_URL}videos/anerkennung-hls/anerkennung.m3u8`;
     }
 
-    video.playbackRate = 3.0;
+    video.playbackRate = 5.0;
 
     let isPlaying = false;
     const observer = new IntersectionObserver(

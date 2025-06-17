@@ -132,7 +132,7 @@ export default function ContactForm() {
             type="submit"
             disabled={!form.privacy}
             className={clsx(
-              'w-full py-3 px-6 rounded-full font-semibold text-lg transition-all duration-300',
+              'cursor-none w-full py-3 px-6 rounded-full font-semibold text-lg transition-all duration-300',
               form.privacy
                 ? 'bg-accent border border-accent shadow-md hover:brightness-110'
                 : 'bg-white text-primary border border-primary shadow-sm cursor-not-allowed pointer-events-none',

@@ -1,8 +1,13 @@
+import CardFlowLine from "@components/visual/animation/CardFlowLine.tsx";
+
 export default function StudyPathContent() {
   return (
     <section className="relative w-full py-20 lg:py-32 overflow-hidden">
       {/*Glass-Overlay*/}
       <div className="absolute inset-0 z-0 backdrop-glass"></div>
+
+      <CardFlowLine />
+
 
       <div className="relative max-w-4xl mx-auto text-center space-y-10 z-10">
         <h2 className="text-4xl lg:text-5xl font-headline font-bold text-primary">

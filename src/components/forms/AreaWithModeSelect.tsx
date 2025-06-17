@@ -35,14 +35,14 @@ const RadioGroup = ({
 }) => (
     <div className="mt-2 flex gap-4">
         {options.map((opt) => (
-            <label key={opt} className="inline-flex items-center space-x-1 cursor-pointer">
+            <label key={opt} className="inline-flex items-center space-x-1 cursor-none">
                 <input
                     type="radio"
                     name="kursform"
                     value={opt}
                     checked={value === opt}
                     onChange={() => onChange(opt)}
-                    className="form-radio"
+                    className="form-radio cursor-none"
                 />
                 <span>{opt}</span>
             </label>

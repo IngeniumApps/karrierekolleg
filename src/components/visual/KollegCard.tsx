@@ -28,7 +28,7 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="hidden lg:block group w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+        className="cursor-none hidden lg:block group w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
         aria-label={`Mehr erfahren über ${name} an der ${school}`}
       >
         {/* 📸 Bild */}
