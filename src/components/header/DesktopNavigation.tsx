@@ -11,7 +11,7 @@ export default function DesktopNavigation({ scrolled }: { scrolled: boolean }) {
     <nav aria-label="Hauptnavigation" className="flex gap-10 text-sm font-medium">
       {navItems.map((item) => {
         const isActive = activeId === item.id;
-        const baseClasses = 'cursor-none transition-colors px-2 py-1 text-lg';
+        const baseClasses = 'cursor-none transition-colors px-2 py-1 text-xl';
 
         const colorClasses = scrolled
           ? isActive
@@ -24,6 +24,7 @@ export default function DesktopNavigation({ scrolled }: { scrolled: boolean }) {
           <a
             key={item.id}
             href={`${import.meta.env.BASE_URL}#${item.id}`}
+            aria-current={isActive ? 'page' : undefined}
             className={`${baseClasses} ${colorClasses}`}
           >
             {item.label}
