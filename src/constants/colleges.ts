@@ -41,7 +41,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/',
     color: 'bg-ortwein',
-    image: '',
+    image: 'placeholder-image.webp',
     mode: 'Abendkolleg',
   },
   {
@@ -50,7 +50,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/',
     color: 'bg-ortwein',
-    image: '',
+    image: 'placeholder-image.webp',
     mode: 'Tageskolleg',
   },
   {
@@ -67,7 +67,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/portfolio/fine-art-photography-und-multimediaart-18/',
     color: 'bg-ortwein',
-    image: '',
+    image: 'placeholder-image.webp',
   },
   {
     name: 'Kolleg für Grafik- und Kommunikationsdesign',
@@ -75,7 +75,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/portfolio/abendkolleg-grafik-und-kommunikationsdesign/',
     color: 'bg-ortwein',
-    image: '',
+    image: 'placeholder-image.webp',
   },
   {
     name: 'Tageskolleg Informatik',
