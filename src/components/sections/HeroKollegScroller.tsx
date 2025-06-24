@@ -169,11 +169,6 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
             <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-headline font-extrabold mb-8 leading-tight relative z-10">
               <span className="relative inline-block text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-primary">
                 <span className="relative z-[1] text-primary">{title}</span>
-                {/*<UnderlineBrush*/}
-                {/*    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"*/}
-                {/*    fillColor="#BBF451"*/}
-                {/*    bottomOffset={8}*/}
-                {/*/>*/}
               </span>
             </h1>
 
@@ -189,11 +184,6 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
             <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight relative z-10">
               <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
                 <span className="relative z-[1] text-primary">{title}</span>
-                <UnderlineBrush
-                  className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
-                  fillColor="#BBF451"
-                  bottomOffset={8}
-                />
               </span>
             </h1>
 

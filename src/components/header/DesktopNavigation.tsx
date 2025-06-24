@@ -15,11 +15,11 @@ export default function DesktopNavigation({ scrolled }: { scrolled: boolean }) {
 
         const colorClasses = scrolled
           ? isActive
-            ? 'text-accent border-b-2 border-accent'
-            : 'text-white hover:text-accent hover:border-b-2 hover:border-accent'
+            ? 'text-accent border-b-2 border-accent font-bold'
+            : 'text-white hover:text-accent hover:border-b-2 hover:border-accent hover:font-bold'
           : isActive
-            ? 'text-primary border-b-2 border-primary'
-            : 'text-black hover:text-primary hover:border-b-2 hover:border-primary';
+            ? 'text-primary border-b-2 border-primary font-bold'
+            : 'text-black hover:text-primary hover:border-b-2 hover:border-primary hover:font-bold';
         return (
           <a
             key={item.id}

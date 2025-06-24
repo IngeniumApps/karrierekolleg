@@ -21,31 +21,31 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center gap-6">
           <a
             href={`${import.meta.env.BASE_URL}#kontakt`}
-            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors"
+            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:font-bold hover:border-accent hover:text-accent transition-colors"
           >
             Kontakt
           </a>
           <a
             href={`${import.meta.env.BASE_URL}#kollegs`}
-            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors"
+            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:font-bold hover:border-accent hover:text-accent transition-colors"
           >
             Kollegs
           </a>
           <a
             href={`${import.meta.env.BASE_URL}#vorteile`}
-            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors"
+            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:font-bold hover:border-accent hover:text-accent transition-colors"
           >
             Vorteile
           </a>
           <a
             href={`${import.meta.env.BASE_URL}impressum/`}
-            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors"
+            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:font-bold hover:border-accent hover:text-accent transition-colors"
           >
             Impressum
           </a>
           <a
             href={`${import.meta.env.BASE_URL}datenschutz/`}
-            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:border-accent hover:text-accent transition-colors"
+            className="cursor-none text-lg px-1 py-0.5 border-b-2 border-transparent hover:font-bold hover:border-accent hover:text-accent transition-colors"
           >
             Datenschutz
           </a>
@@ -54,7 +54,7 @@ export default function Footer() {
         {/* Button */}
         <motion.a
           href={`${import.meta.env.BASE_URL}#kollegs`}
-          className="cursor-none bg-lime-300 text-black font-bold px-6 py-3 -rotate-3 rounded-full hover:rotate-0 hover:scale-105 transition-transform"
+          className="cursor-none bg-accent text-black font-bold px-6 py-3 -rotate-3 rounded-full hover:rotate-0 hover:scale-105 transition-transform"
           whileHover={{ rotate: 0, scale: 1.05 }}
         >
           Starte jetzt!
