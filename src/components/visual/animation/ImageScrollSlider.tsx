@@ -39,8 +39,8 @@ export default function ImageScrollSlider({
               key={idx}
               src={img}
               alt=""
-              width={1440}
-              height={1440}
+              width={900}
+              height={900}
               loading={idx === 0 ? 'eager' : 'lazy'}
               decoding="async"
               //className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"

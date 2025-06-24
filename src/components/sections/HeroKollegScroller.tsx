@@ -106,7 +106,7 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                     scrollProgressIndex4,
                   ]}
                   images={whatIsCollegData.map(
-                    (i) => `${import.meta.env.BASE_URL}images/${i.image}`,
+                    (i) => `${import.meta.env.BASE_URL}images/hero-images/${i.image}`,
                   )}
                 />
 
