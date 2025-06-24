@@ -5,15 +5,17 @@ import UnderlineBrush from '@components/visual/animation/UnderlineBrush';
 import { benefits } from '../../constants/benefits';
 
 export const Benefits = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
   });
 
-  const endShiftVw = -(benefits.length - 1) * 40;
+  const endShiftVw = -(benefits.length - 1) * 30;
   const x = useTransform(scrollYProgress, [0, 1], ['0vw', `${endShiftVw}vw`]);
+
+  // Scroll Speed Control
   const xSpring = useSpring(x, { damping: 30, stiffness: 100 });
 
   const totalVw = (benefits.length - 1) * 100;
@@ -23,17 +25,17 @@ export const Benefits = () => {
       <section className="relative w-full overflow-visible">
         <div className="absolute inset-0 z-0 backdrop-glass" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 lg:py-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div
               ref={sectionRef}
               style={{ height: sectionHeight }}
-              className="relative bg-yellow"
+              className="relative"
           >
             {/* Sticky-Container */}
             <div className="sticky top-0 h-screen flex flex-col">
               {/* — Header: immer sichtbar */}
-              <div className="flex-none px-6 py-12 bg-yellow z-20">
-                <FadeDownOnScroll duration={0.8}>
+              <div className="flex flex-1 justify-center z-20 pt-20">
+                <FadeDownOnScroll duration={0.8} className={"self-end"}>
                   <div className="text-center mb-8 lg:mb-10">
                     <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold leading-tight">
                     <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
@@ -57,7 +59,7 @@ export const Benefits = () => {
               </div>
 
               {/* — Cards: nehmen den Rest der Höhe */}
-              <div className="flex-1 flex items-center overflow-hidden">
+              <div className="flex-2 flex items-center ">
                 <motion.div style={{ x: xSpring }} className="flex gap-10 px-10">
                   {benefits.map((benefit, index) => (
                       <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
