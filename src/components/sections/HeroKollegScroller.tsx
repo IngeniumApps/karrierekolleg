@@ -1,6 +1,5 @@
 import { useMotionValue, useMotionValueEvent, useScroll } from 'framer-motion';
 import { forwardRef, useRef, useState } from 'react';
-import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
 import clsx from 'clsx';
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScrollExit.tsx';
 import { chatEntriesLeft, chatEntriesRight } from '../../constants/chatEntries.ts';
@@ -161,9 +160,9 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
             {/* Kreis hier - relativ zum Text-Container */}
             <div
               className={clsx(
-                'absolute top-1/2 -translate-y-1/2 bg-white rounded-full -z-10 aspect-square',
-                'left-1/2 -translate-x-1/2',
-                'w-[750px]', // <- NIE kleiner als 900 px
+                'absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2',
+                'w-[750px] z-0 aspect-square rounded-full',
+                'bg-white/60 backdrop-blur-sm border border-white/30 shadow-xl', // <- NIE kleiner als 900 px
               )}
             />
             <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-headline font-extrabold mb-8 leading-tight relative z-10">
