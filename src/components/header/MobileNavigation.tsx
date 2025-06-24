@@ -83,7 +83,7 @@ export default function MobileNavigation({ scrolled }: { scrolled: boolean }) {
                     return (
                       <a
                         key={item.id}
-                        href={`#${item.id}`}
+                        href={`${import.meta.env.BASE_URL}#${item.id}`}
                         onClick={toggleDrawer}
                         className={clsx(
                           'text-center text-2xl font-headline font-bold rounded-full shadow-md px-6 py-4 transition-all',
