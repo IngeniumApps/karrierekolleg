@@ -4,11 +4,13 @@ import Hls from 'hls.js';
 
 interface Props {
     src: string;
+    width?: number | string;
+    height?: number | string;
     poster?: string;
     className?: string;
 }
 
-export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
+export default function SplitHeroVideo({ src, width, height, poster, className = '' }: Props) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
@@ -46,7 +48,7 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
     return (
         <video
             ref={videoRef}
-            className={`w-full h-full object-cover ${className}`}
+            className={`w-full max-h-[200vh] object-cover ${className}`}
             muted
             loop
             controls

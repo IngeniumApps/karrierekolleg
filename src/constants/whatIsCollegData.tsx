@@ -24,7 +24,7 @@ export const whatIsCollegData: Slide[] = [
     {
         kind: 'hero',
         image: 'woman.webp',
-        alt: 'What is Colleg image',
+        alt: 'Studentin am Kolleg',
     },
 
     /* -------------------------------------------- BAUTECHNIK */
@@ -111,7 +111,7 @@ export const whatIsCollegData: Slide[] = [
                 </p>
             </>
         ),
-        image: 'chemie-mirrored.webp',
+        image: 'woman-chemie.webp',
         alt: 'Kolleg Chemie',
         classNames: { container: 'bg-yellow-600' },
     },
@@ -148,7 +148,7 @@ export const whatIsCollegData: Slide[] = [
                 </p>
             </>
         ),
-        image: 'woman.webp',
+        image: 'woman-it.webp',
         alt: 'Technik & Informatik',
         classNames: { container: 'bg-green-600' },
     },
