@@ -5,7 +5,7 @@ export const colleges = [
     school: 'HTL Bulme Graz',
     link: 'https://www.bulme.at/e-technologies-17-plus/e-technologies-abendkolleg/',
     color: 'bg-bulme_e_technologie',
-    image: 'https://picsum.photos/seed/etech/800/600',
+    image: '/bulme/e-technologies-card.webp',
     mode: 'Abendkolleg',
   },
   {
@@ -14,7 +14,7 @@ export const colleges = [
     school: 'HTL Bulme Graz',
     link: 'https://www.bulme.at/elektronik-technische-informatik-17-plus/elektronik-und-technische-informatik-abend-htl-2/',
     color: 'bg-bulme_elektrotechnik',
-    image: 'https://picsum.photos/seed/eti/800/600',
+    image: '/bulme/Kolleg_Elektronik_Abend/elektronik-card.webp',
     mode: 'Abendkolleg',
   },
   {
@@ -23,7 +23,7 @@ export const colleges = [
     school: 'HTL Bulme Graz',
     link: 'https://www.bulme.at/e-technologies-17/maschinenbau-abendkolleg/',
     color: 'bg-bulme_maschinenbau',
-    image: 'https://picsum.photos/seed/maschinenbau1/800/600',
+    image: '/bulme/Kolleg_Maschinenbau_Abend/maschinenbau-card.webp',
     mode: 'Abendkolleg',
   },
   {
@@ -32,7 +32,7 @@ export const colleges = [
     school: 'Ingenium Education',
     link: 'https://www.ingenium.co.at/studium/informatik/it-kolleg',
     color: 'bg-ingenium',
-    image: 'https://picsum.photos/seed/it-kolleg/800/600',
+    image: '/ingenium/kolleg_informatik_card.webp',
     mode: 'Abendkolleg',
   },
   {
@@ -41,7 +41,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/',
     color: 'bg-ortwein',
-    image: 'https://picsum.photos/seed/bautechnik/800/600',
+    image: '',
     mode: 'Abendkolleg',
   },
   {
@@ -50,7 +50,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/',
     color: 'bg-ortwein',
-    image: 'https://picsum.photos/seed/bautechnik/800/600',
+    image: '',
     mode: 'Tageskolleg',
   },
   {
@@ -59,7 +59,7 @@ export const colleges = [
     school: 'Chemie Akademie',
     link: 'https://chemie-akademie.at/chemie-kolleg-home-page/',
     color: 'bg-chemie_kolleg',
-    image: 'chemie-card.webp',
+    image: '/chemie/chemie-card.webp',
   },
   {
     name: 'Kolleg für Fine Art Photography & MultimediaArt',
@@ -67,7 +67,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/portfolio/fine-art-photography-und-multimediaart-18/',
     color: 'bg-ortwein',
-    image: 'https://picsum.photos/seed/photography/800/600',
+    image: '',
   },
   {
     name: 'Kolleg für Grafik- und Kommunikationsdesign',
@@ -75,7 +75,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/portfolio/abendkolleg-grafik-und-kommunikationsdesign/',
     color: 'bg-ortwein',
-    image: 'https://picsum.photos/seed/design1/800/600',
+    image: '',
   },
   {
     name: 'Tageskolleg Informatik',
@@ -83,7 +83,7 @@ export const colleges = [
     school: 'HTL Bulme Graz',
     link: 'https://www.bulme.at/elektronik-technische-informatik-17-plus/informatik-tageskolleg/',
     color: 'bg-bulme_informatik',
-    image: 'https://picsum.photos/seed/informatik/800/600',
+    image: '/bulme/informatik-card.webp',
     mode: 'Tageskolleg',
   },
   {
@@ -92,7 +92,7 @@ export const colleges = [
     school: 'HTL Bulme Graz',
     link: 'https://www.bulme.at/e-technologies-17/maschinenbau-tageskolleg/',
     color: 'bg-bulme_maschinenbau',
-    image: 'https://picsum.photos/seed/maschinenbau2/800/600',
+    image: '/bulme/Kolleg_Maschinenbau_Tag/maschinenbau-card.webp',
     mode: 'Tageskolleg',
   },
 ];
