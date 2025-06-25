@@ -43,8 +43,8 @@ const { id = 'kolleg-hero' } = Astro.props;
       <div class="w-2/3 rounded-3xl overflow-hidden shadow-2xl">
         <SplitHeroVideo
           client:visible
-          className="w-full h-auto object-contain"
           src={`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung.m3u8`}
+          poster={`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung-poster.jpg`}
         />
       </div>
 
@@ -118,8 +118,8 @@ const { id = 'kolleg-hero' } = Astro.props;
       >
         <SplitHeroVideo
           client:visible
-          className="w-full h-auto max-h-[70vh] object-contain"
           src={`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung.m3u8`}
+          poster={`${import.meta.env.BASE_URL}videos/kolleg-hls/anerkennung-poster.jpg`}
         />
       </div>
     </div>

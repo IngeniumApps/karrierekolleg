@@ -1,6 +1,4 @@
-// src/components/visual/SplitHeroVideo.tsx
 import { useEffect, useRef } from 'react';
-import Hls from 'hls.js';
 
 interface Props {
   src: string;
@@ -15,45 +13,66 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
     const video = videoRef.current;
     if (!video) return;
 
-    /* HLS oder direct src ------------------------------------------------*/
-    let hls: Hls | null = null;
-    if (src.endsWith('.m3u8') && Hls.isSupported()) {
-      hls = new Hls();
-      hls.loadSource(src);
-      hls.attachMedia(video);
-    } else {
-      video.src = src;
-    }
+    let hlsInstance: any = null;
 
-    /* 3×-Geschwindigkeit sobald Metadaten geladen ------------------------*/
-    const setSpeed = () => (video.playbackRate = 3.0);
-    video.addEventListener('loadedmetadata', setSpeed);
+    const handleIntersect: IntersectionObserverCallback = async ([entry]) => {
+      if (!video) return;
 
-    /* Autoplay/Pause per Sichtbarkeit ------------------------------------*/
-    const io = new IntersectionObserver(
-      ([e]) => (e.isIntersecting ? video.play().catch(() => {}) : video.pause()),
-      { threshold: 0.3 },
-    );
+      if (entry.isIntersecting) {
+        // → Erst hier HLS laden / src setzen
+        if (src.endsWith('.m3u8') && typeof window !== 'undefined') {
+          const { default: Hls } = await import('hls.js');
+          if (Hls.isSupported()) {
+            hlsInstance = new Hls();
+            hlsInstance.loadSource(src);
+            hlsInstance.attachMedia(video);
+          } else {
+            video.src = src;
+          }
+        } else {
+          video.src = src;
+        }
+
+        // → Playback-Speed erst nach Metadaten setzen
+        const onMeta = () => {
+          video.playbackRate = 3.0;
+          video.removeEventListener('loadedmetadata', onMeta);
+        };
+        video.addEventListener('loadedmetadata', onMeta);
+
+        // → und dann abspielen
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+
+    const io = new IntersectionObserver(handleIntersect, { threshold: 0.3 });
     io.observe(video);
 
     return () => {
       io.disconnect();
-      video.removeEventListener('loadedmetadata', setSpeed);
-      hls?.destroy();
+      video.removeEventListener('loadedmetadata', () => {});
+      hlsInstance?.destroy();
     };
   }, [src]);
 
   return (
-    <video
-      ref={videoRef}
-      className={`w-full max-h-[200vh] object-cover ${className}`}
-      muted
-      loop
-      controls
-      playsInline
-      preload="none"
-      poster={poster}
-      aria-label="Was ist ein Kolleg? – Erklärvideo"
-    />
+      // Wrapper sorgt für 16:9-Platz bereits vor Videoladen
+      <div className="w-full aspect-video overflow-hidden rounded-3xl shadow-2xl">
+        <video
+            ref={videoRef}
+            width={1274}
+            height={720}
+            className={`object-cover ${className}`}
+            muted
+            loop
+            controls
+            playsInline
+            preload="none"
+            poster={poster}
+            aria-label="Was ist ein Kolleg? – Erklärvideo"
+        />
+      </div>
   );
 }
