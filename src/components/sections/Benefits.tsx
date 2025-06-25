@@ -72,7 +72,9 @@ export const Benefits = () => {
         </div>
 
         {/*** DESKTOP VARIANTE: original ***/}
-        <div ref={sectionRef} style={{ height: sectionHeight }} className="relative hidden lg:block">
+        <div ref={sectionRef}
+             style={{ height: sectionHeight }}
+             className="relative hidden lg:block">
           {/* Sticky-Container */}
           <div className="sticky top-0 h-screen flex flex-col">
             {/* — Header: immer sichtbar */}
