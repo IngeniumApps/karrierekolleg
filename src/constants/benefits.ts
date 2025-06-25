@@ -32,7 +32,7 @@ export const benefits = [
   {
     title: 'Schneller Verdienst nach Abschluss',
     description:
-        'In nur zwei bis drei Jahren steigst du ins Berufsleben ein und sicherst dir direkt ein attraktives Einstiegsgehalt – deine Investition in die Ausbildung zahlt sich schnell aus.',
+      'In nur zwei bis drei Jahren steigst du ins Berufsleben ein und sicherst dir direkt ein attraktives Einstiegsgehalt – deine Investition in die Ausbildung zahlt sich schnell aus.',
     color: '#06b6d4',
   },
 ];

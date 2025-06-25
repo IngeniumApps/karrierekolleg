@@ -1,5 +1,3 @@
-
-
 export const chatEntriesLeft = [
   {
     sender: 'Daniel Costa',

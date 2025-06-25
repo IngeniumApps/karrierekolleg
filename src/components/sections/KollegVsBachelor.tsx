@@ -1,7 +1,7 @@
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
-import CardFlowLineMirrored from "@components/visual/animation/CardFlowLineMirrored.tsx";
-import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
-import type {FC} from "react";
+import CardFlowLineMirrored from '@components/visual/animation/CardFlowLineMirrored.tsx';
+import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
+import type { FC } from 'react';
 
 interface KollegVsBachelorProps {
   className?: string;

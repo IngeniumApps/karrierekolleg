@@ -15,145 +15,146 @@ const CENTER_STAGGER = -65;
 const SECTION_HEIGHT = 600;
 
 interface Testimonial {
-    tempId: number;
-    testimonial: string;
-    by: string;
-    imgSrc: string;
+  tempId: number;
+  testimonial: string;
+  by: string;
+  imgSrc: string;
 }
 
 interface TestimonialCardProps {
-    position: number;
-    testimonial: Testimonial;
-    handleMove: (pos: number) => void;
-    cardSize: number;
+  position: number;
+  testimonial: Testimonial;
+  handleMove: (pos: number) => void;
+  cardSize: number;
 }
 
 export const Testimonials: React.FC = () => {
-    const [cardSize, setCardSize] = useState<number>(CARD_SIZE_LG);
+  const [cardSize, setCardSize] = useState<number>(CARD_SIZE_LG);
 
-    const [testimonials, setTestimonials] = useState<Testimonial[]>(() =>
-        chatEntriesLeft.map((entry, i) => ({
-            tempId: i,
-            testimonial: entry.text,
-            by: entry.sender,
-            imgSrc: `${import.meta.env.BASE_URL}images/${entry.image}`,
-        }))
-    );
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(() =>
+    chatEntriesLeft.map((entry, i) => ({
+      tempId: i,
+      testimonial: entry.text,
+      by: entry.sender,
+      imgSrc: `${import.meta.env.BASE_URL}images/${entry.image}`,
+    })),
+  );
 
-    const handleMove = (position: number) => {
-        const copy = [...testimonials];
-        if (position > 0) {
-            for (let i = position; i > 0; i--) {
-                const first = copy.shift();
-                if (!first) return;
-                copy.push({ ...first, tempId: Math.random() });
-            }
-        } else {
-            for (let i = position; i < 0; i++) {
-                const last = copy.pop();
-                if (!last) return;
-                copy.unshift({ ...last, tempId: Math.random() });
-            }
-        }
-        setTestimonials(copy);
-    };
+  const handleMove = (position: number) => {
+    const copy = [...testimonials];
+    if (position > 0) {
+      for (let i = position; i > 0; i--) {
+        const first = copy.shift();
+        if (!first) return;
+        copy.push({ ...first, tempId: Math.random() });
+      }
+    } else {
+      for (let i = position; i < 0; i++) {
+        const last = copy.pop();
+        if (!last) return;
+        copy.unshift({ ...last, tempId: Math.random() });
+      }
+    }
+    setTestimonials(copy);
+  };
 
-    useEffect(() => {
-        const mq = window.matchMedia('(min-width: 640px)');
-        const updateSize = () => setCardSize(mq.matches ? CARD_SIZE_LG : CARD_SIZE_SM);
-        updateSize();
-        mq.addEventListener('change', updateSize);
-        return () => mq.removeEventListener('change', updateSize);
-    }, []);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 640px)');
+    const updateSize = () => setCardSize(mq.matches ? CARD_SIZE_LG : CARD_SIZE_SM);
+    updateSize();
+    mq.addEventListener('change', updateSize);
+    return () => mq.removeEventListener('change', updateSize);
+  }, []);
 
-    return (
-        <div className="relative w-full overflow-hidden" style={{ height: SECTION_HEIGHT }}>
-            {testimonials.map((t, idx) => {
-                const position = testimonials.length % 2
-                    ? idx - Math.floor(testimonials.length / 2)
-                    : idx - testimonials.length / 2;
+  return (
+    <div className="relative w-full overflow-hidden" style={{ height: SECTION_HEIGHT }}>
+      {testimonials.map((t, idx) => {
+        const position =
+          testimonials.length % 2
+            ? idx - Math.floor(testimonials.length / 2)
+            : idx - testimonials.length / 2;
 
-                return (
-                    <TestimonialCard
-                        key={t.tempId}
-                        testimonial={t}
-                        handleMove={handleMove}
-                        position={position}
-                        cardSize={cardSize}
-                    />
-                );
-            })}
+        return (
+          <TestimonialCard
+            key={t.tempId}
+            testimonial={t}
+            handleMove={handleMove}
+            position={position}
+            cardSize={cardSize}
+          />
+        );
+      })}
 
-            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-8">
-                <button
-                    onClick={() => handleMove(-1)}
-                    aria-label="Vorherige Meinung"
-                    role="button"
-                    className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
-                >
-                    <ArrowLeftIcon />
-                </button>
-                <button
-                    onClick={() => handleMove(1)}
-                    aria-label="Nächste Meinung"
-                    role="button"
-                    className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
-                >
-                    <ArrowRightIcon />
-                </button>
-            </div>
-        </div>
-    );
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-8">
+        <button
+          onClick={() => handleMove(-1)}
+          aria-label="Vorherige Meinung"
+          role="button"
+          className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
+        >
+          <ArrowLeftIcon />
+        </button>
+        <button
+          onClick={() => handleMove(1)}
+          aria-label="Nächste Meinung"
+          role="button"
+          className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
+        >
+          <ArrowRightIcon />
+        </button>
+      </div>
+    </div>
+  );
 };
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
-                                                             position,
-                                                             testimonial,
-                                                             handleMove,
-                                                             cardSize,
-                                                         }) => {
-    const isActive = position === 0;
+  position,
+  testimonial,
+  handleMove,
+  cardSize,
+}) => {
+  const isActive = position === 0;
 
-    return (
-        <motion.div
-            initial={false}
-            onClick={() => handleMove(position)}
-            className={`absolute left-1/2 top-1/2 cursor-pointer border-primary p-8 text-black transition-colors duration-500 rounded-4xl ${
-                isActive ? 'z-10 bg-primary' : 'z-0 bg-white'
-            }`}
-            style={{
-                borderWidth: BORDER_SIZE,
-            }}
-            animate={{
-                width: cardSize,
-                height: cardSize,
-                x: `calc(-50% + ${position * (cardSize / 1.5)}px)`,
-                y: `calc(-50% + ${isActive ? CENTER_STAGGER : position % 2 ? STAGGER : -STAGGER}px)`,
-                rotate: isActive ? 0 : position % 2 ? ROTATE_DEG : -ROTATE_DEG,
-            }}
-            transition={{
-                type: 'spring',
-                mass: 3,
-                stiffness: 400,
-                damping: 50,
-            }}
-        >
-            <img
-                src={testimonial.imgSrc}
-                alt={`Portrait von ${testimonial.by}`}
-                className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top rounded-md"
-                style={{ boxShadow: isActive ? '3px 3px 0px #fff' : 'none' }}
-            />
-            <h3 className={`text-base sm:text-xl ${isActive ? 'text-white' : 'text-black'}`}>
-                &quot;{testimonial.testimonial}&quot;
-            </h3>
-            <p
-                className={`absolute bottom-8 left-8 right-8 mt-2 text-sm font-bold ${
-                    isActive ? 'text-white' : 'text-neutral-700'
-                }`}
-            >
-                – {testimonial.by}
-            </p>
-        </motion.div>
-    );
+  return (
+    <motion.div
+      initial={false}
+      onClick={() => handleMove(position)}
+      className={`absolute left-1/2 top-1/2 cursor-pointer border-primary p-8 text-black transition-colors duration-500 rounded-4xl ${
+        isActive ? 'z-10 bg-primary' : 'z-0 bg-white'
+      }`}
+      style={{
+        borderWidth: BORDER_SIZE,
+      }}
+      animate={{
+        width: cardSize,
+        height: cardSize,
+        x: `calc(-50% + ${position * (cardSize / 1.5)}px)`,
+        y: `calc(-50% + ${isActive ? CENTER_STAGGER : position % 2 ? STAGGER : -STAGGER}px)`,
+        rotate: isActive ? 0 : position % 2 ? ROTATE_DEG : -ROTATE_DEG,
+      }}
+      transition={{
+        type: 'spring',
+        mass: 3,
+        stiffness: 400,
+        damping: 50,
+      }}
+    >
+      <img
+        src={testimonial.imgSrc}
+        alt={`Portrait von ${testimonial.by}`}
+        className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top rounded-md"
+        style={{ boxShadow: isActive ? '3px 3px 0px #fff' : 'none' }}
+      />
+      <h3 className={`text-base sm:text-xl ${isActive ? 'text-white' : 'text-black'}`}>
+        &quot;{testimonial.testimonial}&quot;
+      </h3>
+      <p
+        className={`absolute bottom-8 left-8 right-8 mt-2 text-sm font-bold ${
+          isActive ? 'text-white' : 'text-neutral-700'
+        }`}
+      >
+        – {testimonial.by}
+      </p>
+    </motion.div>
+  );
 };

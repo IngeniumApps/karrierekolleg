@@ -1,9 +1,8 @@
-import CardFlowLine from "@components/visual/animation/CardFlowLine.tsx";
+import CardFlowLine from '@components/visual/animation/CardFlowLine.tsx';
 
 export default function StudyPathContent() {
   return (
     <section className="relative w-full py-20 lg:py-32 overflow-hidden">
-
       <CardFlowLine />
 
       <div className="relative max-w-4xl mx-auto text-center space-y-10 z-10">

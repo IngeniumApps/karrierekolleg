@@ -3,7 +3,7 @@
 import { type ChangeEvent, type FormEvent, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import MessageIcon from '../../assets/icons/custom/MessageIcon.tsx';
-import AreaWithModeSelect from "@components/forms/AreaWithModeSelect.tsx";
+import AreaWithModeSelect from '@components/forms/AreaWithModeSelect.tsx';
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -80,7 +80,6 @@ export default function ContactForm() {
         >
           <AreaWithModeSelect
             label={'Kolleg-Bereich'}
-            value={form.area}
             onChange={(val) => setForm((prev) => ({ ...prev, area: val }))}
             error={errors.area}
           />

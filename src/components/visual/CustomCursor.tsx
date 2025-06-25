@@ -18,9 +18,6 @@ export function CustomCursor() {
   const width = useMotionValue(32);
   const height = useMotionValue(32);
 
-  // Use smoothX and smoothY for smoother cursor movement - actually not needed here, but can be used for more complex animations
-  const smoothX = useSpring(x, { stiffness: 1000, damping: 60 });
-  const smoothY = useSpring(y, { stiffness: 1000, damping: 60 });
   // Use smoothW and smoothH for smoother size transitions
   const smoothW = useSpring(width, { stiffness: 1000, damping: 60 });
   const smoothH = useSpring(height, { stiffness: 1000, damping: 60 });

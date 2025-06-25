@@ -13,11 +13,9 @@ type Props = {
 };
 
 export default function KollegCard({ name, topic, school, link, color, image }: Props) {
-
-  const imgSrc =
-      image.startsWith('http')          // absoluter Link?
-          ? image                         // → so lassen
-          : `${import.meta.env.BASE_URL}images/${image}`; // → lokalen Pfad prefixen
+  const imgSrc = image.startsWith('http') // absoluter Link?
+    ? image // → so lassen
+    : `${import.meta.env.BASE_URL}images/${image}`; // → lokalen Pfad prefixen
 
   return (
     <>

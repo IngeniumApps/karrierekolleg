@@ -2,14 +2,11 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import BenefitsSection from '../components/sections/BenefitsSection.astro';
-import KollegVsBa from '../components/sections/KollegVsBa.astro';
 import WhatIsKollegSection from '../components/sections/WhatIsKollegSection.astro';
-import StudyPathSection from '../components/sections/StudyPathSection.astro';
 import KollegsGrid from '../components/sections/KollegsGrid.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
-import {Testimonials} from "../components/testimonials/Testimonials";
-import Experiences from "../components/sections/Experiences.astro";
-import {KollegVsAndStudy} from "../components/sections/KollegVsAndStudy";
+import Experiences from '../components/sections/Experiences.astro';
+import { KollegVsAndStudy } from '../components/sections/KollegVsAndStudy';
 ---
 
 <MainLayout>
@@ -26,19 +23,18 @@ import {KollegVsAndStudy} from "../components/sections/KollegVsAndStudy";
     <BenefitsSection />
   </div>
 
-    <!--<KollegVsBa />-->
-    <!--<StudyPathSection />-->
-  <KollegVsAndStudy client:visible/>
+  <!--<KollegVsBa />-->
+  <!--<StudyPathSection />-->
+  <KollegVsAndStudy client:visible />
   <div class="relative bg-white" id="vorteile">
     <!-- Gradient-Background -->
     <div
-        class="absolute inset-0 z-0"
-        style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+      class="absolute inset-0 z-0"
+      style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
     >
     </div>
     <Experiences />
   </div>
-
 
   <KollegsGrid id="kollegs" />
   <ContactSection id="kontakt" />

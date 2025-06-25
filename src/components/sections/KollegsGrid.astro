@@ -1,78 +1,62 @@
 ---
-import {colleges} from '../../constants/colleges';
+import { colleges } from '../../constants/colleges';
 import KollegCard from '../visual/KollegCard';
-const {id} = Astro.props;
+const { id } = Astro.props;
 
 // Group colleges by topic and mode
 const groupedColleges = {
-    'Technik & Informatik (Tageskolleg)': colleges.filter(
-        (c) => (c.topic === 'Technik' || c.topic === 'Informatik') && c.mode === 'Tageskolleg',
-    ),
-    'Technik & Informatik (Abendkolleg)': colleges.filter(
-        (c) => (c.topic === 'Technik' || c.topic === 'Informatik') && c.mode === 'Abendkolleg',
-    ),
-    'Kunst und Design': colleges.filter(
-        (c) => c.topic === 'Kunst und Design' || c.topic === 'Kunst und Design',
-    ),
-    Bautechnik: colleges.filter((c) => c.topic === 'Bautechnik' || c.topic === 'Bautechnik'),
-    Chemie: colleges.filter((c) => c.topic === 'Chemie'),
-};
-
-type Topic =
-    | 'Technik & Informatik (Tageskolleg)'
-    | 'Technik & Informatik (Abendkolleg)'
-    | 'Kunst und Design'
-    | 'Bautechnik'
-    | 'Chemie';
-
-// Colors for theme - actually not used in this component, but can be used for styling
-const topicColors: Record<Topic, string> = {
-    'Technik & Informatik (Tageskolleg)': 'primary',
-    'Technik & Informatik (Abendkolleg)': 'primary',
-    'Kunst und Design': 'pink',
-    Bautechnik: 'orange',
-    Chemie: 'red',
+  'Technik & Informatik (Tageskolleg)': colleges.filter(
+    (c) => (c.topic === 'Technik' || c.topic === 'Informatik') && c.mode === 'Tageskolleg',
+  ),
+  'Technik & Informatik (Abendkolleg)': colleges.filter(
+    (c) => (c.topic === 'Technik' || c.topic === 'Informatik') && c.mode === 'Abendkolleg',
+  ),
+  'Kunst und Design': colleges.filter(
+    (c) => c.topic === 'Kunst und Design' || c.topic === 'Kunst und Design',
+  ),
+  Bautechnik: colleges.filter((c) => c.topic === 'Bautechnik' || c.topic === 'Bautechnik'),
+  Chemie: colleges.filter((c) => c.topic === 'Chemie'),
 };
 ---
 
 <section id={id} class="relative py-32 px-6 overflow-hidden">
-    <div class="relative z-10 max-w-screen-xl mx-auto text-center">
-        <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">
-            Kollegs entdecken
-        </h2>
-        <p class="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
-            In ganz Österreich findest du Kollegs für Technik, Design und mehr – entdecke, was zu dir
-            passt.
-        </p>
+  <div class="relative z-10 max-w-screen-xl mx-auto text-center">
+    <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">
+      Kollegs entdecken
+    </h2>
+    <p class="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+      In ganz Österreich findest du Kollegs für Technik, Design und mehr – entdecke, was zu dir
+      passt.
+    </p>
 
-        {
-            Object.entries(groupedColleges)
-                .sort(([a], [b]) => a.localeCompare(b))
-                .map(([topic, list]) => (
-                        <div class="text-left mb-28" id={topic.toLowerCase().replace(/ /g, '-')}>
-                            <h3 class="text-3xl font-bold mb-2">{topic}</h3>
+    {
+      Object.entries(groupedColleges)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([topic, list]) => (
+          <div class="text-left mb-28" id={topic.toLowerCase().replace(/ /g, '-')}>
+            <h3 class="text-3xl font-bold mb-2">{topic}</h3>
 
-                            <p class="text-gray-600 mb-10 max-w-3xl">
-                                {topic === 'Technik & Informatik (Tageskolleg)'
-                                    ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-                                    : topic === 'Technik & Informatik (Abendkolleg)'
-                                        ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-                                        : topic === 'Kunst und Design'
-                                            ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-                                            : topic === 'Bautechnik'
-                                                ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-                                                : topic === 'Chemie'
-                                                    ? 'Das Kolleg der Chemie Akademie bietet dir die Möglichkeit, in nur 4 Semestern ein fundiertes Wissen in allen Bereichen der Chemie zu erlangen.Dieses Wissen wird durch einen sehr hohen Laboranteil in die Praxis umgesetzt.Unsere Studierenden werden von renommierten Industriebetrieben des Landes während der Diplomarbeit begleitet und sind daher ideal für den sofortigen Einstieg in die Berufswelt mit ausgezeichneten Aufstiegschancen vorbereitet.Mit einem praxisorientierten Lehrplan und modernster Laborausstattung an unserem modernen Standort bieten wir dir beste Vorrausetzungen für einen erfolgreichen Start in deine berufliche Zukunft.'
+            <p class="text-gray-600 mb-10 max-w-3xl">
+              {topic === 'Technik & Informatik (Tageskolleg)'
+                ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                : topic === 'Technik & Informatik (Abendkolleg)'
+                  ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                  : topic === 'Kunst und Design'
+                    ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                    : topic === 'Bautechnik'
+                      ? 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+                      : topic === 'Chemie'
+                        ? 'Das Kolleg der Chemie Akademie bietet dir die Möglichkeit, in nur 4 Semestern ein fundiertes Wissen in allen Bereichen der Chemie zu erlangen.Dieses Wissen wird durch einen sehr hohen Laboranteil in die Praxis umgesetzt.Unsere Studierenden werden von renommierten Industriebetrieben des Landes während der Diplomarbeit begleitet und sind daher ideal für den sofortigen Einstieg in die Berufswelt mit ausgezeichneten Aufstiegschancen vorbereitet.Mit einem praxisorientierten Lehrplan und modernster Laborausstattung an unserem modernen Standort bieten wir dir beste Vorrausetzungen für einen erfolgreichen Start in deine berufliche Zukunft.'
                         : 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'}
-                            </p>
+            </p>
 
-                            <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                                {list.map((colleg) => (
-                                        <KollegCard client:visible {...colleg}/>
-                                ))}
-                            </div>
-                        </div>
-                ))
-        }
-    </div>
+            <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+              {list.map((colleg) => (
+                <KollegCard client:visible {...colleg} />
+              ))}
+            </div>
+          </div>
+        ))
+    }
+  </div>
 </section>
