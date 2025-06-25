@@ -1,13 +1,15 @@
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
-import CardFlowLineMirrored from '@components/visual/animation/CardFlowLineMirrored.tsx';
-import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
+import CardFlowLineMirrored from "@components/visual/animation/CardFlowLineMirrored.tsx";
+import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
+import type {FC} from "react";
 
-export const KollegVsBachelor = () => {
+interface KollegVsBachelorProps {
+  className?: string;
+}
+
+export const KollegVsBachelor: FC<KollegVsBachelorProps> = ({ className }) => {
   return (
-    <section className="relative w-full py-20 lg:py-32 overflow-hidden">
-      {/*Glass-Overlay*/}
-      <div className="absolute inset-0 z-0 backdrop-glass"></div>
-
+    <div className={className}>
       <CardFlowLineMirrored />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -55,6 +57,6 @@ export const KollegVsBachelor = () => {
           </div>
         </FadeDownOnScroll>
       </div>
-    </section>
+    </div>
   );
 };

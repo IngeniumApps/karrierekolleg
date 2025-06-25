@@ -23,8 +23,6 @@ export const Benefits = () => {
 
   return (
       <section className="relative w-full overflow-visible">
-        <div className="absolute inset-0 z-0 backdrop-glass" />
-
         <div className="relative z-10 max-w-6xl mx-auto px-6">
 
           {/*** MOBILE VARIANTE ***/}
