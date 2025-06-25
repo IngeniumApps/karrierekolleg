@@ -81,33 +81,28 @@ export const Benefits = () => {
             {/* Sticky-Container */}
             <div className="sticky top-0 h-screen flex flex-col">
               {/* — Header: immer sichtbar */}
-              <div className="flex flex-1 justify-center z-20 pt-20">
-                <FadeDownOnScroll duration={0.8} className={"self-end"}>
-                  <div className="text-center mb-8 lg:mb-10">
-                    <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold leading-tight">
-                    <span className="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
-                      <span className="relative z-[1] text-primary">Deine Vorteile</span>
+              <div className="flex flex-1 justify-center flex-col z-20 pt-20">
+                <FadeDownOnScroll duration={0.8}>
+                  <div className="text-center mb-16 lg:mb-20">
+                    <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
+                     <span className="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+                      <span className="relative z-[1] text-primary">Deine Vorteile </span>
                       <UnderlineBrush
                           className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
                           fillColor="#BBF451"
                           bottomOffset={8}
                       />
-                    </span>
-                      <br />
-                      <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">
-                      im Kolleg
-                    </span>
+                      </span>
+                      <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl"> im Kolleg</span>
                     </h2>
-                    <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                      Warum das Kolleg der perfekte Weg für deine Zukunft ist
-                    </p>
                   </div>
                 </FadeDownOnScroll>
+                <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">Warum das Kolleg der perfekte Weg für deine Zukunft ist</p>
               </div>
 
               {/* — Cards: nehmen den Rest der Höhe */}
               <div className="flex-2 flex items-center ">
-                <motion.div style={{ x: xSpring }} className="flex gap-10 px-10">
+                <motion.div style={{x: xSpring}} className="flex gap-10 px-10">
                   {benefits.map((benefit, index) => (
                       <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
                         <div className="min-w-[30vw] lg:min-w-[30vw] bg-white/85 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col group">
