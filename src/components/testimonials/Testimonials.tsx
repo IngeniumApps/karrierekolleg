@@ -36,7 +36,7 @@ export const Testimonials: React.FC = () => {
             tempId: i,
             testimonial: entry.text,
             by: entry.sender,
-            imgSrc: `/images/${entry.image}`,
+            imgSrc: `${import.meta.env.BASE_URL}images/${entry.image}`,
         }))
     );
 
