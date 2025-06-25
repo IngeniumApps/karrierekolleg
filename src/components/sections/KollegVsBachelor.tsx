@@ -14,7 +14,7 @@ export const KollegVsBachelor = () => {
         <FadeDownOnScroll duration={0.8}>
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
-              <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+              <span className="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
                 <span className="relative z-[1] text-primary">Kolleg </span>
                 <UnderlineBrush
                   className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
@@ -22,7 +22,6 @@ export const KollegVsBachelor = () => {
                   bottomOffset={8}
                 />
               </span>
-              <br />
               <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">
                 {' '}
                 oder Bachelor?

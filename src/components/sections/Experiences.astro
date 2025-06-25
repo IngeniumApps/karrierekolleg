@@ -1,0 +1,17 @@
+---
+import { Testimonials } from "@components/testimonials/Testimonials";
+
+const { id } = Astro.props;
+---
+<section id={id} class="relative w-full py-24 px-6 text-center">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4">
+        Was andere über uns sagen
+    </h2>
+    <p class="max-w-2xl mx-auto text-lg text-neutral-700 font-light">
+        Stimmen, Eindrücke und Erfahrungen – gesammelt aus vielen Perspektiven rund ums Karriere Kolleg.
+    </p>
+
+    <div class="mt-16">
+        <Testimonials client:visible />
+    </div>
+</section>

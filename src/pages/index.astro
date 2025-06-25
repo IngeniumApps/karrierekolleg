@@ -7,6 +7,8 @@ import WhatIsKollegSection from '../components/sections/WhatIsKollegSection.astr
 import StudyPathSection from '../components/sections/StudyPathSection.astro';
 import KollegsGrid from '../components/sections/KollegsGrid.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
+import {Testimonials} from "../components/testimonials/Testimonials";
+import Experiences from "../components/sections/Experiences.astro";
 ---
 
 <MainLayout>
@@ -21,9 +23,12 @@ import ContactSection from '../components/sections/ContactSection.astro';
     </div>
     <WhatIsKollegSection />
     <BenefitsSection />
-    <KollegVsBa />
-    <StudyPathSection />
   </div>
+
+  <KollegVsBa />
+  <StudyPathSection />
+  <Experiences />
+
   <KollegsGrid id="kollegs" />
   <ContactSection id="kontakt" />
 </MainLayout>

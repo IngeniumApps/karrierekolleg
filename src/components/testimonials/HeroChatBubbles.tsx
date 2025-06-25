@@ -8,6 +8,7 @@ interface ChatEntry {
   time: string;
   text: string;
   image: string;
+  kolleg?: string;
 }
 
 interface ChatBubbleProps {
@@ -59,7 +60,7 @@ export default function HeroChatBubble({
               <span className="text-[10px] text-gray-500">{current.time}</span>
             </div>
             <p className="text-xs py-1">{current.text}</p>
-            <span className="text-[10px] text-gray-400">Zugestellt</span>
+            <span className="text-[10px] text-gray-400">{current.kolleg}</span>
           </div>
         </motion.div>
       </AnimatePresence>
