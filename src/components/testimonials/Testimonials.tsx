@@ -148,8 +148,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 &quot;{testimonial.testimonial}&quot;
             </h3>
             <p
-                className={`absolute bottom-8 left-8 right-8 mt-2 text-sm font-bold italic ${
-                    isActive ? 'text-accent' : 'text-neutral-700'
+                className={`absolute bottom-8 left-8 right-8 mt-2 text-sm font-bold ${
+                    isActive ? 'text-white' : 'text-neutral-700'
                 }`}
             >
                 – {testimonial.by}

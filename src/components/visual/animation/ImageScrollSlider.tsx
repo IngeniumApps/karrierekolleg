@@ -33,11 +33,11 @@ export default function ImageScrollSlider({
     <div className="absolute inset-0 overflow-visible z-20 rounded-xl">
       <div className="relative w-full h-full">
         {images.map((img, idx) => (
-          <picture>
-            <source media="(max-width: 1023px)" srcSet="" />
+          <picture key={idx}>
             <motion.img
               key={idx}
               src={img}
+              srcSet={`${img} 1x, ${img.replace('.webp', '@2x.webp')} 2x`}
               alt=""
               width={900}
               height={900}
