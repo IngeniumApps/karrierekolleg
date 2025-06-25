@@ -12,14 +12,14 @@
   body {
     @apply font-body bg-white text-gray-800 font-sans;
 
-    background-image:
-      radial-gradient(ellipse at top right, #1b95cc44, transparent 90%),
-      /* 🎯 DEIN GRADIENT */ linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),
-      url('/images/background.svg');
-    background-repeat: repeat-y;
-    background-position: top center;
-    background-size: 100% auto;
-    background-attachment: fixed;
+    /*background-image:*/
+    /*  radial-gradient(ellipse at top right, #1b95cc44, transparent 90%),*/
+    /*  !* 🎯 DEIN GRADIENT *! linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8)),*/
+    /*  url('/images/background.svg');*/
+    /*background-repeat: repeat-y;*/
+    /*background-position: top center;*/
+    /*background-size: 100% auto;*/
+    /*background-attachment: fixed;*/
   }
   h1,
   h2,
@@ -36,7 +36,7 @@
   /* Chrome-kompatibler Glassmorphism-Effekt */
   .backdrop-glass {
     backdrop-filter: blur(1.5px);
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
   /* Für alle scrollbaren Elemente oder gezielt für textarea */

@@ -7,6 +7,9 @@ import WhatIsKollegSection from '../components/sections/WhatIsKollegSection.astr
 import StudyPathSection from '../components/sections/StudyPathSection.astro';
 import KollegsGrid from '../components/sections/KollegsGrid.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
+import {Testimonials} from "../components/testimonials/Testimonials";
+import Experiences from "../components/sections/Experiences.astro";
+import {KollegVsAndStudy} from "../components/sections/KollegVsAndStudy";
 ---
 
 <MainLayout>
@@ -21,9 +24,22 @@ import ContactSection from '../components/sections/ContactSection.astro';
     </div>
     <WhatIsKollegSection />
     <BenefitsSection />
-    <KollegVsBa />
-    <StudyPathSection />
   </div>
+
+    <!--<KollegVsBa />-->
+    <!--<StudyPathSection />-->
+  <KollegVsAndStudy client:visible/>
+  <div class="relative bg-white" id="vorteile">
+    <!-- Gradient-Background -->
+    <div
+        class="absolute inset-0 z-0"
+        style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+    >
+    </div>
+    <Experiences />
+  </div>
+
+
   <KollegsGrid id="kollegs" />
   <ContactSection id="kontakt" />
 </MainLayout>

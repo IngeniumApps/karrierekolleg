@@ -15,7 +15,7 @@ export default function HeroLeftContent() {
         <br />
         neu denken.
         <br />
-        <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+        <span className="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
           <span className="relative z-[1] text-primary lg:pr-5 pr-2.5">Kolleg</span>
           <UnderlineBrush
             className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"

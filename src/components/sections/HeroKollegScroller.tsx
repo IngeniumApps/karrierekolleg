@@ -3,12 +3,12 @@ import { forwardRef, useRef, useState } from 'react';
 import clsx from 'clsx';
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScrollExit.tsx';
 import { chatEntriesLeft, chatEntriesRight } from '../../constants/chatEntries.ts';
-import HeroChatBubble from '@components/visual/HeroChatBubbles.tsx';
-import HeroLeftContent from '@components/visual/HeroLeftContent.tsx';
 import { type Slide, whatIsCollegData } from '../../constants/whatIsCollegData.tsx';
 import ImageScrollSlider from '@components/visual/animation/ImageScrollSlider.tsx';
 import { useIsDesktop } from '../../hooks/useIsDesktop.ts';
 import parse from 'html-react-parser';
+import HeroChatBubble from "@components/testimonials/HeroChatBubbles.tsx";
+import HeroLeftContent from "@components/testimonials/HeroLeftContent.tsx";
 
 type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 

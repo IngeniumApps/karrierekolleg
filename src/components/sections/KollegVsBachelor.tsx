@@ -1,20 +1,22 @@
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScroll.tsx';
-import CardFlowLineMirrored from '@components/visual/animation/CardFlowLineMirrored.tsx';
-import UnderlineBrush from '@components/visual/animation/UnderlineBrush.tsx';
+import CardFlowLineMirrored from "@components/visual/animation/CardFlowLineMirrored.tsx";
+import UnderlineBrush from "@components/visual/animation/UnderlineBrush.tsx";
+import type {FC} from "react";
 
-export const KollegVsBachelor = () => {
+interface KollegVsBachelorProps {
+  className?: string;
+}
+
+export const KollegVsBachelor: FC<KollegVsBachelorProps> = ({ className }) => {
   return (
-    <section className="relative w-full py-20 lg:py-32 overflow-hidden">
-      {/*Glass-Overlay*/}
-      <div className="absolute inset-0 z-0 backdrop-glass"></div>
-
+    <div className={className}>
       <CardFlowLineMirrored />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         <FadeDownOnScroll duration={0.8}>
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
-              <span className="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+              <span className="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
                 <span className="relative z-[1] text-primary">Kolleg </span>
                 <UnderlineBrush
                   className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
@@ -22,7 +24,6 @@ export const KollegVsBachelor = () => {
                   bottomOffset={8}
                 />
               </span>
-              <br />
               <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">
                 {' '}
                 oder Bachelor?
@@ -56,6 +57,6 @@ export const KollegVsBachelor = () => {
           </div>
         </FadeDownOnScroll>
       </div>
-    </section>
+    </div>
   );
 };

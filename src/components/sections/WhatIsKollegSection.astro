@@ -9,14 +9,12 @@ const { id = 'kolleg-hero' } = Astro.props;
     id={id}
     class="relative w-full min-h-screen z-20 flex items-center justify-center"
 >
-  <CardFlowLineMirrored client:visible/>
-
   <div class="">
     <FadeDownOnScroll duration={0.8} client:visible className="hidden lg:flex justify-center items-center w-full h-auto pb-16 lg:pb-20 min-h-[200px]">
       <div class="h-auto">
         <h2 class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold leading-tight">
           <span>Was ist ein </span>
-          <span class="relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+          <span class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
                 <span class="relative z-10 text-primary">Kolleg</span>
                 <UnderlineBrush
                     client:visible
