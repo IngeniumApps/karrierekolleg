@@ -1,11 +1,13 @@
 ---
 import ContactForm from '../forms/ContactForm';
+import FadeDownOnScroll from "../visual/animation/FadeDownOnScroll";
+import UnderlineBrush from "../visual/animation/UnderlineBrush";
 const { id } = Astro.props;
 ---
 
 <section
   id={id}
-  class="relative w-full flex items-center justify-center bg-white px-5 py-24 sm:py-32"
+  class="relative w-full flex self-center justify-center bg-white px-5"
   style="min-height: 100dvh;"
 >
   <!-- Gradient-Background -->
@@ -15,16 +17,31 @@ const { id } = Astro.props;
   >
   </div>
 
-  <!-- Glass-Overlay -->
-  <div class="absolute inset-0 z-0 backdrop-glass"></div>
-
   <!-- Content -->
-  <div class="relative z-10 max-w-5xl w-full text-center">
-    <h2 class="text-4xl sm:text-5xl font-headline font-bold text-primary mb-4">Kontaktiere uns</h2>
-    <p class="text-gray-600 text-lg mb-12 max-w-xl mx-auto">
-      Du interessierst dich für ein Kolleg oder hast Fragen? Schreib uns – wir freuen uns auf deine
-      Nachricht!
-    </p>
+  <div>
+    <FadeDownOnScroll client:visible duration={0.8}>
+      <div class="text-center px-5 pt-20 lg:pt-32">
+        <h2
+            class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight"
+        >
+        <span
+            class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl"
+        >
+          <span class="relative z-[1] text-primary">Kontaktiere </span>
+          <UnderlineBrush
+              className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+              fillColor="#BBF451"
+              bottomOffset={8}
+          />
+        </span>
+          <span class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl"> uns.</span>
+        </h2>
+      </div>
+      <p class="px-5 text-center text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-16">
+        Du interessierst dich für ein Kolleg oder hast Fragen? Schreib uns – wir freuen uns auf deine
+        Nachricht!
+      </p>
+    </FadeDownOnScroll>
     <ContactForm client:visible />
   </div>
 </section>

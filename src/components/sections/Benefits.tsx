@@ -38,7 +38,7 @@ export const Benefits = () => {
                 />
               </span>
               <br />
-              <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">im Kolleg</span>
+              <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">im Kolleg.</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               Warum das Kolleg der perfekte Weg für deine Zukunft ist
@@ -87,11 +87,11 @@ export const Benefits = () => {
                       bottomOffset={8}
                     />
                   </span>
-                  <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl"> im Kolleg</span>
+                  <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl"> im Kolleg.</span>
                 </h2>
               </div>
               <p className="text-center text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                Warum das Kolleg der perfekte Weg für deine Zukunft ist
+                Warum das Kolleg der perfekte Weg für deine Zukunft ist.
               </p>
             </FadeDownOnScroll>
           </div>
