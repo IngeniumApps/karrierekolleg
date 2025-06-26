@@ -40,7 +40,7 @@ export default function HeroLeftContent() {
         </a>
         <a
           href={`${import.meta.env.BASE_URL}#kollegs`}
-          className="cursor-none bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md"
+          className="cursor-none bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md text-center"
         >
           Alle Kollegs ansehen
         </a>
