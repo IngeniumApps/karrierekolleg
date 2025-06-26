@@ -11,6 +11,7 @@
   }
   body {
     @apply font-body bg-white text-gray-800 font-sans;
+    overflow-x: hidden;
 
     /*background-image:*/
     /*  radial-gradient(ellipse at top right, #1b95cc44, transparent 90%),*/

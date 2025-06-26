@@ -67,7 +67,7 @@ export const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative lg:h-[600px] h-[500px]"
+    <div className="relative lg:h-[600px] h-[500px] overflow-x-hidden"
         // style={{ height: SECTION_HEIGHT }}
     >
       {testimonials.map((t, idx) => {
