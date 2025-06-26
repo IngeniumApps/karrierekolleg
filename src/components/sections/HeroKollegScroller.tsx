@@ -63,7 +63,7 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                     <HeroLeftContent />
                   </FadeDownOnScroll>
                   {/* Show on mobile */}
-                  <div className="md:mt-28 md:mb-20 flex lg:hidden z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
+                  <div className="landscape:mt-28 landscape:mb-20 flex lg:hidden z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
                     <HeroLeftContent />
                   </div>
                 </>
