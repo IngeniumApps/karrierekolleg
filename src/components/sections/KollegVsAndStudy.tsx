@@ -29,16 +29,16 @@ export const KollegVsAndStudy: FC = () => {
         </FadeDownOnScroll>
 
         <FadeDownOnScroll duration={0.8} delay={0.2}>
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100 text-center mb-20">
-            <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100 text-center lg:mb-20 mb-6">
+            <div className="prose prose-lg mx-auto leading-relaxed">
               <p className="text-xl lg:text-2xl font-semibold text-primary mb-6">
-                Ein starkes Plus für das Kolleg:
+                Ein starkes Plus für das Kolleg.
               </p>
               <p className="text-base lg:text-lg mb-6">
                 Nach drei Jahren einschlägiger Berufspraxis kannst du die{' '}
                 <strong>Ingenieurszertifizierung</strong> durchführen, damit erreichst du die{' '}
                 <strong>Stufe 6 im Nationalen Qualifikationsrahmen</strong>. Damit stehst du auf
-                derselben Stufe wie ein:e Bachelorabsolvent:in
+                derselben Stufe wie ein:e Bachelorabsolvent:in.
               </p>
               <p className="text-base lg:text-lg">
                 Durch die stark <strong>anwendungsorientierte Ausbildung</strong> und die Tatsache,
@@ -57,7 +57,7 @@ export const KollegVsAndStudy: FC = () => {
           <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100 text-center">
             <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
               <p className="text-xl lg:text-2xl font-semibold text-primary mb-6">
-                Weiterführendes Studium
+                Weiterführendes Studium.
               </p>
 
               <p className="text-lg leading-relaxed">

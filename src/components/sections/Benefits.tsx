@@ -38,7 +38,7 @@ export const Benefits = () => {
                 />
               </span>
               <br />
-              <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">im Kolleg</span>
+              <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">im Kolleg.</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               Warum das Kolleg der perfekte Weg für deine Zukunft ist
@@ -87,18 +87,21 @@ export const Benefits = () => {
                       bottomOffset={8}
                     />
                   </span>
-                  <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl"> im Kolleg</span>
+                  <span className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl">
+                    {' '}
+                    im Kolleg.
+                  </span>
                 </h2>
               </div>
               <p className="text-center text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                Warum das Kolleg der perfekte Weg für deine Zukunft ist
+                Warum das Kolleg der perfekte Weg für deine Zukunft ist.
               </p>
             </FadeDownOnScroll>
           </div>
 
           {/* — Cards: nehmen den Rest der Höhe */}
           <div className="flex-2 flex items-center">
-            <motion.div style={{ x: xSpring }} className="flex gap-10 lg:px-6 xl:px-10">
+            <motion.div style={{ x: xSpring }} className="flex gap-10 lg:px-6 xl:px-10 mb-28">
               {benefits.map((benefit, index) => (
                 <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
                   <div

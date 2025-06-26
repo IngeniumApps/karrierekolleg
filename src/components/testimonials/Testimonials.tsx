@@ -67,7 +67,9 @@ export const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: SECTION_HEIGHT }}>
+    <div className="relative lg:h-[600px] h-[500px]"
+        // style={{ height: SECTION_HEIGHT }}
+    >
       {testimonials.map((t, idx) => {
         const position =
           testimonials.length % 2
@@ -84,8 +86,7 @@ export const Testimonials: React.FC = () => {
           />
         );
       })}
-
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-8">
+      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 gap-8">
         <button
           onClick={() => handleMove(-1)}
           aria-label="Vorherige Meinung"
@@ -98,7 +99,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(1)}
           aria-label="Nächste Meinung"
           role="button"
-          className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
+          className="mb-6 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
         >
           <ArrowRightIcon />
         </button>

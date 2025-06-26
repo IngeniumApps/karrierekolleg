@@ -3,7 +3,7 @@ import { forwardRef, useRef, useState } from 'react';
 import clsx from 'clsx';
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScrollExit.tsx';
 import { chatEntriesLeft, chatEntriesRight } from '../../constants/chatEntries.ts';
-import { type Slide, whatIsCollegData } from '../../constants/whatIsCollegData.tsx';
+import { type Slide, whatIsKollegData } from '../../constants/whatIsKollegData.tsx';
 import ImageScrollSlider from '@components/visual/animation/ImageScrollSlider.tsx';
 import { useIsDesktop } from '../../hooks/useIsDesktop.ts';
 import parse from 'html-react-parser';
@@ -49,7 +49,7 @@ export default function WhatIsKollegScroller({ className }: { className?: string
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5">
         {/* Left Text-Column  */}
         <div className="">
-          {whatIsCollegData.map((item, index) => (
+          {whatIsKollegData.map((item, index) => (
             <div key={index} className="">
               {item.kind === 'hero' ? (
                 /* Slide #1 – special Hero-Text */
@@ -63,7 +63,7 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                     <HeroLeftContent />
                   </FadeDownOnScroll>
                   {/* Show on mobile */}
-                  <div className="flex lg:hidden z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
+                  <div className="landscape:mt-28 landscape:mb-20 flex lg:hidden z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
                     <HeroLeftContent />
                   </div>
                 </>
@@ -105,7 +105,7 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                     scrollProgressIndex3,
                     scrollProgressIndex4,
                   ]}
-                  images={whatIsCollegData.map(
+                  images={whatIsKollegData.map(
                     (i) => `${import.meta.env.BASE_URL}images/hero-images/${i.image}`,
                   )}
                 />

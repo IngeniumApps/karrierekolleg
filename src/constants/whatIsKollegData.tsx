@@ -19,7 +19,7 @@ export type Slide =
       classNames: { container: string };
     };
 
-export const whatIsCollegData: Slide[] = [
+export const whatIsKollegData: Slide[] = [
   /* ------------------------------------------------ HERO */
   {
     kind: 'hero',
@@ -35,14 +35,14 @@ export const whatIsCollegData: Slide[] = [
       <>
         <p>
           Im Kolleg für Bautechnik lernst du alles rund um&nbsp;
-          <Highlight>Planung, Konstruktion, Bauphysik und Projektmanagement</Highlight>.
+          <Highlight>Planung, Konstruktion, Bauphysik und Projektmanagement.</Highlight>
         </p>
 
         <p className="mt-4">
           Die Ausbildung verknüpft technisches Know-how mit Zukunftsthemen wie Nachhaltigkeit und
           Digitalisierung – etwa durch&nbsp;
           <Highlight>Building&nbsp;Information Modeling&nbsp;(BIM)</Highlight> oder&nbsp;
-          <Highlight>energieeffiziente Bauweisen</Highlight>.
+          <Highlight>energieeffiziente Bauweisen.</Highlight>
         </p>
 
         <p className="mt-4">
@@ -77,7 +77,7 @@ export const whatIsCollegData: Slide[] = [
         <p className="mt-4">
           Die <Highlight>praxisnahe Ausbildung</Highlight> eröffnet dir Wege in die
           Kreativwirtschaft – oder bildet die perfekte Basis für ein&nbsp;
-          <Highlight>weiterführendes Designstudium</Highlight>.
+          <Highlight>weiterführendes Designstudium.</Highlight>
         </p>
       </>
     ),
@@ -101,7 +101,7 @@ export const whatIsCollegData: Slide[] = [
           Dank eines <Highlight>hohen Laboranteils</Highlight> setzt du Theorie sofort in die Praxis
           um. Während deiner Diplomarbeit begleiten dich renommierte Industriebetriebe des Landes –
           ideale Voraussetzungen für den direkten Berufseinstieg und&nbsp;
-          <Highlight>exzellente Aufstiegschancen</Highlight>.
+          <Highlight>exzellente Aufstiegschancen.</Highlight>
         </p>
 
         <p className="mt-4">

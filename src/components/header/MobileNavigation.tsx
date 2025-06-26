@@ -76,7 +76,7 @@ export default function MobileNavigation({ scrolled }: { scrolled: boolean }) {
                 </div>
 
                 {/* Navigation */}
-                <nav className="w-full max-w-xs mt-24 flex flex-col gap-4 px-4">
+                <nav className="w-full max-w-xs landscape:mt-0 mt-24 flex flex-col gap-4 px-4">
                   {navItems.map((item) => {
                     const isActive = activeId === item.id;
 
@@ -86,7 +86,7 @@ export default function MobileNavigation({ scrolled }: { scrolled: boolean }) {
                         href={`${import.meta.env.BASE_URL}#${item.id}`}
                         onClick={toggleDrawer}
                         className={clsx(
-                          'text-center text-2xl font-headline font-bold rounded-full shadow-md px-6 py-4 transition-all',
+                          'text-center text-2xl font-headline font-bold rounded-full shadow-md px-6 py-4 landscape:py-0 transition-all',
                           isActive
                             ? 'bg-accent border-2 border-transparent'
                             : 'bg-white text-primary border border-primary',
@@ -100,7 +100,7 @@ export default function MobileNavigation({ scrolled }: { scrolled: boolean }) {
               </div>
 
               {/* Unterer Bereich wie echter Footer */}
-              <div className="relative bg-primary text-white px-6 pt-10 pb-8 mt-auto overflow-hidden">
+              <div className="landscape:hidden relative bg-primary text-white px-6 pt-10 pb-8 mt-auto overflow-hidden">
                 {/* Dekoelement */}
                 <motion.div
                   className="absolute left-6 top-4 w-10 h-10 rounded-full bg-accent opacity-80"

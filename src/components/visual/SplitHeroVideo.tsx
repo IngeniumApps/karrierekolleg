@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import type Hls from "hls.js";
 
 interface Props {
   src: string;
@@ -13,7 +14,7 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
     const video = videoRef.current;
     if (!video) return;
 
-    let hlsInstance: any = null;
+    let hlsInstance: Hls | null = null;
 
     const handleIntersect: IntersectionObserverCallback = async ([entry]) => {
       if (!video) return;
@@ -58,21 +59,21 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
   }, [src]);
 
   return (
-      // Wrapper sorgt für 16:9-Platz bereits vor Videoladen
-      <div className="w-full aspect-video overflow-hidden rounded-3xl shadow-2xl">
-        <video
-            ref={videoRef}
-            width={1274}
-            height={720}
-            className={`object-cover ${className}`}
-            muted
-            loop
-            controls
-            playsInline
-            preload="none"
-            poster={poster}
-            aria-label="Was ist ein Kolleg? – Erklärvideo"
-        />
-      </div>
+    // Wrapper sorgt für 16:9-Platz bereits vor Videoladen
+    <div className="w-full aspect-video overflow-hidden rounded-3xl shadow-2xl">
+      <video
+        ref={videoRef}
+        width={1274}
+        height={720}
+        className={`object-cover ${className}`}
+        muted
+        loop
+        controls
+        playsInline
+        preload="none"
+        poster={poster}
+        aria-label="Was ist ein Kolleg? – Erklärvideo"
+      />
+    </div>
   );
 }
