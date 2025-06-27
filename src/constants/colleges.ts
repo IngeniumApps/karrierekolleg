@@ -41,7 +41,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/kolleg-und-aufbaulehrgang/',
     color: 'bg-ortwein',
-    image: 'placeholder-image.webp',
+    image: '/ortwein/HTBLVA_Ortweinschule_Graz_Bautechnik.webp',
   },
   {
     name: 'Chemie',
