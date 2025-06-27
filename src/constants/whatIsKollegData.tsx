@@ -65,8 +65,7 @@ export const whatIsKollegData: Slide[] = [
       <>
         <p>
           Das Kolleg für <Highlight>Kunst & Design</Highlight> gibt dir Raum, deine gestalterischen
-          Talente zu entfalten – ob in Grafikdesign, Produktgestaltung, Multimedia oder
-          Innenarchitektur.
+          Talente zu entfalten – ob in Grafikdesign, Produktgestaltung oder Multimedia.
         </p>
 
         <p className="mt-4">

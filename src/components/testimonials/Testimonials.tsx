@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { chatEntriesLeft } from '../../constants/chatEntries.ts';
+import {chatEntriesLeft, chatEntriesRight} from '../../constants/chatEntries.ts';
 import { ArrowLeftIcon } from '../../assets/icons/ArrowLeftIcon.tsx';
 import { ArrowRightIcon } from '../../assets/icons/ArrorRightIcon.tsx';
 
@@ -12,7 +12,6 @@ const BORDER_SIZE = 2;
 const ROTATE_DEG = 2.5;
 const STAGGER = 15;
 const CENTER_STAGGER = -65;
-const SECTION_HEIGHT = 600;
 
 interface Testimonial {
   tempId: number;
@@ -32,7 +31,7 @@ export const Testimonials: React.FC = () => {
   const [cardSize, setCardSize] = useState<number>(CARD_SIZE_LG);
 
   const [testimonials, setTestimonials] = useState<Testimonial[]>(() =>
-    chatEntriesLeft.map((entry, i) => ({
+      [...chatEntriesLeft, ...chatEntriesRight].map((entry, i) => ({
       tempId: i,
       testimonial: entry.text,
       by: entry.sender,
@@ -146,7 +145,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top rounded-md"
         style={{ boxShadow: isActive ? '3px 3px 0px #fff' : 'none' }}
       />
-      <h3 className={`text-base sm:text-xl ${isActive ? 'text-white' : 'text-black'}`}>
+      <h3 className={`text-sm sm:text-xl ${isActive ? 'text-white' : 'text-black'}`}>
         &quot;{testimonial.testimonial}&quot;
       </h3>
       <p
