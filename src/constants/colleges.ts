@@ -57,7 +57,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/portfolio/fine-art-photography-und-multimediaart-18/',
     color: 'bg-ortwein',
-    image: 'placeholder-image.webp',
+    image: '/ortwein/photo.webp',
   },
   {
     name: 'Grafik- und Kommunikationsdesign',
@@ -65,7 +65,7 @@ export const colleges = [
     school: 'HTL Ortweinschule',
     link: 'https://www.ortweinschule.at/portfolio/abendkolleg-grafik-und-kommunikationsdesign/',
     color: 'bg-ortwein',
-    image: 'placeholder-image.webp',
+    image: '/ortwein/communication.webp',
   },
   {
     name: 'Informatik (Tagesform)',
