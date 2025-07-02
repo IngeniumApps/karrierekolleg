@@ -185,7 +185,7 @@ export default function ContactForm() {
                 action={formAction}
                 method="POST"
                 noValidate
-                className="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm space-y-6"
+                className="max-w-7xl z-10 p-8 lg:p-12 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm space-y-6"
                 //className="bg-white/60 backdrop-blur-lg border border-gray-100 shadow-lg rounded-3xl p-8 lg:p-12 w-full max-w-7xl text-left space-y-6"
             >
               {/* Persönliche Daten */}
