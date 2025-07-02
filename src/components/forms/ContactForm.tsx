@@ -171,7 +171,7 @@ export default function ContactForm() {
       <div ref={wrapperRef}>
         {submitted ? (
             <FadeDownOnScroll duration={0.8} delay={0.2}>
-              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100 text-center lg:mb-20 mb-6">
+              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100 text-center lg:mb-20 mb-6">
                 <div className="prose prose-lg mx-auto leading-relaxed">
                   <h3 className="text-2xl font-bold text-primary mb-2">Danke für deine Nachricht!</h3>
                   <p className="text-gray-700">Wir melden uns so bald wie möglich persönlich bei dir.</p>
@@ -185,7 +185,8 @@ export default function ContactForm() {
                 action={formAction}
                 method="POST"
                 noValidate
-                className="bg-white/90 backdrop-blur-lg border border-gray-100 shadow-lg rounded-3xl p-8 lg:p-12 w-full max-w-7xl text-left space-y-6"
+                className="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm space-y-6"
+                //className="bg-white/60 backdrop-blur-lg border border-gray-100 shadow-lg rounded-3xl p-8 lg:p-12 w-full max-w-7xl text-left space-y-6"
             >
               {/* Persönliche Daten */}
               <fieldset className="space-y-4">
