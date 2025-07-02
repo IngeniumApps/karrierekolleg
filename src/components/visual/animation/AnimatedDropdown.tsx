@@ -47,9 +47,8 @@ const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSele
 
   return (
     <div className="relative w-full">
-      <div className="space-y-6">
-        <div className="flex items-center gap-2 text-primary font-semibold">
-          <GraduationCapIcon className="w-6 h-6 text-primary shrink-0" />
+      <div className="space-y-2">
+        <div className="flex items-center gap-2 font-semibold">
           {label}
         </div>
         <div

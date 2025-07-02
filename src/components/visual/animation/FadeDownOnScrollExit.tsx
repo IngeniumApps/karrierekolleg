@@ -31,7 +31,7 @@ export default function FadeDownOnScrollExit({
           <motion.div
             key="fade-child" // nötig für Exit
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 0.9, y: 0 }}
             exit={{ opacity: 0, y: -20 }} //     ⬅️ Exit!
             transition={{
               duration,
@@ -39,7 +39,7 @@ export default function FadeDownOnScrollExit({
               ease: [0.4, 0, 0.2, 1], // wie im Beispiel
             }}
           >
-            {children}
+              {children}
           </motion.div>
         )}
       </AnimatePresence>

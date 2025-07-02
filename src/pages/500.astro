@@ -1,3 +1,29 @@
 ---
-
+import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
 ---
+
+<UnderConstructionLayout>
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+        <h1 class="text-9xl font-black text-primary mb-6">500</h1>
+        <p class="text-xl text-gray-900 mb-4">Ups! Da ist was schiefgelaufen.</p>
+
+        <p class="text-xl text-gray-900 mb-4">
+            Auf dem Server ist ein unerwarteter Fehler aufgetreten. Bitte versuch es später noch einmal.
+            <br />
+            Sollte das Problem weiterhin bestehen, schreib uns einfach an
+            <a
+                    href="mailto:info@karrierekolleg.at"
+                    class="underline text-primary"
+            >
+                admin@karrierekolleg.at
+            </a>.
+        </p>
+
+        <a
+                href="/"
+                class="cursor-none bg-white text-primary font-bold border border-primary px-8 py-4 rounded-full shadow-md text-center"
+        >
+            Zurück zur Startseite
+        </a>
+    </section>
+</UnderConstructionLayout>

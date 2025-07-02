@@ -7,6 +7,8 @@ import { visualizer } from 'rollup-plugin-visualizer';
 const base = process.env.PUBLIC_BASE_URL?.replace(/^https?:\/\/[^/]+/, '') || '/';
 const site = process.env.PUBLIC_BASE_URL || 'http://localhost:4321';
 
+console.log('🌍 BASE URL:', base);
+
 // https://astro.build/config
 export default defineConfig({
   base,
@@ -14,6 +16,7 @@ export default defineConfig({
 
   // always add trailing slashes to URLs --> /
   trailingSlash: 'always',
+  output: 'static',
 
   integrations: [react()],
 

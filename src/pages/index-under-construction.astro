@@ -1,0 +1,30 @@
+---
+import UnderConstructionLayout from "../layouts/UnderConstructionLayout.astro";
+import TypewriterText from "../components/visual/animation/TypeWriterText";
+---
+
+<UnderConstructionLayout title="Karriere Kolleg – Kommt bald!" description="Unsere neue Website ist bald online.">
+    <section class="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 bg-gradient-to-br text-base leading-relaxed">
+
+        <div
+                class="max-w-2xl w-full z-10 px-8 py-12 rounded-2xl shadow-xl border border-white/30 bg-white/70 backdrop-blur-md text-center space-y-8"
+        >
+            <h1 class="text-4xl sm:text-5xl font-headline font-extrabold text-primary leading-tight">
+        <span class="block text-5xl sm:text-6xl font-black mb-2">
+          <TypewriterText
+                  client:load
+                  words={['Karriere', 'Zukunft', 'Bildung']}
+                  loop={Infinity}
+                  cursorStyle="_"
+          />
+        </span>
+                startet bald
+            </h1>
+
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Unsere neue Website ist fast fertig.
+                In Kürze findest du hier aktuelle Informationen rund um das Kolleg-Angebot in der Steiermark.
+            </p>
+        </div>
+    </section>
+</UnderConstructionLayout>

@@ -106,7 +106,7 @@ export const Benefits = () => {
                 <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
                   <div
                     className="lg:min-w-[35vw] xl:min-w-[25vw]
-                      bg-white/85 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full"
+                      bg-white/60 backdrop-blur-sm rounded-2xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/30 h-full"
                   >
                     <div className="absolute inset-0 z-20 flex items-start justify-center pointer-events-none -mt-5">
                       <div

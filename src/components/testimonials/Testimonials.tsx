@@ -90,7 +90,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(-1)}
           aria-label="Vorherige Meinung"
           role="button"
-          className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
+          className="grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-primary hover:text-white"
         >
           <ArrowLeftIcon />
         </button>
@@ -98,7 +98,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(1)}
           aria-label="Nächste Meinung"
           role="button"
-          className="mb-6 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-accent hover:text-black"
+          className="mb-6 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-primary hover:text-white"
         >
           <ArrowRightIcon />
         </button>
@@ -119,8 +119,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <motion.div
       initial={false}
       onClick={() => handleMove(position)}
-      className={`absolute left-1/2 top-1/2 cursor-pointer border-primary p-8 text-black transition-colors duration-500 rounded-4xl ${
-        isActive ? 'z-10 bg-primary' : 'z-0 bg-white'
+      //  // class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
+      className={`absolute left-1/2 top-1/2 cursor-pointer border-primary p-8 text-black transition-colors duration-500 rounded-2xl ${
+        isActive ? 'z-10 bg-white' : 'z-0 shadow-xl border border-white/30 bg-white backdrop-blur-sm'
       }`}
       style={{
         borderWidth: BORDER_SIZE,
@@ -145,12 +146,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         className="mb-4 h-14 w-12 bg-neutral-600 object-cover object-top rounded-md"
         style={{ boxShadow: isActive ? '3px 3px 0px #fff' : 'none' }}
       />
-      <h3 className={`text-sm sm:text-xl ${isActive ? 'text-white' : 'text-black'}`}>
+      <h3 className={`text-sm sm:text-xl ${isActive ? 'text-gray-900' : 'text-black'}`}>
         &quot;{testimonial.testimonial}&quot;
       </h3>
       <p
         className={`absolute bottom-8 left-8 right-8 mt-2 text-sm font-bold ${
-          isActive ? 'text-white' : 'text-neutral-700'
+          isActive ? 'text-gray-900' : 'text-neutral-700'
         }`}
       >
         – {testimonial.by}
