@@ -1,101 +1,121 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import FadeDownOnScroll from "../components/visual/animation/FadeDownOnScroll";
+import UnderlineBrush from "../components/visual/animation/UnderlineBrush";
 ---
 
 <MainLayout>
   <section
-    class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center px-4 sm:px-6"
+      class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center items-center px-4 sm:px-6"
   >
     <!-- 🔮 Gradient-Hintergrund -->
     <div
-      class="absolute inset-0 z-0"
-      style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+        class="absolute inset-0 z-0"
+        style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
     >
     </div>
 
     <div
-      class="max-w-3xl z-10 p-8 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
+        class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
     >
-      <h1 class="text-4xl font-headline font-bold text-primary mb-10 lg:text-center text-left">
-        Datenschutzerklärung
-      </h1>
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <FadeDownOnScroll client:visible duration={0.8}>
+          <div class="text-center mb-16 lg:mb-20">
+            <h2 class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
+              <span class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+                <span class="relative z-[1] text-primary">Datenschutzerklärung</span>
+                <UnderlineBrush
+                    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+                    fillColor="#BBF451"
+                    bottomOffset={40}
+                />
+              </span>
+            </h2>
+          </div>
+        </FadeDownOnScroll>
 
-      <div class="space-y-10">
-        <p>
-          Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre
-          Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).
-        </p>
-
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Kontakt mit uns</h2>
+        <div class="space-y-6">
+          <!-- Introduction -->
           <p>
-            Wenn Sie per Formular oder E-Mail Kontakt mit uns aufnehmen, speichern wir Ihre
-            angegebenen Daten zur Bearbeitung der Anfrage und für Anschlussfragen. Diese Daten geben
-            wir nicht ohne Ihre Einwilligung weiter.
+            Der Schutz Ihrer personenbezogenen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO).
           </p>
-        </div>
 
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Wofür speichern wir Ihre Daten</h2>
-          <p>
-            Ingenium Education speichert und verarbeitet Ihre Daten (Name, E-Mail, Telefonnummer,
-            Adresse), um Sie über Ihre Studienmöglichkeiten und Veranstaltungen zu informieren.
-            Weitere Daten zu Aus- und Weiterbildung oder beruflichem Hintergrund dienen zur
-            individuellen Beratung.
-          </p>
-        </div>
+          <!-- Responsible party section -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Verantwortliche Stelle</h2>
+            <address class="not-italic">
+              Karrierekollegs GesbR<br />
+              Jungferngasse 1<br />
+              A-8010 Graz<br />
+              <strong>E-Mail:</strong> <a href="mailto:dsgvo@karrierekolleg.at" class="underline text-primary hover:text-primary/80">dsgvo@karrierekolleg.at</a>
+            </address>
+          </div>
 
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Cookies</h2>
-          <p>
-            Unsere Website verwendet Cookies, um nutzerfreundlich zu sein. Manche Cookies bleiben
-            gespeichert, bis Sie diese löschen. Wenn Sie keine Cookies möchten, können Sie das in
-            Ihrem Browser einschränken. Die Funktionalität kann dann beeinträchtigt sein.
-          </p>
-        </div>
+          <!-- Contact form via Web3Forms -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Kontaktformular via Web3Forms</h2>
+            <p>
+              Wenn Sie das Kontaktformular nutzen, erheben wir Name, E-Mail-Adresse, Betreff und Nachrichtentext. Diese Daten werden über den Dienst Web3Forms verarbeitet, für den Standardvertragsklauseln zur Einhaltung der DSGVO abgeschlossen wurden. Rechtsgrundlage ist Ihr Einverständnis (Art. 6 Abs. 1 lit. a DSGVO). Wir nutzen Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
+            </p>
+          </div>
 
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Web-Analyse</h2>
-          <p>
-            Wir nutzen Google Analytics (Google LLC, USA). Es werden Cookies eingesetzt, um die
-            Website-Nutzung zu analysieren. Die Datenverarbeitung basiert auf dem EU-US Privacy
-            Shield sowie berechtigtem Interesse (Art 6 Abs 1 lit f DSGVO). Daten werden
-            pseudonymisiert und 50 Monate gespeichert.
-          </p>
-        </div>
+          <!-- Server log files -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Server-Log-Dateien</h2>
+            <p>
+              Beim Besuch unserer Website speichert der Webserver automatisch technische Informationen wie anonymisierte IP, Zugriffszeit, angeforderte URL, Referrer und Browsertyp. Grundlage ist unser berechtigtes Interesse an einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Log-Daten werden nach 30 Tagen gelöscht.
+            </p>
+          </div>
 
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Speicherdauer</h2>
-          <ul class="list-disc list-inside space-y-2">
-            <li>
-              Daten mit Vertragsverhältnis: bis 7 Jahre nach Vertragsende, danach verschlüsselt.
-            </li>
-            <li>Allgemeine Kontakte: 3 Jahre, danach verschlüsselt.</li>
-          </ul>
-        </div>
+          <!-- Cookies -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Cookies</h2>
+            <p>
+              Derzeit verwenden wir keine Cookies, außer solchen, die technisch für den Betrieb des Kontaktformulars erforderlich sind. Eine Deaktivierung kann die Funktionsfähigkeit des Formulars beeinträchtigen.
+            </p>
+          </div>
 
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Ihre Rechte</h2>
-          <p>
-            Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerruf und
-            Widerspruch. Beschwerden richten Sie bitte an die Datenschutzbehörde in Österreich.
-          </p>
-        </div>
+          <!-- Web analytics -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Web-Analyse</h2>
+            <p>
+              Aktuell nutzen wir keine Analyse-Tools (z. B. Google Analytics). Sollten wir zukünftig Web-Analyse einsetzen, informieren wir Sie und halten die Vorgaben der DSGVO ein.
+            </p>
+          </div>
 
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Datenschutzkontakt</h2>
-          <p>
-            Ingenium Education GmbH<br />
-            Herrengasse 26 – Jungferngasse 1<br />
-            A-8010 Graz<br />
-            <strong>Telefon:</strong> +43 316 82 18 18<br />
-            <strong>E-Mail:</strong>
-            <a href="mailto:datenschutz@ingenium.co.at" class="underline hover:text-accent"
-              >datenschutz@ingenium.co.at</a
-            >
-          </p>
+          <!-- Data retention periods -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Speicherdauer</h2>
+            <ul class="list-disc list-inside space-y-2">
+              <li>Formulardaten: bis zur abschließenden Bearbeitung, maximal 6 Monate.</li>
+              <li>Server-Log-Dateien: automatische Löschung nach 30 Tagen.</li>
+            </ul>
+          </div>
+
+          <!-- Data subject rights -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Ihre Betroffenenrechte</h2>
+            <p>
+              Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit, Widerruf Ihrer Einwilligung und Widerspruch gegen die Verarbeitung. Zur Ausübung dieser Rechte kontaktieren Sie bitte die verantwortliche Stelle.
+            </p>
+          </div>
+
+          <!-- Right to lodge complaint -->
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Beschwerderecht</h2>
+            <p>
+              Sie können sich bei der Österreichischen Datenschutzbehörde beschweren:
+            </p>
+            <address class="not-italic">
+              Österreichische Datenschutzbehörde<br />
+              Wickenburggasse 8, 1080 Wien<br />
+              <a href="https://www.dsb.gv.at" class="underline text-primary hover:text-primary/80" target="_blank" rel="noopener">www.dsb.gv.at</a>
+            </address>
+          </div>
+
+          <!-- Last updated date -->
+          <p class="text-sm mt-12">Stand: 2. Juli 2025</p>
         </div>
       </div>
-    </div>
   </section>
 </MainLayout>
