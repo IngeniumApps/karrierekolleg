@@ -8,7 +8,7 @@ export const KollegVsAndStudy: FC = () => {
     <section className="relative w-full bg-transparent py-20 lg:py-32 overflow-hidden">
       <CardFlowLine />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <FadeDownOnScroll duration={0.8}>
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">

@@ -1,0 +1,5 @@
+# Weiterleitung auf deine eigene 404-Seite
+ErrorDocument 404 /404/
+
+# Optional – andere Fehlerseiten (falls vorhanden)
+ErrorDocument 500 /500/

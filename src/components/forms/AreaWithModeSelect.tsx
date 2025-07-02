@@ -27,10 +27,12 @@ const RadioGroup = ({
   options,
   value,
   onChange,
+  hasError,
 }: {
   options: string[];
   value: string;
   onChange: (val: string) => void;
+    hasError?: boolean;
 }) => (
   <div className="mt-2 flex gap-4">
     {options.map((opt) => (
@@ -43,7 +45,7 @@ const RadioGroup = ({
           onChange={() => onChange(opt)}
           className="form-radio cursor-none"
         />
-        <span>{opt}</span>
+        <span className={hasError ? 'text-red-500' : ''}>{opt}</span>
       </label>
     ))}
   </div>
@@ -91,11 +93,9 @@ export default function AreaWithModeSelect({
 
       {area && areaModes[area] && (
         <div>
-          <RadioGroup options={areaModes[area]} value={mode} onChange={setMode} />
+          <RadioGroup options={areaModes[area]} value={mode} onChange={setMode} hasError={!!error}/>
         </div>
       )}
-
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
     </div>
   );
 }
