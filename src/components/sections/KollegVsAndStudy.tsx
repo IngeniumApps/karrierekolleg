@@ -5,7 +5,7 @@ import type { FC } from 'react';
 
 export const KollegVsAndStudy: FC = () => {
   return (
-    <section className="relative w-full bg-transparent py-20 lg:py-32 overflow-hidden">
+    <section className="relative w-full bg-transparent py-20 lg:py-32 overflow-hidden p-6">
       <CardFlowLine />
 
       <div className="relative z-10 max-w-7xl mx-auto">

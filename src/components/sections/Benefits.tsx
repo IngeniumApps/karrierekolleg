@@ -25,7 +25,7 @@ export const Benefits = () => {
     <div className="relative z-10 max-w-6xl mx-auto px-6">
       {/*** MOBILE VARIANTE ***/}
       <div className="block lg:hidden">
-        {/* hier dein altes Grid-Layout */}
+        {/* Header */}
         <FadeDownOnScroll duration={0.8}>
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
@@ -49,7 +49,7 @@ export const Benefits = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <FadeDownOnScroll key={index} duration={0.6} delay={index * 0.1}>
-              <div className="bg-white/85 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col group relative">
+              <div className="bg-white backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col group relative">
                 <div className="absolute inset-0 z-20 flex items-start justify-center pointer-events-none -mt-5">
                   <div
                     className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-300"
