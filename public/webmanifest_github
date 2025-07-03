@@ -4,7 +4,7 @@
   "start_url": "/karrierekolleg/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1b95cc",
+  "theme_color": "#2c6fa0",
   "screenshots": [
     {
       "src": "/karrierekolleg/screenshots/kolleg-home.png",
