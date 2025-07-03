@@ -217,7 +217,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Max"
                   className={clsx(
-                    'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                    'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 cursor-none',
                     errors.firstname ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                   )}
                 />
@@ -239,7 +239,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Mustermann"
                   className={clsx(
-                    'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                    'cursor-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
                     errors.lastname ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                   )}
                 />
@@ -268,7 +268,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="name@example.com"
                   className={clsx(
-                    'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                    'cursor-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
                     errors.email ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                   )}
                 />
@@ -289,7 +289,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="+43 660 ..."
                   inputMode="tel"
-                  className="focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 border-gray-200 focus:border-primary"
+                  className="cursor-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 border-gray-200 focus:border-primary"
                 />
                 {errors.phone && (
                   <p className="mt-1 text-sm text-red-500 font-medium">{errors.phone}</p>
@@ -326,7 +326,7 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Wie können wir dir helfen?"
                 className={clsx(
-                  'resize-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                  'cursor-none resize-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
                   errors.message ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                 )}
               />
@@ -344,13 +344,13 @@ export default function ContactForm() {
               checked={form.privacy}
               onChange={handleChange}
               required
-              className="mt-1 accent-primary rounded-sm"
+              className="mt-1 accent-primary rounded-sm cursor-none"
             />
-            <label htmlFor="privacy" className="text-sm text-gray-700 select-none">
+            <label htmlFor="privacy" className="text-sm text-gray-700 cursor-none select-none">
               Ich stimme der{' '}
               <a
                 href={`${import.meta.env.BASE_URL}datenschutz/`}
-                className="underline text-primary hover:text-primary/80"
+                className="cursor-none underline text-primary hover:text-primary/80"
               >
                 Datenschutzerklärung
               </a>{' '}
@@ -380,7 +380,7 @@ export default function ContactForm() {
                 setFormErrorSummary('Bitte stimme der Datenschutzerklärung zu.');
               }
             }}
-            className="w-full py-3 px-6 rounded-full font-semibold text-lg bg-accent border border-accent shadow-md hover:brightness-110 transition-all duration-300 cursor-pointer"
+            className="cursor-none w-full py-3 px-6 rounded-full font-semibold text-lg bg-accent border border-accent shadow-md hover:brightness-110 transition-all duration-300"
           >
             Nachricht senden
           </button>

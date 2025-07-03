@@ -24,13 +24,16 @@ export function CustomCursor() {
     const updatePosition = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
 
-      const isInputElement =
-        target?.tagName === 'TEXTAREA' ||
-        target?.tagName === 'INPUT' ||
-        target?.tagName === 'SELECT' ||
-        target?.getAttribute('contenteditable') === 'true';
+      // const isInputElement =
+      //   target?.tagName === 'TEXTAREA' ||
+      //   target?.tagName === 'INPUT' ||
+      //   target?.tagName === 'SELECT' ||
+      //   target?.getAttribute('contenteditable') === 'true';
+      const isTextInput = target?.matches(
+        'textarea, select, [contenteditable="true"], input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="search"], input[type="password"]',
+      );
 
-      if (isInputElement) {
+      if (isTextInput) {
         setIsTextInput(true);
         width.set(2);
         height.set(28);
@@ -42,7 +45,7 @@ export function CustomCursor() {
       }
 
       const interactive = target?.closest(
-        'a:not([data-no-cursor-hover]), button:not([data-no-cursor-hover]), [role="button"]:not([data-no-cursor-hover]), [data-hover-box]:not([data-no-cursor-hover])',
+        'a:not([data-no-cursor-hover]),button:not([data-no-cursor-hover]),[role="button"]:not([data-no-cursor-hover]),input[type="checkbox"]:not([data-no-cursor-hover]),input[type="radio"]:not([data-no-cursor-hover]),[data-hover-box]:not([data-no-cursor-hover])',
       ) as HTMLElement | null;
 
       const padding = 8;

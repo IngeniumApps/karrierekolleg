@@ -82,8 +82,7 @@ const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSele
                 onChange(opt);
                 setOpen(false);
               }}
-              className="px-4 py-3 text-sm text-gray-800 transition-colors duration-200 hover:bg-primary/10 select-none"
-              style={{ cursor: 'default' }} // 👈 Kein Cursorwechsel!
+              className="cursor-none px-4 py-3 text-sm text-gray-800 transition-colors duration-200 hover:bg-primary/10 select-none"
             >
               {opt}
             </motion.li>

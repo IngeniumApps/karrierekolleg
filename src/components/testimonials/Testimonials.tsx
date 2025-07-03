@@ -72,7 +72,6 @@ export const Testimonials: React.FC = () => {
         className="relative overflow-x-hidden flex justify-center"
         style={{
           padding: `${cardSize / 4 + Math.abs(CENTER_STAGGER / 4)}px 0`,
-          // padding: `${cardSize / 4}px 0`,
         }}
       >
         {testimonials.map((t, idx) => {
@@ -97,7 +96,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(-1)}
           aria-label="Vorherige Meinung"
           role="button"
-          className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
+          className="cursor-none flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
         >
           <ArrowLeftIcon />
         </button>
@@ -105,7 +104,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(1)}
           aria-label="Nächste Meinung"
           role="button"
-          className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
+          className="cursor-none flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
         >
           <ArrowRightIcon />
         </button>
@@ -132,9 +131,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <motion.div
         initial={false}
         onClick={() => handleMove(position)}
-        whileHover={{ scale: 1.03 }} // skaliert leicht hoch
-        //  // class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
-        className={`absolute left-1/2 top-1/2 cursor-pointer border-primary p-8 text-black transition-colors duration-500 rounded-2xl ${
+        whileHover={{ scale: 1.03 }}
+        className={`absolute left-1/2 top-1/2 cursor-none border-primary p-8 text-black transition-colors duration-500 rounded-2xl ${
           isActive
             ? 'z-10 bg-white'
             : 'z-0 shadow-xl border border-white/30 bg-white backdrop-blur-sm'
