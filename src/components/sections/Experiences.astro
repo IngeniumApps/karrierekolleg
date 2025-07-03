@@ -8,11 +8,11 @@ const { id } = Astro.props;
 
 <section
   id={id}
-  class="relative flex flex-col w-full min-h-[100dvh] overflow-x-hidden"
+  class="relative flex flex-col w-full py-20 lg:py-32 overflow-x-hidden"
   style="min-height: 100dvh"
 >
-  <FadeDownOnScroll client:visible duration={0.8}>
-    <div class="text-center px-5 pt-20 lg:pt-32">
+  <FadeDownOnScroll client:visible duration={0.8} className='mb-16 lg:mb-20'>
+    <div class="text-center px-5">
       <h2
         class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight"
       >

@@ -2,7 +2,7 @@ import { useMotionValue, useMotionValueEvent, useScroll } from 'framer-motion';
 import { forwardRef, useRef, useState } from 'react';
 import clsx from 'clsx';
 import FadeDownOnScroll from '@components/visual/animation/FadeDownOnScrollExit.tsx';
-import { chatEntriesLeft, chatEntriesRight } from '../../constants/chatEntries.ts';
+import { chatEntriesLeft, chatEntriesRight } from '../../constants/chatEntries.tsx';
 import { type Slide, whatIsKollegData } from '../../constants/whatIsKollegData.tsx';
 import ImageScrollSlider from '@components/visual/animation/ImageScrollSlider.tsx';
 import { useIsDesktop } from '../../hooks/useIsDesktop.ts';

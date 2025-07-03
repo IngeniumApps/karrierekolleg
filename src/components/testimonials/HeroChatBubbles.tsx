@@ -1,10 +1,10 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import {type ReactNode, useEffect, useState} from 'react';
 
 interface ChatEntry {
-  sender: string;
+  sender: ReactNode;
   time: string;
   text: string;
   image: string;

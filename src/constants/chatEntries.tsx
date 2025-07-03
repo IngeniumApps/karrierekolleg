@@ -1,4 +1,14 @@
-export const chatEntriesLeft = [
+import type {ReactNode} from 'react';
+
+interface Testimonial {
+    sender: ReactNode;
+    time: string;
+    text: string;
+    image: string;
+    kolleg: string;
+}
+
+export const chatEntriesLeft: Testimonial[] = [
   {
     sender: 'Frau Ernst',
     time: '09:15',
@@ -71,12 +81,16 @@ export const chatEntriesLeft = [
   },
 ];
 
-export const chatEntriesRight = [
+export const chatEntriesRight: Testimonial[]  = [
   {
-    sender: 'Patrick Frank',
+    sender: (
+        <>
+            Ing.<sup className="font-semibold text-[8px]">in</sup> Andrea Pecanin
+        </>
+),
     time: '11:50',
-    text: 'Hier wendest du Wissen direkt im Labor an.',
-    image: 'avatar-m-1.webp',
+    text: 'Die Absolvent:innen der Chemie Akademie sind in der Industrie sehr gefragt – die Ausbildung öffnet Türen und bietet zahlreiche Entwicklungschancen.',
+    image: '/avatar/avatar-chemie-pecanin.webp',
     kolleg: 'Zugestellt',
   },
   {
@@ -94,11 +108,11 @@ export const chatEntriesRight = [
     kolleg: 'Zugestellt',
   },
   {
-    sender: 'Laura Müller',
-    time: '12:05',
-    text: 'Das Kolleg ist perfekt für alle, die nochmal durchstarten wollen – ganz egal, woher man kommt.',
-    image: 'avatar-w-3.webp',
+    image: '/avatar/avatar-chemie-salerno.webp',
     kolleg: 'Zugestellt',
+    sender: 'Francesco Salerno',
+    text: 'Schon in der Schulzeit faszinierte mich Chemie. Die Akademie vertiefte mein Wissen und ließ mich es sofort im Job umsetzen.',
+    time: '12:05',
   },
   {
     sender: 'Simon Haas',
@@ -108,10 +122,10 @@ export const chatEntriesRight = [
     kolleg: 'Zugestellt',
   },
   {
-    sender: 'Lukas Schmidt',
+    sender: 'Andrea Udier',
     time: '12:15',
-    text: 'Ich hab vorher in einem ganz anderen Bereich gearbeitet. Das Kolleg hat mir neue Perspektiven eröffnet.',
-    image: 'avatar-m-2.webp',
+    text: 'Die Ausbildung hat mich praxisnah auf das Arbeitsleben vorbereitet und meine persönliche Entwicklung enorm gefördert.',
+    image: '/avatar/avatar-chemie-udier.webp',
     kolleg: 'Zugestellt',
   },
 ];
