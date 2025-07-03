@@ -11,10 +11,6 @@ const CardFlowLine = () => {
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  // Exakter Pfad wie im Bild - durch und um die Cards
-  //     const pathData = `
-  // M 182 399 C 518 212 600 180 800 200 C 1000 220 1200 300 1354 387 C 1600 500 1711 797 2056 574 C 2417 342 2400 300 2778 460
-  //   `;
   const pathData = `
     M 514 188 C 1000 220 997 22 1378 383 C 1545 533 1711 797 2056 574 C 2417 342 2400 300 2778 460
     `;
@@ -35,7 +31,6 @@ const CardFlowLine = () => {
           top: '-25%',
         }}
       >
-        {/* Haupt-Linie - Rot wie im Bild */}
         <motion.path
           d={pathData}
           stroke="#BBF451"

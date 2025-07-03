@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import type Hls from "hls.js";
+import type Hls from 'hls.js';
 
 interface Props {
   src: string;
@@ -20,7 +20,6 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
       if (!video) return;
 
       if (entry.isIntersecting) {
-        // → Erst hier HLS laden / src setzen
         if (src.endsWith('.m3u8') && typeof window !== 'undefined') {
           const { default: Hls } = await import('hls.js');
           if (Hls.isSupported()) {
@@ -34,14 +33,12 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
           video.src = src;
         }
 
-        // → Playback-Speed erst nach Metadaten setzen
         const onMeta = () => {
           video.playbackRate = 3.0;
           video.removeEventListener('loadedmetadata', onMeta);
         };
         video.addEventListener('loadedmetadata', onMeta);
 
-        // → und dann abspielen
         video.play().catch(() => {});
       } else {
         video.pause();
@@ -59,7 +56,6 @@ export default function SplitHeroVideo({ src, poster, className = '' }: Props) {
   }, [src]);
 
   return (
-    // Wrapper sorgt für 16:9-Platz bereits vor Videoladen
     <div className="w-full aspect-video overflow-hidden rounded-3xl shadow-2xl">
       <video
         ref={videoRef}

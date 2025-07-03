@@ -20,7 +20,7 @@ export default function FadeDownOnScroll({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration, delay }}
-      viewport={{ once: true }} // only the first time the element comes into view
+      viewport={{ once: true }}
     >
       {children}
     </motion.div>

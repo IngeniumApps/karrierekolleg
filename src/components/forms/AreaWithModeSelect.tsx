@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import DropdownSelect from '@components/visual/animation/AnimatedDropdown.tsx';
 
-// allgemeine Bereiche
 const areasGeneral = [
   'Bautechnik',
   'Chemie',
@@ -15,14 +14,12 @@ const areasGeneral = [
   'Maschinenbau',
 ];
 
-// verfügbare Kursformen pro Bereich
 const areaModes: Record<string, string[]> = {
   Bautechnik: ['Abendkolleg', 'Tageskolleg'],
   Maschinenbau: ['Abendkolleg', 'Tageskolleg'],
   Informatik: ['Tageskolleg', 'Berufsbegleitend'],
 };
 
-// Einfacher Radio-Button-Wrapper
 const RadioGroup = ({
   options,
   value,
@@ -32,7 +29,7 @@ const RadioGroup = ({
   options: string[];
   value: string;
   onChange: (val: string) => void;
-    hasError?: boolean;
+  hasError?: boolean;
 }) => (
   <div className="mt-2 flex gap-4">
     {options.map((opt) => (
@@ -66,7 +63,6 @@ export default function AreaWithModeSelect({
   const [area, setArea] = useState('');
   const [mode, setMode] = useState('');
 
-  // Reset & direkte Rückgabe, wenn kein Mehrfach-Modus
   useEffect(() => {
     setMode('');
     if (!areaModes[area]) {
@@ -74,7 +70,6 @@ export default function AreaWithModeSelect({
     }
   }, [area]);
 
-  // Kombiniere erst, wenn Mode gewählt
   useEffect(() => {
     if (mode) {
       onChange(`${area} (${mode})`);
@@ -93,7 +88,12 @@ export default function AreaWithModeSelect({
 
       {area && areaModes[area] && (
         <div>
-          <RadioGroup options={areaModes[area]} value={mode} onChange={setMode} hasError={!!error}/>
+          <RadioGroup
+            options={areaModes[area]}
+            value={mode}
+            onChange={setMode}
+            hasError={!!error}
+          />
         </div>
       )}
     </div>

@@ -1,11 +1,11 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 
 interface Testimonial {
-    sender: ReactNode;
-    time: string;
-    text: string;
-    image: string;
-    kolleg: string;
+  sender: ReactNode;
+  time: string;
+  text: string;
+  image: string;
+  kolleg: string;
 }
 
 export const chatEntriesLeft: Testimonial[] = [
@@ -81,13 +81,13 @@ export const chatEntriesLeft: Testimonial[] = [
   },
 ];
 
-export const chatEntriesRight: Testimonial[]  = [
+export const chatEntriesRight: Testimonial[] = [
   {
     sender: (
-        <>
-            Ing.<sup className="font-semibold text-[8px]">in</sup> Andrea Pecanin
-        </>
-),
+      <>
+        Ing.<sup className="font-semibold text-[8px]">in</sup> Andrea Pecanin
+      </>
+    ),
     time: '11:50',
     text: 'Die Absolvent:innen der Chemie Akademie sind in der Industrie sehr gefragt – die Ausbildung öffnet Türen und bietet zahlreiche Entwicklungschancen.',
     image: '/avatar/avatar-chemie-pecanin.webp',

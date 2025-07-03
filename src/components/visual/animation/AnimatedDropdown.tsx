@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import GraduationCapIcon from '../../../assets/icons/custom/GraduationCapIcon.tsx';
 import clsx from 'clsx';
 
 interface DropdownSelectProps {
@@ -48,9 +47,7 @@ const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSele
   return (
     <div className="relative w-full">
       <div className="space-y-2">
-        <div className="flex items-center gap-2 font-semibold">
-          {label}
-        </div>
+        <div className="flex items-center gap-2 font-semibold">{label}</div>
         <div
           role="button"
           data-no-cursor-hover
@@ -66,10 +63,8 @@ const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSele
           {value || 'Bitte wählen …'}
         </div>
       </div>
-      {/* Error */}
       {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
-      {/* Dropdown-List */}
       {open && (
         <motion.ul
           role="listbox"

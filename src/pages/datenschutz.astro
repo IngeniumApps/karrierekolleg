@@ -1,33 +1,36 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import FadeDownOnScroll from "../components/visual/animation/FadeDownOnScroll";
-import UnderlineBrush from "../components/visual/animation/UnderlineBrush";
+import FadeDownOnScroll from '../components/visual/animation/FadeDownOnScroll';
+import UnderlineBrush from '../components/visual/animation/UnderlineBrush';
 ---
 
 <MainLayout>
   <section
-      class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center items-center px-4 sm:px-6"
+    class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center items-center px-4 sm:px-6"
   >
-    <!-- 🔮 Gradient-Hintergrund -->
     <div
-        class="absolute inset-0 z-0"
-        style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+      class="absolute inset-0 z-0"
+      style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
     >
     </div>
 
     <div
-        class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
+      class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
     >
       <div class="relative z-10 max-w-7xl mx-auto">
         <FadeDownOnScroll client:visible duration={0.8}>
           <div class="text-center mb-16 lg:mb-20">
-            <h2 class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
-              <span class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+            <h2
+              class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight"
+            >
+              <span
+                class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl"
+              >
                 <span class="relative z-[1] text-primary">Datenschutzerklärung</span>
                 <UnderlineBrush
-                    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
-                    fillColor="#BBF451"
-                    bottomOffset={40}
+                  className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+                  fillColor="#BBF451"
+                  bottomOffset={40}
                 />
               </span>
             </h2>
@@ -35,55 +38,64 @@ import UnderlineBrush from "../components/visual/animation/UnderlineBrush";
         </FadeDownOnScroll>
 
         <div class="space-y-6">
-          <!-- Introduction -->
           <p>
-            Der Schutz Ihrer personenbezogenen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO).
+            Der Schutz Ihrer personenbezogenen Daten ist uns ein besonderes Anliegen. Wir
+            verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen
+            (DSGVO).
           </p>
 
-          <!-- Responsible party section -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Verantwortliche Stelle</h2>
             <address class="not-italic">
               Karrierekollegs GesbR<br />
               Jungferngasse 1<br />
               A-8010 Graz<br />
-              <strong>E-Mail:</strong> <a href="mailto:dsgvo@karrierekolleg.at" class="underline text-primary hover:text-primary/80">dsgvo@karrierekolleg.at</a>
+              <strong>E-Mail:</strong>
+              <a
+                href="mailto:dsgvo@karrierekolleg.at"
+                class="underline text-primary hover:text-primary/80">dsgvo@karrierekolleg.at</a
+              >
             </address>
           </div>
 
-          <!-- Contact form via Web3Forms -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Kontaktformular via Web3Forms</h2>
             <p>
-              Wenn Sie das Kontaktformular nutzen, erheben wir Name, E-Mail-Adresse, Betreff und Nachrichtentext. Diese Daten werden über den Dienst Web3Forms verarbeitet, für den Standardvertragsklauseln zur Einhaltung der DSGVO abgeschlossen wurden. Rechtsgrundlage ist Ihr Einverständnis (Art. 6 Abs. 1 lit. a DSGVO). Wir nutzen Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
+              Wenn Sie das Kontaktformular nutzen, erheben wir Name, E-Mail-Adresse, Betreff und
+              Nachrichtentext. Diese Daten werden über den Dienst Web3Forms verarbeitet, für den
+              Standardvertragsklauseln zur Einhaltung der DSGVO abgeschlossen wurden.
+              Rechtsgrundlage ist Ihr Einverständnis (Art. 6 Abs. 1 lit. a DSGVO). Wir nutzen Ihre
+              Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
             </p>
           </div>
 
-          <!-- Server log files -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Server-Log-Dateien</h2>
             <p>
-              Beim Besuch unserer Website speichert der Webserver automatisch technische Informationen wie anonymisierte IP, Zugriffszeit, angeforderte URL, Referrer und Browsertyp. Grundlage ist unser berechtigtes Interesse an einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Log-Daten werden nach 30 Tagen gelöscht.
+              Beim Besuch unserer Website speichert der Webserver automatisch technische
+              Informationen wie anonymisierte IP, Zugriffszeit, angeforderte URL, Referrer und
+              Browsertyp. Grundlage ist unser berechtigtes Interesse an einem sicheren Betrieb (Art.
+              6 Abs. 1 lit. f DSGVO). Log-Daten werden nach 30 Tagen gelöscht.
             </p>
           </div>
 
-          <!-- Cookies -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Cookies</h2>
             <p>
-              Derzeit verwenden wir keine Cookies, außer solchen, die technisch für den Betrieb des Kontaktformulars erforderlich sind. Eine Deaktivierung kann die Funktionsfähigkeit des Formulars beeinträchtigen.
+              Derzeit verwenden wir keine Cookies, außer solchen, die technisch für den Betrieb des
+              Kontaktformulars erforderlich sind. Eine Deaktivierung kann die Funktionsfähigkeit des
+              Formulars beeinträchtigen.
             </p>
           </div>
 
-          <!-- Web analytics -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Web-Analyse</h2>
             <p>
-              Aktuell nutzen wir keine Analyse-Tools (z. B. Google Analytics). Sollten wir zukünftig Web-Analyse einsetzen, informieren wir Sie und halten die Vorgaben der DSGVO ein.
+              Aktuell nutzen wir keine Analyse-Tools (z. B. Google Analytics). Sollten wir zukünftig
+              Web-Analyse einsetzen, informieren wir Sie und halten die Vorgaben der DSGVO ein.
             </p>
           </div>
 
-          <!-- Data retention periods -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Speicherdauer</h2>
             <ul class="list-disc list-inside space-y-2">
@@ -92,30 +104,34 @@ import UnderlineBrush from "../components/visual/animation/UnderlineBrush";
             </ul>
           </div>
 
-          <!-- Data subject rights -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Ihre Betroffenenrechte</h2>
             <p>
-              Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit, Widerruf Ihrer Einwilligung und Widerspruch gegen die Verarbeitung. Zur Ausübung dieser Rechte kontaktieren Sie bitte die verantwortliche Stelle.
+              Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
+              Verarbeitung, Datenübertragbarkeit, Widerruf Ihrer Einwilligung und Widerspruch gegen
+              die Verarbeitung. Zur Ausübung dieser Rechte kontaktieren Sie bitte die
+              verantwortliche Stelle.
             </p>
           </div>
 
-          <!-- Right to lodge complaint -->
           <div>
             <h2 class="text-2xl font-semibold mb-4">Beschwerderecht</h2>
-            <p>
-              Sie können sich bei der Österreichischen Datenschutzbehörde beschweren:
-            </p>
+            <p>Sie können sich bei der Österreichischen Datenschutzbehörde beschweren:</p>
             <address class="not-italic">
               Österreichische Datenschutzbehörde<br />
               Wickenburggasse 8, 1080 Wien<br />
-              <a href="https://www.dsb.gv.at" class="underline text-primary hover:text-primary/80" target="_blank" rel="noopener">www.dsb.gv.at</a>
+              <a
+                href="https://www.dsb.gv.at"
+                class="underline text-primary hover:text-primary/80"
+                target="_blank"
+                rel="noopener">www.dsb.gv.at</a
+              >
             </address>
           </div>
 
-          <!-- Last updated date -->
           <p class="text-sm mt-12">Stand: 2. Juli 2025</p>
         </div>
       </div>
+    </div>
   </section>
 </MainLayout>

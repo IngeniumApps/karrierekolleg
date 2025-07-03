@@ -13,13 +13,12 @@ type Props = {
 };
 
 export default function KollegCard({ name, topic, school, link, color, image }: Props) {
-  const imgSrc = image.startsWith('http') // absoluter Link?
+  const imgSrc = image.startsWith('http')
     ? image // → so lassen
-    : `${import.meta.env.BASE_URL}images/${image}`; // → lokalen Pfad prefixen
+    : `${import.meta.env.BASE_URL}images/${image}`;
 
   return (
     <>
-      {/* Kolleg Card on Desktop */}
       <motion.a
         href={link}
         initial={{ opacity: 0, y: 30 }}
@@ -29,7 +28,6 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
         className="cursor-none hidden lg:block group w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
         aria-label={`Mehr erfahren über ${name} an der ${school}`}
       >
-        {/* 📸 Bild */}
         <div className="relative">
           <img
             src={imgSrc}
@@ -37,7 +35,6 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
             className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
-          {/* 🏷 Farb-Badge */}
           <span
             className={clsx(
               'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
@@ -48,21 +45,16 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
             {topic}
           </span>
         </div>
-
-        {/* 📄 Textbereich */}
         <div className={`bg-white backdrop-blur-md h-full p-5 rounded-b-2xl`}>
           <h3 className="text-lg font-bold mb-1">{name}</h3>
           <p className="text-sm text-gray-600">{school}</p>
         </div>
       </motion.a>
-
-      {/* Kolleg Card on Mobile */}
       <a
         href={link}
         className="block lg:hidden group w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
         aria-label={`Mehr erfahren über ${name} an der ${school}`}
       >
-        {/* 📸 Bild */}
         <div className="relative">
           <img
             src={imgSrc}
@@ -70,7 +62,6 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
             className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
-          {/* 🏷 Farb-Badge */}
           <span
             className={clsx(
               'absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full shadow transition-colors duration-300 group-hover:brightness-110',
@@ -81,8 +72,6 @@ export default function KollegCard({ name, topic, school, link, color, image }: 
             {topic}
           </span>
         </div>
-
-        {/* 📄 Textbereich */}
         <div className={`bg-white backdrop-blur-md h-full p-5 rounded-b-2xl`}>
           <h3 className="text-lg font-bold mb-1">{name}</h3>
           <p className="text-sm text-gray-600">{school}</p>

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export function CustomCursor() {
-  // This check prevents incorrect charging on touch devices
   if (typeof window === 'undefined') return null;
 
   const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -18,7 +17,6 @@ export function CustomCursor() {
   const width = useMotionValue(32);
   const height = useMotionValue(32);
 
-  // Use smoothW and smoothH for smoother size transitions
   const smoothW = useSpring(width, { stiffness: 1000, damping: 60 });
   const smoothH = useSpring(height, { stiffness: 1000, damping: 60 });
 
@@ -34,10 +32,10 @@ export function CustomCursor() {
 
       if (isInputElement) {
         setIsTextInput(true);
-        width.set(2); // small width for text cursor
-        height.set(28); // typical height for text cursor
+        width.set(2);
+        height.set(28);
         x.set(e.clientX - 1);
-        y.set(e.clientY - 14); // center the cursor vertically
+        y.set(e.clientY - 14);
         return;
       } else {
         setIsTextInput(false);
@@ -93,7 +91,7 @@ export function CustomCursor() {
         height: smoothH,
         borderRadius: isTextInput ? 0 : isActive ? 6 : '50%',
         backgroundColor: isTextInput
-          ? 'rgba(44,111,160,0.5)' // Textcursor-Color (blau)
+          ? 'rgba(44,111,160,0.5)'
           : isActive
             ? '#d9e5f1'
             : 'rgba(44,111,160,0.5)',

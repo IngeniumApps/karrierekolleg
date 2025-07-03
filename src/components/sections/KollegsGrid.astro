@@ -3,15 +3,14 @@ import { colleges } from '../../constants/colleges';
 import KollegCard from '../visual/KollegCard';
 import FadeDownOnScroll from '../visual/animation/FadeDownOnScroll';
 import UnderlineBrush from '../visual/animation/UnderlineBrush';
-import {KollegDescriptions} from "./KollegDescriptions";
+import { KollegDescriptions } from './KollegDescriptions';
 const { id } = Astro.props;
 
-// Group colleges by topic and mode
 const groupedColleges = {
   'Technik & Informatik': colleges.filter((c) => c.topic === 'Technik' || c.topic === 'Informatik'),
-  'Kunst und Design': colleges.filter((c) => c.topic === 'Kunst und Design' ),
-  'Bautechnik': colleges.filter((c) => c.topic === 'Bautechnik'),
-  'Chemie': colleges.filter((c) => c.topic === 'Chemie'),
+  'Kunst und Design': colleges.filter((c) => c.topic === 'Kunst und Design'),
+  Bautechnik: colleges.filter((c) => c.topic === 'Bautechnik'),
+  Chemie: colleges.filter((c) => c.topic === 'Chemie'),
 };
 ---
 

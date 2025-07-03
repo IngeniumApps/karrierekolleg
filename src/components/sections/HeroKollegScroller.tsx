@@ -14,10 +14,6 @@ type CollegSlide = Extract<Slide, { kind: 'colleg' }>;
 
 const useScrollYProgress = () => {
   const ref = useRef(null);
-  /* ["start end", "end end"]:
-          - scrollProgress starts when the start of the target meets end of the container.
-          - scrollProgress ends when the end of the target meets end of the container.
-      */
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end end'],
@@ -34,10 +30,8 @@ export default function WhatIsKollegScroller({ className }: { className?: string
   const { ref: targetRefIndex4, scrollYProgress: scrollProgressIndex4 } = useScrollYProgress();
   const isDesktop = useIsDesktop();
 
-  /* 1️⃣  State für die Sichtbarkeit */
   const [showBubbles, setShowBubbles] = useState(true);
 
-  /* 2️⃣  MotionValue beobachten */
   useMotionValueEvent(scrollProgressIndex1, 'change', (latest) => {
     // sichtbar, solange erster Colleg-Slide noch nicht im Viewport-Bottom angekommen ist
     setShowBubbles(latest < 0.01);
@@ -45,16 +39,12 @@ export default function WhatIsKollegScroller({ className }: { className?: string
 
   return (
     <div className={className}>
-      {/* Wrapper for the same edge + 2 Spalten */}
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5">
-        {/* Left Text-Column  */}
         <div className="">
           {whatIsKollegData.map((item, index) => (
             <div key={index} className="">
               {item.kind === 'hero' ? (
-                /* Slide #1 – special Hero-Text */
                 <>
-                  {/* Hide on mobile */}
                   <FadeDownOnScroll
                     duration={1}
                     delay={0}
@@ -62,15 +52,12 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                   >
                     <HeroLeftContent />
                   </FadeDownOnScroll>
-                  {/* Show on mobile */}
                   <div className="landscape:mt-28 landscape:mb-20 flex lg:hidden z-10 w-full h-[calc(100vh-theme(spacing.20))] flex-col justify-center px-6">
                     <HeroLeftContent />
                   </div>
                 </>
               ) : (
-                /* Slides #2–#4 – normal Kolleg-Markup */
                 <>
-                  {/*<div className="absolute left-40 bg-white w-[1000px] h-[1000px] rounded-full"/>*/}
                   <WhatIsKollegSection
                     {...item}
                     ref={
@@ -91,10 +78,8 @@ export default function WhatIsKollegScroller({ className }: { className?: string
           ))}
         </div>
 
-        {/* 2️⃣  Right Sticky-Column  */}
         <div className="hidden lg:block z-10 overflow-visible">
           <div className="sticky top-20 h-[calc(100vh-theme(spacing.20))] overflow-visible">
-            {/* Animate Images */}
             {isDesktop && (
               <>
                 <ImageScrollSlider
@@ -109,8 +94,6 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                     (i) => `${import.meta.env.BASE_URL}images/hero-images/${i.image}`,
                   )}
                 />
-
-                {/* Chat-Bubbles */}
 
                 {showBubbles && (
                   <>
@@ -127,7 +110,6 @@ export default function WhatIsKollegScroller({ className }: { className?: string
                   </>
                 )}
 
-                {/* Scroll-Hint */}
                 <div className="absolute bottom-0 left-0 -translate-x-1/2 -ml-[0.625rem] h-[60px] z-20">
                   <div
                     className="bg-white/70 backdrop-blur-md text-primary text-sm sm:text-base px-6 py-2 rounded-full shadow-md animate-bounce"
@@ -154,15 +136,13 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
           'z-10 w-full lg:h-[calc(100vh-theme(spacing.20))] flex flex-col justify-center',
         )}
       >
-        {/* Fade-In Animation Desktop */}
         <FadeDownOnScroll className="px-6 hidden lg:block" duration={1} delay={0}>
           <div className="lg:text-left self-center text-center relative">
-            {/* Kreis hier - relativ zum Text-Container */}
             <div
               className={clsx(
                 'absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2',
                 'w-[750px] z-0 aspect-square rounded-full',
-                'bg-white/60 backdrop-blur-sm border border-white/30 shadow-xl', // <- NIE kleiner als 900 px
+                'bg-white/60 backdrop-blur-sm border border-white/30 shadow-xl',
               )}
             />
             <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-headline font-extrabold mb-8 leading-tight relative z-10">
@@ -177,7 +157,6 @@ const WhatIsKollegSection = forwardRef<HTMLDivElement, CollegSlide>(
           </div>
         </FadeDownOnScroll>
 
-        {/* No Fade-In Animation Mobile */}
         <div className="mb-6 p-8 block lg:hidden bg-white rounded-3xl border border-gray-100 shadow-sm">
           <div className="lg:text-left self-center text-center relative">
             <h1 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight relative z-10">

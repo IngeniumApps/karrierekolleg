@@ -1,4 +1,3 @@
-// CardFlowLine.tsx - GESPIEGELT
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -22,7 +21,7 @@ const CardFlowLine = () => {
       className="hidden lg:block absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
       style={{
         zIndex: 5,
-        transform: 'scaleX(-1)', // 🎯 SPIEGELUNG!
+        transform: 'scaleX(-1)',
       }}
     >
       <svg

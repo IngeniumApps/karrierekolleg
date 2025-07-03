@@ -1,14 +1,13 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import FadeDownOnScroll from "../components/visual/animation/FadeDownOnScroll";
-import UnderlineBrush from "../components/visual/animation/UnderlineBrush";
+import FadeDownOnScroll from '../components/visual/animation/FadeDownOnScroll';
+import UnderlineBrush from '../components/visual/animation/UnderlineBrush';
 ---
 
 <MainLayout>
   <section
     class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center items-center px-4 sm:px-6"
   >
-    <!-- 🔮 Gradient-Hintergrund -->
     <div
       class="absolute inset-0 z-0"
       style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
@@ -21,47 +20,54 @@ import UnderlineBrush from "../components/visual/animation/UnderlineBrush";
       <div class="relative z-10 max-w-7xl mx-auto">
         <FadeDownOnScroll client:visible duration={0.8}>
           <div class="text-center mb-16 lg:mb-20">
-            <h2 class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
-              <span class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl">
+            <h2
+              class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight"
+            >
+              <span
+                class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl"
+              >
                 <span class="relative z-[1] text-primary">Impressum </span>
                 <UnderlineBrush
-                    className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
-                    fillColor="#BBF451"
-                    bottomOffset={8}
+                  className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
+                  fillColor="#BBF451"
+                  bottomOffset={8}
                 />
               </span>
             </h2>
           </div>
         </FadeDownOnScroll>
 
-      <div class="space-y-6">
-        <p>
-          <strong>Karrierekollegs GesbR</strong><br />
-          Jungferngasse 1<br />
-          A-8010 Graz
-        </p>
+        <div class="space-y-6">
+          <p>
+            <strong>Karrierekollegs GesbR</strong><br />
+            Jungferngasse 1<br />
+            A-8010 Graz
+          </p>
 
-        <p>
-          <strong>Unternehmensgegenstand:</strong><br />
-          Vermarktung der Steirischen MINT-Kollegs.
-        </p>
+          <p>
+            <strong>Unternehmensgegenstand:</strong><br />
+            Vermarktung der Steirischen MINT-Kollegs.
+          </p>
 
-        <p>
-          <strong>Telefon:</strong> +43 316 82 18 18<br />
-          <strong>E-Mail:</strong>
-          <a href="mailto:s.friedrich@ingenium.co.at" class="underline text-primary hover:text-primary/80"
-            >info@karrierekolleg.at</a
-          >
-        </p>
+          <p>
+            <strong>Telefon:</strong> +43 316 82 18 18<br />
+            <strong>E-Mail:</strong>
+            <a
+              href="mailto:s.friedrich@ingenium.co.at"
+              class="underline text-primary hover:text-primary/80">info@karrierekolleg.at</a
+            >
+          </p>
 
-        <p>
-          <strong>Gesellschafter:</strong><br /> Mag. Stefan Friedrich PhD, Dir. Dr. Andrea Hickel, Dir Dipl.-Ing.
-          Günther Greier, Prof. MMag. Eva Sauermoser
-        </p>
+          <p>
+            <strong>Gesellschafter:</strong><br /> Mag. Stefan Friedrich PhD, Dir. Dr. Andrea Hickel,
+            Dir Dipl.-Ing. Günther Greier, Prof. MMag. Eva Sauermoser
+          </p>
 
-        <p class="text-sm mt-12">
-          Angaben gemäß § 5 E-Commerce-Gesetz, § 14 Unternehmensgesetzbuch und § 63 Gewerbeordnung.
-        </p>
+          <p class="text-sm mt-12">
+            Angaben gemäß § 5 E-Commerce-Gesetz, § 14 Unternehmensgesetzbuch und § 63
+            Gewerbeordnung.
+          </p>
+        </div>
       </div>
     </div>
   </section>

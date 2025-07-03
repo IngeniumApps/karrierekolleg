@@ -3,7 +3,6 @@ import '../styles/global.css';
 import Head from '@components/common/Head.astro';
 import { CustomCursor } from '../components/visual/CustomCursor';
 
-// Optional: Props wie Titel oder Beschreibung setzen
 const {
   title = 'Karriere Kolleg – Kommt bald!',
   description = 'Unsere neue Website ist bald online.',
@@ -23,42 +22,40 @@ background-position: top center;
 ---
 
 <html lang="de">
-<head>
-  <Head title={title} description={description} url={url} image={image} />
-  <!-- Montserrat Fonts -->
-  <link
+  <head>
+    <Head title={title} description={description} url={url} image={image} />
+    <link
       rel="preload"
       as="font"
       href={`${import.meta.env.BASE_URL}fonts/montserrat/Montserrat-Regular.woff2`}
       type="font/woff2"
       crossorigin
-  />
-  <link
+    />
+    <link
       rel="preload"
       as="font"
       href={`${import.meta.env.BASE_URL}fonts/montserrat/Montserrat-Bold.woff2`}
       type="font/woff2"
       crossorigin
-  />
-</head>
-<body class="text-gray-800 font-body antialiased">
-<!-- 🎨 Hintergrund -->
-<div
-    class="fixed inset-0 -z-20 bg-no-repeat bg-top bg-cover pointer-events-none"
-    style={bgStyle}
-    aria-hidden="true"
-></div>
+    />
+  </head>
+  <body class="text-gray-800 font-body antialiased">
+    <div
+      class="fixed inset-0 -z-20 bg-no-repeat bg-top bg-cover pointer-events-none"
+      style={bgStyle}
+      aria-hidden="true"
+    >
+    </div>
 
-<!-- 💎 Optional: Glass-Overlay -->
-<div class="fixed inset-0 z-0 pointer-events-none backdrop-glass" aria-hidden="true"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none backdrop-glass" aria-hidden="true"></div>
 
-<!-- 📦 Inhalt -->
-<main class="relative z-10">
-  <slot />
-</main>
+    <main class="relative z-10">
+      <slot />
+    </main>
 
-<CustomCursor client:only="react" />
+    <CustomCursor client:only="react" />
 
-<script is:inline defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
-</body>
+    <script is:inline defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"
+    ></script>
+  </body>
 </html>

@@ -18,14 +18,13 @@ export function useScrollSpy(ids: string[], offset = 0) {
       if (currentId && currentId !== activeId) {
         setActiveId(currentId);
 
-        // 💡 Hash in URL aktualisieren ohne Seitenwechsel
         if (window.location.hash !== `#${currentId}`) {
           history.replaceState(null, '', `#${currentId}`);
         }
       }
     };
 
-    handleScroll(); // Initial check
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [ids, offset, activeId]);

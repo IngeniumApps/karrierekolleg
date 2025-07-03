@@ -5,7 +5,7 @@ import clsx from 'clsx';
 export const Highlight = ({
   children,
   className,
-  color = '#A3E635', // z.B. dein Akzentgrün
+  color = '#A3E635',
 }: {
   children: ReactNode;
   className?: string;
@@ -15,7 +15,6 @@ export const Highlight = ({
   const isInView = useInView(ref, { once: true, margin: '-100px 0px' });
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
-  // Trigger Animation bei erstem InView
   useEffect(() => {
     if (isInView) setShouldAnimate(true);
   }, [isInView]);

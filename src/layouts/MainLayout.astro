@@ -5,7 +5,6 @@ import { CustomCursor } from '../components/visual/CustomCursor';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 
-// Optional: Props wie Titel oder Beschreibung setzen
 const {
   title = 'KarriereKolleg – Dein Weg zum Erfolg',
   description = 'Alle Kollegs in der Steiermark auf einer Seite. Informiere dich über Ausbildungsformen, Vorteile und Möglichkeiten.',
@@ -27,8 +26,6 @@ background-position: top center;
 <html lang="de">
   <head>
     <Head title={title} description={description} url={url} image={image} />
-
-    <!-- Preload LCP Hero-Bild -->
     <link
       rel="preload"
       as="image"
@@ -38,7 +35,6 @@ background-position: top center;
       imagesizes="(min-width: 1024px) 900px, 100vw"
     />
 
-    <!-- Montserrat -->
     <link
       rel="preload"
       as="font"
@@ -53,11 +49,8 @@ background-position: top center;
       type="font/woff2"
       crossorigin
     />
-
-
   </head>
   <body class="text-gray-800 font-body antialiased">
-    <!-- Gradient Background -->
     <div
       class="fixed inset-0 -z-20 bg-no-repeat bg-top bg-cover pointer-events-none"
       style={bgStyle}
@@ -67,7 +60,6 @@ background-position: top center;
 
     <Header client:load />
     <main>
-      <!--&lt;!&ndash; Globaler Glass-Overlay &ndash;&gt;-->
       <div class="fixed inset-0 z-0 pointer-events-none backdrop-glass" aria-hidden="true"></div>
       <slot />
     </main>

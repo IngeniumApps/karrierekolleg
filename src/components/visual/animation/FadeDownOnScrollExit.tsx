@@ -1,4 +1,3 @@
-// FadeDownOnScrollExit.tsx
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { type ReactNode, useRef } from 'react';
 
@@ -7,7 +6,6 @@ type Props = {
   className?: string;
   delay?: number;
   duration?: number;
-  /** wie viel % muss sichtbar sein, bis „in view“ gilt (0-1) */
   threshold?: number;
 };
 
@@ -20,8 +18,8 @@ export default function FadeDownOnScrollExit({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
-    amount: threshold, // Verhältnis sichtbar (0.3 = 30 %)
-    margin: '-50px 0px -50px 0px', // timing-Feintuning
+    amount: threshold,
+    margin: '-50px 0px -50px 0px',
   });
 
   return (
@@ -29,17 +27,16 @@ export default function FadeDownOnScrollExit({
       <AnimatePresence mode="wait" initial={false}>
         {isInView && (
           <motion.div
-            key="fade-child" // nötig für Exit
-            initial={{ opacity: 0, y: 20 }}
+            key="fade-child"
             animate={{ opacity: 0.95, y: 0 }}
-            exit={{ opacity: 0, y: -20 }} //     ⬅️ Exit!
+            exit={{ opacity: 0, y: -20 }}
             transition={{
               duration,
               delay,
-              ease: [0.4, 0, 0.2, 1], // wie im Beispiel
+              ease: [0.4, 0, 0.2, 1],
             }}
           >
-              {children}
+            {children}
           </motion.div>
         )}
       </AnimatePresence>

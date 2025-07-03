@@ -1,4 +1,3 @@
-/* Brandon Grotesque – Regular */
 @font-face {
   font-family: 'Brandon Grotesque';
   src: url('../fonts/brandon-grotesque/BrandonGrotesque-Regular.woff2') format('woff2');
@@ -7,7 +6,6 @@
   font-display: swap;
 }
 
-/* Brandon Grotesque – Bold */
 @font-face {
   font-family: 'Brandon Grotesque';
   src: url('../fonts/brandon-grotesque/BrandonGrotesque-Bold.woff2') format('woff2');
@@ -16,7 +14,6 @@
   font-display: swap;
 }
 
-/* Brandon Grotesque – Black */
 @font-face {
   font-family: 'Brandon Grotesque';
   src: url('../fonts/brandon-grotesque/BrandonGrotesque-Black.woff2') format('woff2');
@@ -25,7 +22,6 @@
   font-display: swap;
 }
 
-/* Montserrat – Regular */
 @font-face {
   font-family: 'Montserrat';
   src: url('../fonts/montserrat/Montserrat-Regular.woff2') format('woff2');
@@ -34,7 +30,6 @@
   font-display: swap;
 }
 
-/* Montserrat – Bold */
 @font-face {
   font-family: 'Montserrat';
   src: url('../fonts/montserrat/Montserrat-Bold.woff2') format('woff2');

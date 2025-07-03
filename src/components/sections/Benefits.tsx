@@ -23,9 +23,7 @@ export const Benefits = () => {
 
   return (
     <div className="relative z-10 max-w-6xl mx-auto px-6">
-      {/*** MOBILE VARIANTE ***/}
       <div className="block lg:hidden">
-        {/* Header */}
         <FadeDownOnScroll duration={0.8}>
           <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight">
@@ -70,11 +68,8 @@ export const Benefits = () => {
         </div>
       </div>
 
-      {/*** DESKTOP VARIANTE: original ***/}
       <div ref={sectionRef} style={{ height: sectionHeight }} className="relative hidden lg:block">
-        {/* Sticky-Container */}
         <div className="sticky top-0 h-screen flex flex-col">
-          {/* — Header: immer sichtbar */}
           <div className="flex flex-1 justify-center flex-col z-20 pt-20 mb-16 lg:mb-20">
             <FadeDownOnScroll duration={0.8}>
               <div className="text-center">
@@ -99,7 +94,6 @@ export const Benefits = () => {
             </FadeDownOnScroll>
           </div>
 
-          {/* — Cards: nehmen den Rest der Höhe */}
           <div className="flex-2 flex items-center">
             <motion.div style={{ x: xSpring }} className="flex gap-10 lg:px-6 xl:px-10 mb-28">
               {benefits.map((benefit, index) => (

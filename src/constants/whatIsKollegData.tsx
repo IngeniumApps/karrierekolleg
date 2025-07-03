@@ -1,9 +1,6 @@
 import { Highlight } from '@components/visual/Highlight';
 import type { JSX } from 'react';
 
-/** ------------------------------------------------------------
- *  Datensätze für den „Was ist ein Kolleg?“-Scroller
- * ----------------------------------------------------------- */
 export type Slide =
   | {
       kind: 'hero';
@@ -20,14 +17,11 @@ export type Slide =
     };
 
 export const whatIsKollegData: Slide[] = [
-  /* ------------------------------------------------ HERO */
   {
     kind: 'hero',
     image: 'woman.webp',
     alt: 'Studentin am Kolleg',
   },
-
-  /* -------------------------------------------- BAUTECHNIK */
   {
     kind: 'colleg',
     title: 'Bautechnik.',
@@ -56,8 +50,6 @@ export const whatIsKollegData: Slide[] = [
     alt: 'Unser Bautechnik-Kolleg',
     classNames: { container: 'bg-indigo-600' },
   },
-
-  /* ---------------------------------------- KUNST & DESIGN */
   {
     kind: 'colleg',
     title: 'Kunst & Design.',
@@ -84,8 +76,6 @@ export const whatIsKollegData: Slide[] = [
     alt: 'Kunst & Design',
     classNames: { container: 'bg-red-600' },
   },
-
-  /* ------------------------------------------------ CHEMIE */
   {
     kind: 'colleg',
     title: 'Chemie.',
@@ -114,8 +104,6 @@ export const whatIsKollegData: Slide[] = [
     alt: 'Kolleg Chemie',
     classNames: { container: 'bg-yellow-600' },
   },
-
-  /* ---------------------------------- TECHNIK & INFORMATIK */
   {
     kind: 'colleg',
     title: 'Technik & Informatik.',
