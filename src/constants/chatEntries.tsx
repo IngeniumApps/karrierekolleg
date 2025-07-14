@@ -10,7 +10,7 @@ interface Testimonial {
 
 export const chatEntriesLeft: Testimonial[] = [
   {
-    sender: 'Frau Ernst',
+    sender: 'Birgit Ernst',
     time: '09:15',
     text: 'Eine HTL-Kolleg Ausbildung ist sehr praxisorientiert und man merkt, dass die Lehrer selbst einmal in dem jeweiligen Fachgebiet tätig waren.',
     image: '/avatar/avatar-bulme-inf-ernst.webp',
@@ -24,7 +24,7 @@ export const chatEntriesLeft: Testimonial[] = [
     kolleg: 'Zugestellt',
   },
   {
-    sender: 'Frau Korp',
+    sender: 'Mag.a Christine Korp',
     time: '09:30',
     text: 'Ich bekam im HTL-Kolleg eine fundierte Grundlagenausbildung mit zahlreichen elektrotechnischen Basics.',
     image: '/avatar/avatar-bulme-korb.webp',
@@ -38,7 +38,7 @@ export const chatEntriesLeft: Testimonial[] = [
     kolleg: 'Zugestellt',
   },
   {
-    sender: 'Frau Ernst',
+    sender: 'Birgit Ernst',
     time: '09:40',
     text: 'Die viersemestrige Ausbildung lässt sich gut mit Familie und dem "normalen" Leben vereinbaren.',
     image: '/avatar/avatar-bulme-inf-ernst.webp',
@@ -73,7 +73,7 @@ export const chatEntriesLeft: Testimonial[] = [
     kolleg: 'Zugestellt',
   },
   {
-    sender: 'Herr Bachler',
+    sender: 'Lukas Bachler',
     time: '11:45',
     text: 'Ein großer Vorteil einer HTL ist die praxisnahe Ausbildung mit Werkstättenunterricht.',
     image: '/avatar/avatar-bulme-inf-bachler.webp',
