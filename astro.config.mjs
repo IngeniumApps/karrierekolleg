@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -18,7 +19,7 @@ export default defineConfig({
   trailingSlash: 'always',
   output: 'static',
 
-  integrations: [react()],
+  integrations: [react(), partytown({ config: { forward: ['dataLayer.push'] } })],
 
   vite: {
     plugins: [tailwindcss(), visualizer({ open: true })],

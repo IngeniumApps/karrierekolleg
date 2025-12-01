@@ -5,134 +5,225 @@ import UnderlineBrush from '../components/visual/animation/UnderlineBrush';
 ---
 
 <MainLayout>
-  <section
-    class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center items-center px-4 sm:px-6"
-  >
-    <div
-      class="absolute inset-0 z-0"
-      style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+    <section
+            class="relative w-full min-h-screen lg:pt-36 pt-26 text-base leading-relaxed bg-gradient-to-br flex justify-center items-center px-4 sm:px-6"
     >
-    </div>
-
-    <div
-      class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
-    >
-      <div class="relative z-10 max-w-7xl mx-auto">
-        <FadeDownOnScroll client:visible duration={0.8}>
-          <div class="text-center mb-16 lg:mb-20">
-            <h2
-              class="text-[8vw] sm:text-4xl md:text-5xl lg:text-6xl font-headline font-bold mb-8 leading-tight"
-            >
-              <span
-                class="font-black relative inline-block text-[11vw] sm:text-6xl md:text-7xl lg:text-8xl"
-              >
-                <span class="relative z-[1] text-primary">Datenschutzerklärung</span>
-                <UnderlineBrush
-                  className="hidden lg:block absolute left-0 bottom-0 z-0 w-full"
-                  fillColor="#BBF451"
-                  bottomOffset={40}
-                />
-              </span>
-            </h2>
-          </div>
-        </FadeDownOnScroll>
-
-        <div class="space-y-6">
-          <p>
-            Der Schutz Ihrer personenbezogenen Daten ist uns ein besonderes Anliegen. Wir
-            verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen
-            (DSGVO).
-          </p>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Verantwortliche Stelle</h2>
-            <address class="not-italic">
-              Karrierekollegs GesbR<br />
-              Jungferngasse 1<br />
-              A-8010 Graz<br />
-              <strong>E-Mail:</strong>
-              <a
-                href="mailto:dsgvo@karrierekolleg.at"
-                class="underline text-primary hover:text-primary/80 cursor-none"
-                >dsgvo@karrierekolleg.at</a
-              >
-            </address>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Kontaktformular via Web3Forms</h2>
-            <p>
-              Wenn Sie das Kontaktformular nutzen, erheben wir Name, E-Mail-Adresse, Betreff und
-              Nachrichtentext. Diese Daten werden über den Dienst Web3Forms verarbeitet, für den
-              Standardvertragsklauseln zur Einhaltung der DSGVO abgeschlossen wurden.
-              Rechtsgrundlage ist Ihr Einverständnis (Art. 6 Abs. 1 lit. a DSGVO). Wir nutzen Ihre
-              Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.
-            </p>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Server-Log-Dateien</h2>
-            <p>
-              Beim Besuch unserer Website speichert der Webserver automatisch technische
-              Informationen wie anonymisierte IP, Zugriffszeit, angeforderte URL, Referrer und
-              Browsertyp. Grundlage ist unser berechtigtes Interesse an einem sicheren Betrieb (Art.
-              6 Abs. 1 lit. f DSGVO). Log-Daten werden nach 30 Tagen gelöscht.
-            </p>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Cookies</h2>
-            <p>
-              Derzeit verwenden wir keine Cookies, außer solchen, die technisch für den Betrieb des
-              Kontaktformulars erforderlich sind. Eine Deaktivierung kann die Funktionsfähigkeit des
-              Formulars beeinträchtigen.
-            </p>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Web-Analyse</h2>
-            <p>
-              Aktuell nutzen wir keine Analyse-Tools (z. B. Google Analytics). Sollten wir zukünftig
-              Web-Analyse einsetzen, informieren wir Sie und halten die Vorgaben der DSGVO ein.
-            </p>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Speicherdauer</h2>
-            <ul class="list-disc list-inside space-y-2">
-              <li>Formulardaten: bis zur abschließenden Bearbeitung, maximal 6 Monate.</li>
-              <li>Server-Log-Dateien: automatische Löschung nach 30 Tagen.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Ihre Betroffenenrechte</h2>
-            <p>
-              Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
-              Verarbeitung, Datenübertragbarkeit, Widerruf Ihrer Einwilligung und Widerspruch gegen
-              die Verarbeitung. Zur Ausübung dieser Rechte kontaktieren Sie bitte die
-              verantwortliche Stelle.
-            </p>
-          </div>
-
-          <div>
-            <h2 class="text-2xl font-semibold mb-4">Beschwerderecht</h2>
-            <p>Sie können sich bei der Österreichischen Datenschutzbehörde beschweren:</p>
-            <address class="not-italic">
-              Österreichische Datenschutzbehörde<br />
-              Wickenburggasse 8, 1080 Wien<br />
-              <a
-                href="https://www.dsb.gv.at"
-                class="underline text-primary hover:text-primary/80 cursor-none"
-                target="_blank"
-                rel="noopener">www.dsb.gv.at</a
-              >
-            </address>
-          </div>
-
-          <p class="text-sm mt-12">Stand: 2. Juli 2025</p>
+        <div
+                class="absolute inset-0 z-0"
+                style="background: radial-gradient(ellipse at top right, #1b95cc44, transparent 90%); will-change: transform;"
+        >
         </div>
-      </div>
-    </div>
-  </section>
+
+        <div
+                class="max-w-7xl z-10 p-8 lg:p-12 mt-12 mb-24 rounded-2xl shadow-xl border border-white/30 bg-white/60 backdrop-blur-sm"
+        >
+            <div class="relative z-10 max-w-7xl mx-auto">
+                <FadeDownOnScroll client:visible duration={0.8}>
+                    <div class="text-center mb-16 lg:mb-20 overflow-hidden">
+
+                        <!-- Mobile -->
+                        <h2
+                                class="
+        block md:hidden
+        text-[9vw]
+        font-headline font-bold leading-tight
+        text-primary
+      "
+                        >
+                            Datenschutzerklärung
+                        </h2>
+
+                        <!-- Desktop -->
+                        <h2 class="hidden md:block font-headline font-bold mb-8 leading-tight">
+      <span
+              class="
+          font-black relative inline-block
+          text-[8vw]
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl
+          xl:text-8xl
+        "
+      >
+        <span class="relative z-[1] block w-full text-primary">
+          Datenschutzerklärung
+        </span>
+
+        <UnderlineBrush
+                className={"hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 z-0 w-[120%] max-w-none"}
+                fillColor="#BBF451"
+                bottomOffset={40}
+        />
+      </span>
+                        </h2>
+
+                    </div>
+                </FadeDownOnScroll>
+
+                <div class="space-y-6">
+
+                    <div class="space-y-4 sm:space-y-6">
+
+                        <p>
+                            Der Schutz Ihrer personenbezogenen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre
+                            Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).
+                        </p>
+
+                        <!-- Verantwortliche Stelle -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Verantwortliche Stelle</h2>
+                            <address class="not-italic leading-relaxed">
+                                Karrierekollegs GesbR<br />
+                                Jungferngasse 1<br />
+                                8010 Graz<br />
+                                <strong>E-Mail:</strong>
+                                <a href="mailto:dsgvo@karrierekolleg.at"
+                                   class="underline text-primary hover:text-primary/80 cursor-none">
+                                    dsgvo@karrierekolleg.at
+                                </a>
+                            </address>
+                        </div>
+
+                        <!-- Server Logs -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Server-Log-Dateien</h2>
+                            <p>
+                                Beim Besuch unserer Website speichert der Server automatisch technische Informationen wie
+                                anonymisierte IP-Adresse, Datum und Uhrzeit, Referrer und Browsertyp. Rechtsgrundlage:
+                                berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO). Löschung nach 30 Tagen.
+                            </p>
+                        </div>
+
+                        <!-- Kontaktformular -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Kontaktformular (Web3Forms)</h2>
+
+                            <p>
+                                Beim Absenden des Formulars werden Ihre Daten (Name, E-Mail, Telefonnummer, gewählter Bereich,
+                                Nachricht) an <strong>Web3Forms</strong> übermittelt, um Ihre Anfrage technisch zu verarbeiten.
+                            </p>
+
+                            <p class="mt-1 sm:mt-2">
+                                Web3Forms nutzt <strong>AWS</strong>; Übertragung per HTTPS, Daten sind verschlüsselt gespeichert.
+                                Logdaten werden regelmäßig gelöscht.
+                            </p>
+
+                            <p class="mt-1 sm:mt-2">
+                                Verarbeitung erfolgt nur mit Ihrer ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+                            </p>
+
+                            <p class="mt-1 sm:mt-2">
+                                Datenschutzerklärung Web3Forms:
+                                <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer"
+                                   class="underline text-primary hover:text-primary/80 cursor-none">
+                                    https://web3forms.com/privacy
+                                </a>
+                            </p>
+
+                            <p class="mt-1 sm:mt-2">
+                                Wir speichern Ihre Daten nicht dauerhaft. Die Verarbeitung endet nach der technischen Weiterleitung.
+                            </p>
+                        </div>
+
+                        <!-- Weiterleitung -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Weiterleitung an Bildungsanbieter</h2>
+                            <p>
+                                Bei Auswahl eines Bildungsbereichs und ausdrücklicher Zustimmung leiten wir Ihre Anfrage an
+                                die jeweilige Bildungseinrichtung weiter (HTL Ortweinschule, HTL Bulme Graz, Chemie Akademie,
+                                Ingenium Education).
+                            </p>
+                            <p class="mt-1 sm:mt-2">
+                                Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+                            </p>
+                            <p class="mt-1 sm:mt-2">
+                                Weitergegeben werden: Name, E-Mail, ggf. Telefonnummer, Bereich, Nachricht.
+                            </p>
+                        </div>
+
+                        <!-- Verantwortlichkeit -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Verantwortlichkeit nach der Weiterleitung</h2>
+                            <p>
+                                Nach Übermittlung übernimmt die jeweilige Bildungseinrichtung die datenschutzrechtliche
+                                Verantwortlichkeit (Art. 4 Z 7 DSGVO).
+                            </p>
+                            <p class="mt-1 sm:mt-2">
+                                Unsere Verarbeitung endet vollständig nach der technischen Weiterleitung.
+                            </p>
+                        </div>
+
+                        <!-- Eigene Speicherung -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Speicherung der Daten durch uns</h2>
+                            <p>
+                                Wir speichern keine Kopien Ihrer Anfrage. Daten werden ausschließlich an die Bildungseinrichtung
+                                weitergeleitet und spätestens nach 30 Tagen gelöscht.
+                            </p>
+                        </div>
+
+                        <!-- Datenschutzerklärungen -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Datenschutzerklärungen der Bildungsanbieter</h2>
+                            <p>Weitere Informationen finden Sie hier:</p>
+                            <ul class="list-disc list-inside mt-1 sm:mt-2 space-y-1">
+                                <li><a href="https://www.ortweinschule.at/datenschutzerklarung/" target="_blank" rel="noopener" class="underline text-primary hover:text-primary/80 cursor-none">HTL Ortweinschule</a></li>
+                                <li><a href="https://www.bulme.at/datenschutzerklaerung/" target="_blank" rel="noopener" class="underline text-primary hover:text-primary/80 cursor-none">HTL Bulme Graz</a></li>
+                                <li><a href="https://chemie-akademie.at/wp-content/themes/chemieschule/docs/privacy.pdf" target="_blank" rel="noopener" class="underline text-primary hover:text-primary/80 cursor-none">Chemie Akademie</a></li>
+                                <li><a href="https://www.ingenium.co.at/datenschutzerklaerung" target="_blank" rel="noopener" class="underline text-primary hover:text-primary/80 cursor-none">Ingenium Education</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Cookies -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Cookies & Einwilligungsverwaltung</h2>
+                            <p>
+                                Unsere Website verwendet OrestBida CookieConsent v3. Analyse-Cookies (GA4) werden erst nach
+                                Ihrer Zustimmung geladen.
+                            </p>
+                        </div>
+
+                        <!-- Analytics -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Web-Analyse (Google Analytics 4)</h2>
+                            <p>
+                                Google Analytics 4 wird nur nach Ihrer Einwilligung geladen. IP-Adressen werden anonymisiert.
+                            </p>
+                            <p class="mt-1 sm:mt-2">
+                                Die Verarbeitung erfolgt über Partytown im Web Worker, um die Performance zu verbessern.
+                            </p>
+                        </div>
+
+                        <!-- Rechte -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Ihre Rechte</h2>
+                            <p>
+                                Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit,
+                                Widerspruch und Widerruf. Kontaktieren Sie uns unter der genannten Adresse.
+                            </p>
+                        </div>
+
+                        <!-- Beschwerde -->
+                        <div>
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Beschwerderecht</h2>
+                            <p>Beschwerdestelle:</p>
+                            <address class="not-italic">
+                                Österreichische Datenschutzbehörde<br />
+                                Wickenburggasse 8, 1080 Wien<br />
+                                <a href="https://www.dsb.gv.at"
+                                   target="_blank" rel="noopener"
+                                   class="underline text-primary hover:text-primary/80 cursor-none">
+                                    www.dsb.gv.at
+                                </a>
+                            </address>
+                        </div>
+
+                        <p class="text-sm mt-8 sm:mt-12">Stand: 1. Dezember 2025</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 </MainLayout>

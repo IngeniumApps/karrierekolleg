@@ -4,6 +4,7 @@ import Head from '@components/common/Head.astro';
 import { CustomCursor } from '../components/visual/CustomCursor';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
+import GoogleTag from "../components/analytics/GoogleTag.astro";
 
 const {
   title = 'KarriereKolleg – Dein Weg zum Erfolg',
@@ -25,7 +26,10 @@ background-position: top center;
 
 <html lang="de">
   <head>
+    <!-- ;eta + social tags via reusable component -->
     <Head title={title} description={description} url={url} image={image} />
+
+    <!-- Preloads -->
     <link
       rel="preload"
       as="image"
@@ -34,7 +38,6 @@ background-position: top center;
       imagesrcset={`${import.meta.env.BASE_URL}images/hero-images/woman.webp 1x, ${import.meta.env.BASE_URL}images/hero-images/woman@2x.webp 2x`}
       imagesizes="(min-width: 1024px) 900px, 100vw"
     />
-
     <link
       rel="preload"
       as="font"
@@ -49,7 +52,29 @@ background-position: top center;
       type="font/woff2"
       crossorigin
     />
+
+      <!-- Icons/Manifest -->
+      <link
+              rel="icon"
+              type="image/png"
+              sizes="96x96"
+              href={`${import.meta.env.BASE_URL}favicon-96x96.png`}
+      />
+      <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+      <link rel="shortcut icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+      <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href={`${import.meta.env.BASE_URL}apple-touch-icon.png`}
+      />
+      <link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
+      <meta name="apple-mobile-web-app-title" content="Karriere Kolleg" />
+      <meta name="theme-color" content="#ffffff" />
+
+      <!-- Google Tag (Consent Mode v2, manuelle Pageviews) -->
+      <GoogleTag />
   </head>
+
   <body class="text-gray-800 font-body antialiased">
     <div
       class="fixed inset-0 -z-20 bg-no-repeat bg-top bg-cover pointer-events-none"
@@ -66,7 +91,7 @@ background-position: top center;
     <CustomCursor client:only="react" />
     <Footer client:idle />
 
-    <script is:inline defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"
-    ></script>
+    <!--<script is:inline defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>-->
+    <script type="module" src={`${import.meta.env.BASE_URL}src/scripts/cookieconsent-config.js`}></script>
   </body>
 </html>
