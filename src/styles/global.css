@@ -7,7 +7,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    cursor: none;
+      /*Custom Cursor ist nicht erwünscht, darum wird der normale Cursor wieder eingeblendet*/
+    /*cursor: none;*/
   }
   body {
     @apply font-body bg-white text-gray-800 font-sans;

@@ -96,7 +96,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(-1)}
           aria-label="Vorherige Meinung"
           role="button"
-          className="cursor-none flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
+          className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
         >
           <ArrowLeftIcon />
         </button>
@@ -104,7 +104,7 @@ export const Testimonials: React.FC = () => {
           onClick={() => handleMove(1)}
           aria-label="Nächste Meinung"
           role="button"
-          className="cursor-none flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
+          className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent bg-accent shadow-md transition-colors"
         >
           <ArrowRightIcon />
         </button>
@@ -132,7 +132,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         initial={false}
         onClick={() => handleMove(position)}
         whileHover={{ scale: 1.03 }}
-        className={`absolute left-1/2 top-1/2 cursor-none border-primary p-8 text-black transition-colors duration-500 rounded-2xl ${
+        className={`absolute left-1/2 top-1/2 border-primary p-8 text-black transition-colors duration-500 rounded-2xl ${
           isActive
             ? 'z-10 bg-white'
             : 'z-0 shadow-xl border border-white/30 bg-white backdrop-blur-sm'

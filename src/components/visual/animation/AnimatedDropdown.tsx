@@ -55,7 +55,7 @@ const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSele
           aria-expanded={open}
           onClick={() => setOpen((pv) => !pv)}
           className={clsx(
-            'w-full rounded-xl bg-white px-4 py-3 text-base shadow-inner border transition-all duration-150 appearance-none select-none cursor-none',
+            'w-full rounded-xl bg-white px-4 py-3 text-base shadow-inner border transition-all duration-150 appearance-none select-none ',
             value ? 'text-gray-900' : 'text-gray-500 italic',
             error ? 'border-red-500' : open ? 'border-primary' : 'border-gray-200',
           )}
@@ -82,7 +82,7 @@ const DropdownSelect = ({ label, value, options, onChange, error }: DropdownSele
                 onChange(opt);
                 setOpen(false);
               }}
-              className="cursor-none px-4 py-3 text-sm text-gray-800 transition-colors duration-200 hover:bg-primary/10 select-none"
+              className="px-4 py-3 text-sm text-gray-800 transition-colors duration-200 hover:bg-primary/10 select-none"
             >
               {opt}
             </motion.li>
