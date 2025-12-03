@@ -227,7 +227,7 @@ export function ContactForm() {
                                     onChange={handleChange}
                                     placeholder="Max"
                                     className={clsx(
-                                        'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 cursor-none',
+                                        'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 ',
                                         errors.firstname ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                                     )}
                                 />
@@ -249,7 +249,7 @@ export function ContactForm() {
                                     onChange={handleChange}
                                     placeholder="Mustermann"
                                     className={clsx(
-                                        'cursor-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                                        'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
                                         errors.lastname ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                                     )}
                                 />
@@ -278,7 +278,7 @@ export function ContactForm() {
                                     onChange={handleChange}
                                     placeholder="name@example.com"
                                     className={clsx(
-                                        'cursor-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                                        'focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
                                         errors.email ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                                     )}
                                 />
@@ -299,7 +299,7 @@ export function ContactForm() {
                                     onChange={handleChange}
                                     placeholder="+43 660 ..."
                                     inputMode="tel"
-                                    className="cursor-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 border-gray-200 focus:border-primary"
+                                    className="focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500 border-gray-200 focus:border-primary"
                                 />
                                 {errors.phone && (
                                     <p className="mt-1 text-sm text-red-500 font-medium">{errors.phone}</p>
@@ -336,7 +336,7 @@ export function ContactForm() {
                                 onChange={handleChange}
                                 placeholder="Wie können wir dir helfen?"
                                 className={clsx(
-                                    'cursor-none resize-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
+                                    'resize-none focus:outline-none px-4 py-3 rounded-xl bg-white border shadow-inner text-base placeholder-gray-500',
                                     errors.message ? 'border-red-500' : 'border-gray-200 focus:border-primary',
                                 )}
                             />
@@ -354,13 +354,13 @@ export function ContactForm() {
                             checked={form.privacy}
                             onChange={handleChange}
                             required
-                            className="mt-1 accent-primary rounded-sm cursor-none"
+                            className="mt-1 accent-primary rounded-sm "
                         />
-                        <label htmlFor="privacy" className="text-sm text-gray-700 cursor-none select-none">
+                        <label htmlFor="privacy" className="text-sm text-gray-700 select-none">
                             Ich stimme der{' '}
                             <a
                                 href={`${import.meta.env.BASE_URL}datenschutz/`}
-                                className="cursor-none underline text-primary hover:text-primary/80"
+                                className="underline text-primary hover:text-primary/80"
                             >
                                 Datenschutzerklärung
                             </a>{' '}
@@ -380,9 +380,9 @@ export function ContactForm() {
                             checked={form.transferConsent}
                             onChange={handleChange}
                             required
-                            className="mt-1 accent-primary rounded-sm cursor-none"
+                            className="mt-1 accent-primary rounded-sm "
                         />
-                        <label htmlFor="transferConsent" className="text-sm text-gray-700 cursor-none select-none">
+                        <label htmlFor="transferConsent" className="text-sm text-gray-700 select-none">
                             Ich bin damit einverstanden, dass meine Kontaktdaten an das ausgewählte Kolleg / den
                             ausgewählten Bildungsanbieter (z. B. HTL Ortweinschule, HTL Bulme Graz, Chemie Akademie,
                             Ingenium Education) weitergeleitet werden und mich diese zum Zweck der Information und
@@ -408,7 +408,7 @@ export function ContactForm() {
 
                     <button
                         type="submit"
-                        className="cursor-none w-full py-3 px-6 rounded-full font-semibold text-lg bg-accent border border-accent shadow-md hover:brightness-110 transition-all duration-300"
+                        className="w-full py-3 px-6 rounded-full font-semibold text-lg bg-accent border border-accent shadow-md hover:brightness-110 transition-all duration-300"
                     >
                         Nachricht senden
                     </button>
