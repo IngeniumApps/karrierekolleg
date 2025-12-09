@@ -1,20 +1,19 @@
 ---
-const GA_ID = 'G-PSHWCWL0H1';
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css" />
 
 <!-- GA Script Loader (wird erst nach Consent geladen) -->
 <script
         data-category="analytics"
-        is:inline
         type="text/partytown"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
 ></script>
 
-<!-- GA Init ausgelagert -->
+<!-- GA Init: externe Datei, Worker-sicher -->
 <script
         data-category="analytics"
         type="text/partytown"
-        define:vars={{ GA_ID }}
-        src={`${import.meta.env.BASE_URL}src/scripts/gtag-init.js`}
+        src={`${import.meta.env.BASE_URL}scripts/gtag-init.js`}
+        data-ga-id={GA_ID}
 ></script>
